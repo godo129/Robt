@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
 		F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */; };
-		F1EB03EF29BCCA30009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EE29BCCA30009764E8 /* ViewController.swift */; };
 		F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F329BCCA32009764E8 /* Assets.xcassets */; };
 		F1EB03F729BCCA32009764E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */; };
+		F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F1EB043929BCDFE9009764E8 /* .swiftlint.yml */; };
+		F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB044129BCE6E2009764E8 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1EB03E729BCCA30009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1EB03EE29BCCA30009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1EB03F329BCCA32009764E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1EB03F629BCCA32009764E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1EB03F829BCCA32009764E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1EB043929BCDFE9009764E8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F1EB044129BCE6E2009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		F1EB03DE29BCCA30009764E8 = {
 			isa = PBXGroup;
 			children = (
+				F1EB043929BCDFE9009764E8 /* .swiftlint.yml */,
 				F1EB03E929BCCA30009764E8 /* Robt */,
 				F1EB03E829BCCA30009764E8 /* Products */,
 			);
@@ -54,14 +57,38 @@
 		F1EB03E929BCCA30009764E8 /* Robt */ = {
 			isa = PBXGroup;
 			children = (
-				F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */,
-				F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */,
-				F1EB03EE29BCCA30009764E8 /* ViewController.swift */,
-				F1EB03F329BCCA32009764E8 /* Assets.xcassets */,
-				F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */,
-				F1EB03F829BCCA32009764E8 /* Info.plist */,
+				F1EB043629BCDE20009764E8 /* Scene */,
+				F1EB043529BCDE19009764E8 /* Resource */,
+				F1EB043429BCDE0C009764E8 /* App */,
 			);
 			path = Robt;
+			sourceTree = "<group>";
+		};
+		F1EB043429BCDE0C009764E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F829BCCA32009764E8 /* Info.plist */,
+				F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */,
+				F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F1EB043529BCDE19009764E8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F329BCCA32009764E8 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F1EB043629BCDE20009764E8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */,
+				F1EB044129BCE6E2009764E8 /* ViewController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +98,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1EB03FB29BCCA32009764E8 /* Build configuration list for PBXNativeTarget "Robt" */;
 			buildPhases = (
+				F1EB043C29BCE0A6009764E8 /* SwiftFormatScript */,
+				F1EB043329BCDD5F009764E8 /* SwiftLint Script */,
 				F1EB03E329BCCA30009764E8 /* Sources */,
 				F1EB03E429BCCA30009764E8 /* Frameworks */,
 				F1EB03E529BCCA30009764E8 /* Resources */,
@@ -122,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */,
 				F1EB03F729BCCA32009764E8 /* LaunchScreen.storyboard in Resources */,
 				F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */,
 			);
@@ -129,12 +159,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F1EB043329BCDD5F009764E8 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F1EB043C29BCE0A6009764E8 /* SwiftFormatScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormatScript;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1EB03E329BCCA30009764E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1EB03EF29BCCA30009764E8 /* ViewController.swift in Sources */,
+				F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -277,7 +347,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -304,7 +374,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -391,7 +461,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -478,7 +548,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

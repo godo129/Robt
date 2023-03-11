@@ -1,0 +1,3 @@
+excluded:
+    - Robt/App/AppDelegate.swift
+    - Robt/App/SceneDelegate.swift

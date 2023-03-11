@@ -1,0 +1,13 @@
+--swiftversion 5.0
+
+# format options
+--indent 4
+--self init-only
+--commas inline
+--disable blankLinesAtStartOfScope
+--hexliteralcase lowercase
+
+# file options
+--exclude Robt/App/AppDelegate.swift, Robt/App/SceneDelegate.swift
+
+# rules
