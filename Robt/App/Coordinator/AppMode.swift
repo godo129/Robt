@@ -9,5 +9,5 @@ import Foundation
 
 enum AppMode {
     case authentication
-    case main
+    case home
 }

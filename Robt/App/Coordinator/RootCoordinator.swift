@@ -16,7 +16,7 @@ protocol Coordinator: AnyObject {
 final class RootCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    
+
     init(
         navigationController: UINavigationController
     ) {
@@ -26,32 +26,33 @@ final class RootCoordinator: Coordinator {
 }
 
 extension RootCoordinator {
-    
-    func start() {
-        
-    }
-    
-    func start(appMode: AppMode) {
-        
-    }
-    
+
+    func start() {}
+
+    func start(appMode _: AppMode) {}
+
     func isAuthenticated() -> AppMode {
         return .authentication
     }
-    
+
     private func childCoordinatorConfiguration() {
         let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController)
         authenticationCoordinator.delegate = self
         childCoordinators.append(authenticationCoordinator)
+
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        homeCoordinator.delegate = self
+        childCoordinators.append(homeCoordinator)
     }
 }
 
-extension RootCoordinator: AuthenticationCoordinatorDelegate {
+extension RootCoordinator: AuthenticationCoordinatorDelegate, HomeCoordinatorDelegate {
+
     func finish(appMode: AppMode) {
         switch appMode {
         case .authentication:
-            start(appMode: .main)
-        case .main:
+            start(appMode: .home)
+        case .home:
             start(appMode: .authentication)
         }
     }

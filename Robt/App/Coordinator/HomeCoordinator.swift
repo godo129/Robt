@@ -1,5 +1,5 @@
 //
-//  AuthenticationCoordinator.swift
+//  HomeCoordinator.swift
 //  Robt
 //
 //  Created by hong on 2023/03/12.
@@ -7,15 +7,14 @@
 
 import UIKit
 
-protocol AuthenticationCoordinatorDelegate: AnyObject {
+protocol HomeCoordinatorDelegate: AnyObject {
     func finish(appMode: AppMode)
 }
 
-final class AuthenticationCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    weak var delegate: AuthenticationCoordinatorDelegate?
-
     var navigationController: UINavigationController
+    weak var delegate: HomeCoordinatorDelegate?
 
     init(
         navigationController: UINavigationController
@@ -24,6 +23,7 @@ final class AuthenticationCoordinator: Coordinator {
     }
 }
 
-extension AuthenticationCoordinator {
+extension HomeCoordinator {
+
     func start() {}
 }
