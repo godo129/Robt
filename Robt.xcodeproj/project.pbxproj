@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
 		F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */; };
-		F1EB03EF29BCCA30009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EE29BCCA30009764E8 /* ViewController.swift */; };
-		F1EB03F229BCCA30009764E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F029BCCA30009764E8 /* Main.storyboard */; };
 		F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F329BCCA32009764E8 /* Assets.xcassets */; };
 		F1EB03F729BCCA32009764E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */; };
+		F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F1EB043929BCDFE9009764E8 /* .swiftlint.yml */; };
+		F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB044129BCE6E2009764E8 /* ViewController.swift */; };
+		F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB044A29BDB2D4009764E8 /* NetworkModule */; };
+		F1EB045529BDB862009764E8 /* UIModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB045429BDB862009764E8 /* UIModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F1EB03E729BCCA30009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1EB03EE29BCCA30009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1EB03F129BCCA30009764E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1EB03F329BCCA32009764E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1EB03F629BCCA32009764E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1EB03F829BCCA32009764E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1EB043929BCDFE9009764E8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F1EB044129BCE6E2009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1EB045229BDB6EB009764E8 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkModule; path = ../NetworkModule; sourceTree = "<group>"; };
+		F1EB045329BDB810009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1EB045629BDB9B2009764E8 /* UIModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIModule; path = ../UIModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EB045529BDB862009764E8 /* UIModule in Frameworks */,
+				F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,31 +46,57 @@
 		F1EB03DE29BCCA30009764E8 = {
 			isa = PBXGroup;
 			children = (
+				F1EB043929BCDFE9009764E8 /* .swiftlint.yml */,
 				F1EB03E929BCCA30009764E8 /* Robt */,
-				F1EB03E829BCCA30009764E8 /* Products */,
+				F1EB044829BDB2C2009764E8 /* Frameworks */,
+				F1EB045329BDB810009764E8 /* Robt.app */,
 			);
-			sourceTree = "<group>";
-		};
-		F1EB03E829BCCA30009764E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F1EB03E729BCCA30009764E8 /* Robt.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F1EB03E929BCCA30009764E8 /* Robt */ = {
 			isa = PBXGroup;
 			children = (
-				F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */,
-				F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */,
-				F1EB03EE29BCCA30009764E8 /* ViewController.swift */,
-				F1EB03F029BCCA30009764E8 /* Main.storyboard */,
-				F1EB03F329BCCA32009764E8 /* Assets.xcassets */,
-				F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */,
-				F1EB03F829BCCA32009764E8 /* Info.plist */,
+				F1EB043629BCDE20009764E8 /* Scene */,
+				F1EB043529BCDE19009764E8 /* Resource */,
+				F1EB043429BCDE0C009764E8 /* App */,
 			);
 			path = Robt;
+			sourceTree = "<group>";
+		};
+		F1EB043429BCDE0C009764E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F829BCCA32009764E8 /* Info.plist */,
+				F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */,
+				F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F1EB043529BCDE19009764E8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F329BCCA32009764E8 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F1EB043629BCDE20009764E8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */,
+				F1EB044129BCE6E2009764E8 /* ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		F1EB044829BDB2C2009764E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB045629BDB9B2009764E8 /* UIModule */,
+				F1EB045229BDB6EB009764E8 /* NetworkModule */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +106,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1EB03FB29BCCA32009764E8 /* Build configuration list for PBXNativeTarget "Robt" */;
 			buildPhases = (
+				F1EB043C29BCE0A6009764E8 /* SwiftFormatScript */,
+				F1EB043329BCDD5F009764E8 /* SwiftLint Script */,
 				F1EB03E329BCCA30009764E8 /* Sources */,
 				F1EB03E429BCCA30009764E8 /* Frameworks */,
 				F1EB03E529BCCA30009764E8 /* Resources */,
@@ -83,8 +117,12 @@
 			dependencies = (
 			);
 			name = Robt;
+			packageProductDependencies = (
+				F1EB044A29BDB2D4009764E8 /* NetworkModule */,
+				F1EB045429BDB862009764E8 /* UIModule */,
+			);
 			productName = Robt;
-			productReference = F1EB03E729BCCA30009764E8 /* Robt.app */;
+			productReference = F1EB045329BDB810009764E8 /* Robt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +149,7 @@
 				Base,
 			);
 			mainGroup = F1EB03DE29BCCA30009764E8;
-			productRefGroup = F1EB03E829BCCA30009764E8 /* Products */;
+			productRefGroup = F1EB03DE29BCCA30009764E8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -125,20 +163,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */,
 				F1EB03F729BCCA32009764E8 /* LaunchScreen.storyboard in Resources */,
 				F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */,
-				F1EB03F229BCCA30009764E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F1EB043329BCDD5F009764E8 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F1EB043C29BCE0A6009764E8 /* SwiftFormatScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormatScript;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1EB03E329BCCA30009764E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1EB03EF29BCCA30009764E8 /* ViewController.swift in Sources */,
+				F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +225,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1EB03F029BCCA30009764E8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1EB03F129BCCA30009764E8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,10 +359,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,7 +370,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Robt;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,10 +386,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Robt/Info.plist;
+				INFOPLIST_FILE = Robt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,12 +397,186 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Robt;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		F1EB042029BCCF85009764E8 /* Robt_Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Robt_Dev;
+		};
+		F1EB042129BCCF85009764E8 /* Robt_Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KD3GVSQ9P4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Robt/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt_Dev;
+				PRODUCT_NAME = Robt_Dev;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Robt_Dev;
+		};
+		F1EB043129BCDAF8009764E8 /* Robt_Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Robt_Test;
+		};
+		F1EB043229BCDAF8009764E8 /* Robt_Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KD3GVSQ9P4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Robt/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt_Test;
+				PRODUCT_NAME = Robt_Test;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Robt_Test;
 		};
 /* End XCBuildConfiguration section */
 
@@ -343,6 +585,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1EB03F929BCCA32009764E8 /* Debug */,
+				F1EB043129BCDAF8009764E8 /* Robt_Test */,
+				F1EB042029BCCF85009764E8 /* Robt_Dev */,
 				F1EB03FA29BCCA32009764E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -352,12 +596,25 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1EB03FC29BCCA32009764E8 /* Debug */,
+				F1EB043229BCDAF8009764E8 /* Robt_Test */,
+				F1EB042129BCCF85009764E8 /* Robt_Dev */,
 				F1EB03FD29BCCA32009764E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1EB044A29BDB2D4009764E8 /* NetworkModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkModule;
+		};
+		F1EB045429BDB862009764E8 /* UIModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1EB03DF29BCCA30009764E8 /* Project object */;
 }
