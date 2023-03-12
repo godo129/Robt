@@ -16,6 +16,8 @@
 		F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB044A29BDB2D4009764E8 /* NetworkModule */; };
 		F1EB045529BDB862009764E8 /* UIModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB045429BDB862009764E8 /* UIModule */; };
 		F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045829BDC62B009764E8 /* RootCoordinator.swift */; };
+		F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */; };
+		F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045C29BDC986009764E8 /* AppMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F1EB045329BDB810009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EB045629BDB9B2009764E8 /* UIModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIModule; path = ../UIModule; sourceTree = "<group>"; };
 		F1EB045829BDC62B009764E8 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		F1EB045C29BDC986009764E8 /* AppMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +109,9 @@
 		F1EB045729BDC61F009764E8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F1EB045C29BDC986009764E8 /* AppMode.swift */,
 				F1EB045829BDC62B009764E8 /* RootCoordinator.swift */,
+				F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -228,6 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
+				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
+				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
