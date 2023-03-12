@@ -22,6 +22,7 @@
 		F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */; };
 		F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046B29BE055A009764E8 /* DependenciesContainer.swift */; };
 		F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046F29BE0598009764E8 /* DependencyKey.swift */; };
+		F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB047129BE086B009764E8 /* DependenciesDefinition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		F1EB046B29BE055A009764E8 /* DependenciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainer.swift; sourceTree = "<group>"; };
 		F1EB046F29BE0598009764E8 /* DependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyKey.swift; sourceTree = "<group>"; };
+		F1EB047129BE086B009764E8 /* DependenciesDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesDefinition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				F1EB046F29BE0598009764E8 /* DependencyKey.swift */,
 				F1EB046B29BE055A009764E8 /* DependenciesContainer.swift */,
+				F1EB047129BE086B009764E8 /* DependenciesDefinition.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				F1EB046129BDCBEB009764E8 /* HomeCoordinator.swift in Sources */,
 				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
+				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
