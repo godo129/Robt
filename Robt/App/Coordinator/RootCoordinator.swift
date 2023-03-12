@@ -27,12 +27,22 @@ final class RootCoordinator: Coordinator {
 
 extension RootCoordinator {
 
-    func start() {}
+    func start() {
+        let mode = modeChecker()
+        start(appMode: mode)
+    }
 
-    func start(appMode _: AppMode) {}
+    private func start(appMode: AppMode) {
+        guard childCoordinators.count == 2 else { return }
+        childCoordinators[appMode.tag].start()
+    }
 
-    func isAuthenticated() -> AppMode {
-        return .authentication
+    private func isAuthenticated() -> Bool {
+        return false
+    }
+
+    private func modeChecker() -> AppMode {
+        isAuthenticated() ? .home : .authentication
     }
 
     private func childCoordinatorConfiguration() {
@@ -49,6 +59,7 @@ extension RootCoordinator {
 extension RootCoordinator: AuthenticationCoordinatorDelegate, HomeCoordinatorDelegate {
 
     func finish(appMode: AppMode) {
+        navigationController.viewControllers = []
         switch appMode {
         case .authentication:
             start(appMode: .home)

@@ -25,5 +25,12 @@ final class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator {
 
-    func start() {}
+    func start() {
+        showHomeViewController()
+    }
+
+    func showHomeViewController() {
+        let homeViewController = HomeViewController()
+        navigationController.pushViewController(homeViewController, animated: true)
+    }
 }

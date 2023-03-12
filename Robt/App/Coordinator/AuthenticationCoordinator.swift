@@ -25,5 +25,12 @@ final class AuthenticationCoordinator: Coordinator {
 }
 
 extension AuthenticationCoordinator {
-    func start() {}
+    func start() {
+        showAuthentication()
+    }
+
+    func showAuthentication() {
+        let authenticationViewController = AuthenticationViewController()
+        navigationController.pushViewController(authenticationViewController, animated: true)
+    }
 }
