@@ -14,11 +14,10 @@
 		F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F1EB043929BCDFE9009764E8 /* .swiftlint.yml */; };
 		F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB044129BCE6E2009764E8 /* ViewController.swift */; };
 		F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB044A29BDB2D4009764E8 /* NetworkModule */; };
-		F1EB045129BDB6B3009764E8 /* UIModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB045029BDB6B3009764E8 /* UIModule */; };
+		F1EB045529BDB862009764E8 /* UIModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB045429BDB862009764E8 /* UIModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F1EB03E729BCCA30009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F1EB03F329BCCA32009764E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,8 +25,9 @@
 		F1EB03F829BCCA32009764E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1EB043929BCDFE9009764E8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F1EB044129BCE6E2009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1EB044F29BDB6AA009764E8 /* UIModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIModule; path = ../UIModule; sourceTree = "<group>"; };
 		F1EB045229BDB6EB009764E8 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkModule; path = ../NetworkModule; sourceTree = "<group>"; };
+		F1EB045329BDB810009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1EB045629BDB9B2009764E8 /* UIModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIModule; path = ../UIModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1EB045129BDB6B3009764E8 /* UIModule in Frameworks */,
+				F1EB045529BDB862009764E8 /* UIModule in Frameworks */,
 				F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,17 +48,9 @@
 			children = (
 				F1EB043929BCDFE9009764E8 /* .swiftlint.yml */,
 				F1EB03E929BCCA30009764E8 /* Robt */,
-				F1EB03E829BCCA30009764E8 /* Products */,
 				F1EB044829BDB2C2009764E8 /* Frameworks */,
+				F1EB045329BDB810009764E8 /* Robt.app */,
 			);
-			sourceTree = "<group>";
-		};
-		F1EB03E829BCCA30009764E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F1EB03E729BCCA30009764E8 /* Robt.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F1EB03E929BCCA30009764E8 /* Robt */ = {
@@ -101,8 +93,8 @@
 		F1EB044829BDB2C2009764E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1EB045629BDB9B2009764E8 /* UIModule */,
 				F1EB045229BDB6EB009764E8 /* NetworkModule */,
-				F1EB044F29BDB6AA009764E8 /* UIModule */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,10 +119,10 @@
 			name = Robt;
 			packageProductDependencies = (
 				F1EB044A29BDB2D4009764E8 /* NetworkModule */,
-				F1EB045029BDB6B3009764E8 /* UIModule */,
+				F1EB045429BDB862009764E8 /* UIModule */,
 			);
 			productName = Robt;
-			productReference = F1EB03E729BCCA30009764E8 /* Robt.app */;
+			productReference = F1EB045329BDB810009764E8 /* Robt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -157,7 +149,7 @@
 				Base,
 			);
 			mainGroup = F1EB03DE29BCCA30009764E8;
-			productRefGroup = F1EB03E829BCCA30009764E8 /* Products */;
+			productRefGroup = F1EB03DE29BCCA30009764E8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -618,7 +610,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkModule;
 		};
-		F1EB045029BDB6B3009764E8 /* UIModule */ = {
+		F1EB045429BDB862009764E8 /* UIModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIModule;
 		};
