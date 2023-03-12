@@ -12,9 +12,14 @@
 		F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F329BCCA32009764E8 /* Assets.xcassets */; };
 		F1EB03F729BCCA32009764E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */; };
 		F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F1EB043929BCDFE9009764E8 /* .swiftlint.yml */; };
-		F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB044129BCE6E2009764E8 /* ViewController.swift */; };
 		F1EB044B29BDB2D4009764E8 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB044A29BDB2D4009764E8 /* NetworkModule */; };
 		F1EB045529BDB862009764E8 /* UIModule in Frameworks */ = {isa = PBXBuildFile; productRef = F1EB045429BDB862009764E8 /* UIModule */; };
+		F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045829BDC62B009764E8 /* RootCoordinator.swift */; };
+		F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */; };
+		F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB045C29BDC986009764E8 /* AppMode.swift */; };
+		F1EB046129BDCBEB009764E8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046029BDCBEB009764E8 /* HomeCoordinator.swift */; };
+		F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046429BDCD7F009764E8 /* HomeViewController.swift */; };
+		F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +29,15 @@
 		F1EB03F629BCCA32009764E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1EB03F829BCCA32009764E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1EB043929BCDFE9009764E8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		F1EB044129BCE6E2009764E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1EB045229BDB6EB009764E8 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkModule; path = ../NetworkModule; sourceTree = "<group>"; };
 		F1EB045329BDB810009764E8 /* Robt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EB045629BDB9B2009764E8 /* UIModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIModule; path = ../UIModule; sourceTree = "<group>"; };
+		F1EB045829BDC62B009764E8 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		F1EB045C29BDC986009764E8 /* AppMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMode.swift; sourceTree = "<group>"; };
+		F1EB046029BDCBEB009764E8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F1EB046429BDCD7F009764E8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 		F1EB043429BCDE0C009764E8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F1EB045729BDC61F009764E8 /* Coordinator */,
 				F1EB03F829BCCA32009764E8 /* Info.plist */,
 				F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */,
 				F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */,
@@ -84,8 +95,9 @@
 		F1EB043629BCDE20009764E8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				F1EB046329BDCD5A009764E8 /* Home */,
+				F1EB046229BDCD51009764E8 /* Authentication */,
 				F1EB03F529BCCA32009764E8 /* LaunchScreen.storyboard */,
-				F1EB044129BCE6E2009764E8 /* ViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -97,6 +109,33 @@
 				F1EB045229BDB6EB009764E8 /* NetworkModule */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1EB045729BDC61F009764E8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB045C29BDC986009764E8 /* AppMode.swift */,
+				F1EB045829BDC62B009764E8 /* RootCoordinator.swift */,
+				F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */,
+				F1EB046029BDCBEB009764E8 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F1EB046229BDCD51009764E8 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F1EB046329BDCD5A009764E8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB046429BDCD7F009764E8 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1EB044229BCE6E2009764E8 /* ViewController.swift in Sources */,
+				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
+				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
+				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
+				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
+				F1EB046129BDCBEB009764E8 /* HomeCoordinator.swift in Sources */,
+				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
