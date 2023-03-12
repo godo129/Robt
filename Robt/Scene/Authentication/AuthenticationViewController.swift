@@ -19,6 +19,7 @@ final class AuthenticationViewController: UIViewController {
         $0.setTitleColor(.black.withAlphaComponent(0.5), for: .highlighted)
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 10
+        $0.titleLabel?.font = Font.semiBold(size: 20)
     }
 
     private lazy var signUpButton = UIButton().then {
@@ -29,6 +30,7 @@ final class AuthenticationViewController: UIViewController {
         $0.setTitleColor(.black.withAlphaComponent(0.5), for: .highlighted)
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
+        $0.titleLabel?.font = Font.semiBold(size: 20)
     }
 
     override func viewDidLoad() {
