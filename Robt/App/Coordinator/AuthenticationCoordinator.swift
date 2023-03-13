@@ -30,7 +30,12 @@ extension AuthenticationCoordinator {
     }
 
     func showAuthentication() {
-        let authenticationViewController = AuthenticationViewController()
+        let authenticationViewController = AuthenticationViewController(coordinator: self)
         navigationController.pushViewController(authenticationViewController, animated: true)
+    }
+
+    func showSignUpViewController() {
+        let signUpViewcontroller = SignUpViewController()
+        navigationController.pushViewController(signUpViewcontroller, animated: true)
     }
 }

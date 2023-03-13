@@ -11,6 +11,18 @@ import UIKit
 
 final class AuthenticationViewController: UIViewController {
 
+    private let coordinator: AuthenticationCoordinator
+
+    init(coordinator: AuthenticationCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private lazy var signInButton = UIButton().then {
         $0.setTitle("로그인", for: .normal)
         $0.setTitleColor(.black, for: .normal)
@@ -37,6 +49,7 @@ final class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         configuration()
         layoutConfiguration()
+        buttonConfiguration()
     }
 }
 
@@ -51,13 +64,21 @@ extension AuthenticationViewController {
     private func layoutConfiguration() {
         signInButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.bottom.leading.equalToSuperview().inset(20)
+            make.bottom.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.width.equalToSuperview().multipliedBy(0.5).inset(20)
         }
         signUpButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.bottom.trailing.equalToSuperview().inset(20)
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.width.equalToSuperview().multipliedBy(0.5).inset(20)
         }
+    }
+
+    private func buttonConfiguration() {
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func signUpButtonTapped() {
+        coordinator.showSignUpViewController()
     }
 }
