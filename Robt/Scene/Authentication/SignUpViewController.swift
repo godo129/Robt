@@ -53,6 +53,8 @@ extension SignUpViewController {
         [appleSignUpButton, emailSignUpButton].forEach {
             view.addSubview($0)
         }
+
+        appleSignUpButton.addTarget(self, action: #selector(appleSignUpButtonPressed), for: .touchUpInside)
     }
 
     private func layoutConfiguration() {
@@ -66,6 +68,18 @@ extension SignUpViewController {
             make.top.equalTo(appleSignUpButton.snp.bottom).offset(32)
             make.height.equalTo(50)
             make.leading.trailing.equalToSuperview().inset(20)
+        }
+    }
+
+    @objc func appleSignUpButtonPressed() {
+        let appleRepository = DependenciesContainer.share.resolve(AppleAuthenticationRepositoryProtocol.self)
+        Task {
+            do {
+                let userID = try await appleRepository.signUp()
+                print("userID is", userID)
+            } catch {
+                print(error)
+            }
         }
     }
 }

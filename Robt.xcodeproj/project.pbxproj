@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */; };
 		F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */; };
+		F1B8298929C18E950058C843 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleRepository.swift */; };
+		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
 		F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */; };
 		F1EB03F429BCCA32009764E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1EB03F329BCCA32009764E8 /* Assets.xcassets */; };
@@ -52,6 +54,9 @@
 /* Begin PBXFileReference section */
 		F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
+		F1B8298829C18E950058C843 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
+		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
 		F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F1EB03F329BCCA32009764E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1B8298729C18E830058C843 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				F1B8298829C18E950058C843 /* AppleRepository.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		F1EB03DE29BCCA30009764E8 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,8 @@
 		F1EB03E929BCCA30009764E8 /* Robt */ = {
 			isa = PBXGroup;
 			children = (
+				F1B8298729C18E830058C843 /* Feature */,
+				F1B8298629C18C7C0058C843 /* Robt.entitlements */,
 				F1EB04A429BE2796009764E8 /* Share */,
 				F1EB047329BE1838009764E8 /* Core */,
 				F1EB043629BCDE20009764E8 /* Scene */,
@@ -210,6 +225,7 @@
 		F1EB047329BE1838009764E8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1F1E54329C5F7F900C21576 /* Provider */,
 				F1EB047729BE1B75009764E8 /* UI */,
 			);
 			path = Core;
@@ -273,6 +289,22 @@
 				F1EB047429BE1848009764E8 /* Extension */,
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		F1F1E54329C5F7F900C21576 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E54429C5F80100C21576 /* Local */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		F1F1E54429C5F80100C21576 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +451,7 @@
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
+				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
@@ -427,6 +460,7 @@
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
+				F1B8298929C18E950058C843 /* AppleRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Robt/Robt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
@@ -577,7 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -590,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Robt/Robt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
@@ -604,7 +640,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -677,6 +713,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Robt/RobtRobt_Dev.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
@@ -691,7 +728,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt_Dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt_Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -764,6 +801,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Robt/Robt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD3GVSQ9P4;
@@ -778,7 +816,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.godo.Robt_Test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt_Test;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

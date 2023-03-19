@@ -1,3 +1,5 @@
 excluded:
     - Robt/App/AppDelegate.swift
     - Robt/App/SceneDelegate.swift
+disabled_rules:
+    force_cast

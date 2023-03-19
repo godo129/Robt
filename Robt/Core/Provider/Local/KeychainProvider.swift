@@ -39,11 +39,27 @@ protocol KeychainProviderProtocol {
 
 struct KeychainProvider: KeychainProviderProtocol {
 
-    enum KeychainError: Error {
+    enum KeychainError: Error, LocalizedError {
         case duplicateError
         case noItem
         case unKnown(OSStatus)
         case readDataConvertingError
+        case deleteError
+
+        var errorDescription: String? {
+            switch self {
+            case .duplicateError:
+                return "duplicateError"
+            case .noItem:
+                return "noItem"
+            case .unKnown:
+                return "unKnown"
+            case .readDataConvertingError:
+                return "readDataConvertingError"
+            case .deleteError:
+                return "deleteError"
+            }
+        }
     }
 
     func save(item: KeychainKey) async throws {
