@@ -21,5 +21,12 @@ final class DependenciesDefinition {
                 keychainProvider: dependecies.resolve(KeychainProviderProtocol.self)
             )
         )
+
+        dependecies.register(
+            SignUpViewUseCaseProtocol.self,
+            impl: SignUpViewUseCase(
+                appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self)
+            )
+        )
     }
 }

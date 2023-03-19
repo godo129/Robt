@@ -5,6 +5,7 @@
 //  Created by hong on 2023/03/12.
 //
 
+import Combine
 import UIKit
 
 extension UIButton {
@@ -24,5 +25,11 @@ extension UIButton {
 
     func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         setBackgroundImage(imageWithColor(color: color), for: state)
+    }
+
+    var tapPublisher: AnyPublisher<Void, Never> {
+        controlPublisher(for: .touchUpInside)
+            .map { _ in }
+            .eraseToAnyPublisher()
     }
 }

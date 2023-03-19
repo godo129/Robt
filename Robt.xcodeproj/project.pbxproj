@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */; };
 		F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */; };
-		F1B8298929C18E950058C843 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleRepository.swift */; };
+		F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */; };
 		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
 		F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */; };
@@ -49,13 +49,16 @@
 		F1EB04A029BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048D29BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf */; };
 		F1EB04A129BE236B009764E8 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048E29BE236B009764E8 /* NotoSans-ExtraBold.ttf */; };
 		F1EB04A229BE236B009764E8 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048F29BE236B009764E8 /* NotoSans-Italic.ttf */; };
+		F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54829C741B000C21576 /* SignUpViewModel.swift */; };
+		F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54A29C7429C00C21576 /* UIControl+.swift */; };
+		F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
-		F1B8298829C18E950058C843 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
+		F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationRepository.swift; sourceTree = "<group>"; };
 		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
 		F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1EB03EC29BCCA30009764E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +100,9 @@
 		F1EB048D29BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		F1EB048E29BE236B009764E8 /* NotoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		F1EB048F29BE236B009764E8 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		F1F1E54829C741B000C21576 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		F1F1E54A29C7429C00C21576 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
+		F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +121,8 @@
 		F1B8298729C18E830058C843 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				F1B8298829C18E950058C843 /* AppleRepository.swift */,
+				F1F1E54D29C744CA00C21576 /* Repository */,
+				F1F1E54C29C744C300C21576 /* UseCase */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 		F1EB046229BDCD51009764E8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				F1F1E54729C7419900C21576 /* ViewModel */,
 				F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */,
 				F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */,
 			);
@@ -236,6 +244,7 @@
 			children = (
 				F1EB047529BE1868009764E8 /* UIButton+.swift */,
 				F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */,
+				F1F1E54A29C7429C00C21576 /* UIControl+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -305,6 +314,30 @@
 				F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		F1F1E54729C7419900C21576 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E54829C741B000C21576 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F1F1E54C29C744C300C21576 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F1F1E54D29C744CA00C21576 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,22 +478,25 @@
 			files = (
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
+				F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */,
 				F1EB047929BE1B7F009764E8 /* Fonts.swift in Sources */,
 				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
+				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
+				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,
 				F1EB046129BDCBEB009764E8 /* HomeCoordinator.swift in Sources */,
 				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
-				F1B8298929C18E950058C843 /* AppleRepository.swift in Sources */,
+				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

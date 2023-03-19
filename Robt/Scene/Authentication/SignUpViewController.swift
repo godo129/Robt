@@ -5,11 +5,26 @@
 //  Created by hong on 2023/03/13.
 //
 
+import Combine
 import SnapKit
 import Then
 import UIKit
 
 final class SignUpViewController: UIViewController {
+
+    private let viewModel: SignUpViewModel
+    private var cancellables = Set<AnyCancellable>()
+    private let input: PassthroughSubject<SignUpViewModel.Input, Never> = .init()
+
+    init(viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private lazy var appleSignUpButton = UIButton().then {
         $0.setTitle("Apple로 시작하기", for: .normal)
@@ -45,6 +60,25 @@ final class SignUpViewController: UIViewController {
         view.backgroundColor = .white
         configuration()
         layoutConfiguration()
+        bind()
+    }
+
+    private func bind() {
+
+        let output = viewModel.transform(input: input.eraseToAnyPublisher())
+        output.receive(on: DispatchQueue.main)
+            .sink { event in
+                switch event {
+                case .appleSignUpErrorOccured:
+                    print("apple signUpErrorOcurred")
+                }
+            }
+            .store(in: &cancellables)
+
+        appleSignUpButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.appleButtonTap)
+        }
+        .store(in: &cancellables)
     }
 }
 
@@ -53,8 +87,6 @@ extension SignUpViewController {
         [appleSignUpButton, emailSignUpButton].forEach {
             view.addSubview($0)
         }
-
-        appleSignUpButton.addTarget(self, action: #selector(appleSignUpButtonPressed), for: .touchUpInside)
     }
 
     private func layoutConfiguration() {
@@ -68,18 +100,6 @@ extension SignUpViewController {
             make.top.equalTo(appleSignUpButton.snp.bottom).offset(32)
             make.height.equalTo(50)
             make.leading.trailing.equalToSuperview().inset(20)
-        }
-    }
-
-    @objc func appleSignUpButtonPressed() {
-        let appleRepository = DependenciesContainer.share.resolve(AppleAuthenticationRepositoryProtocol.self)
-        Task {
-            do {
-                let userID = try await appleRepository.signUp()
-                print("userID is", userID)
-            } catch {
-                print(error)
-            }
         }
     }
 }

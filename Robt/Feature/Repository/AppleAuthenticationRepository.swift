@@ -1,5 +1,5 @@
 //
-//  AppleRepository.swift
+//  AppleAuthenticationRepository.swift
 //  Robt
 //
 //  Created by hong on 2023/03/15.
