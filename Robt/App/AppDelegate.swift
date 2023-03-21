@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Dependency Inject
         DependenciesDefinition().inject()
+        FirebaseApp.configure()
         return true
     }
 
