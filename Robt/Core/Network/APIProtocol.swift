@@ -5,8 +5,8 @@
 //  Created by hong on 2023/03/25.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 enum HTTPMethod: String {
     case post = "POST"
@@ -33,7 +33,7 @@ extension API {
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
         if let data = body {
-            request.httpBody = try JSONEncoder().encode(data)
+            request.httpBody = data.toJson
         }
         return request
     }

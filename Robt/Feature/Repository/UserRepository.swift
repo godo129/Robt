@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UserRepositoryProtocol {
-    func signUp(_ type: UserAPI) async throws -> Data
+    func regist(_ type: UserAPI) async throws
 }
 
 final class UserRepository: UserRepositoryProtocol {
@@ -16,7 +16,8 @@ final class UserRepository: UserRepositoryProtocol {
     init(userProvider: NetworkProvider<UserAPI>) {
         self.userProvider = userProvider
     }
-    func signUp(_ type: UserAPI) async throws -> Data {
-        return try await userProvider.request(type)
+
+    func regist(_ type: UserAPI) async throws {
+        try await userProvider.request(type)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 struct StringValue: Codable {
     let value: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case value = "stringValue"
     }
