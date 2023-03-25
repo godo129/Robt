@@ -28,7 +28,9 @@ protocol API: URLRequestConvertible {
 extension API {
     func asURLRequest() throws -> URLRequest {
         var url = URLComponents(string: baseURL.absoluteString + path)!
-        url.queryItems = parameters?.map { URLQueryItem(name: $0.0, value: $0.1) }
+        if let parameters {
+            url.queryItems = parameters.map { URLQueryItem(name: $0.0, value: $0.1) }
+        }
         var request = try URLRequest(url: url.asURL())
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
