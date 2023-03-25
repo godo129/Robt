@@ -10,10 +10,12 @@
 		F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */; };
 		F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */; };
 		F18404B629C9F30A006D205C /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */; };
-		F18404BA29C9F7BD006D205C /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = F18404B929C9F7BD006D205C /* GoogleService-Info-Dev.plist */; };
 		F18404BD29C9F862006D205C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F18404BC29C9F862006D205C /* FirebaseAnalytics */; };
 		F18404BF29C9F862006D205C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F18404BE29C9F862006D205C /* FirebaseAuth */; };
 		F18404C129C9F862006D205C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F18404C029C9F862006D205C /* FirebaseStorage */; };
+		F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */; };
+		F1A46DCA29CA03D000DF63DF /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DC929CA03D000DF63DF /* Environment.swift */; };
+		F1A46DCF29CF38C500DF63DF /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */; };
 		F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */; };
 		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
@@ -63,7 +65,9 @@
 		F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
-		F18404B929C9F7BD006D205C /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
+		F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageType.swift; sourceTree = "<group>"; };
+		F1A46DC929CA03D000DF63DF /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
 		F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationRepository.swift; sourceTree = "<group>"; };
 		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
@@ -131,10 +135,33 @@
 		F18404B429C9F279006D205C /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				F18404B929C9F7BD006D205C /* GoogleService-Info-Dev.plist */,
+				F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */,
 				F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		F1A46DC529C9FF9400DF63DF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F1A46DC829CA03C200DF63DF /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DC929CA03D000DF63DF /* Environment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		F1A46DCB29CF353400DF63DF /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		F1B8298729C18E830058C843 /* Feature */ = {
@@ -173,6 +200,7 @@
 		F1EB043429BCDE0C009764E8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DC829CA03C200DF63DF /* Environment */,
 				F18404B429C9F279006D205C /* Firebase */,
 				F1EB046829BDFD2D009764E8 /* DI */,
 				F1EB045729BDC61F009764E8 /* Coordinator */,
@@ -253,6 +281,7 @@
 		F1EB047329BE1838009764E8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DC529C9FF9400DF63DF /* API */,
 				F1F1E54329C5F7F900C21576 /* Provider */,
 				F1EB047729BE1B75009764E8 /* UI */,
 			);
@@ -323,6 +352,7 @@
 		F1F1E54329C5F7F900C21576 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DCB29CF353400DF63DF /* Remote */,
 				F1F1E54429C5F80100C21576 /* Local */,
 			);
 			path = Provider;
@@ -432,9 +462,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EB049429BE236B009764E8 /* NotoSans-Bold.ttf in Resources */,
-				F18404BA29C9F7BD006D205C /* GoogleService-Info-Dev.plist in Resources */,
 				F18404B629C9F30A006D205C /* GoogleService-Info-Release.plist in Resources */,
 				F1EB049029BE236B009764E8 /* NotoSans-Regular.ttf in Resources */,
+				F1A46DCF29CF38C500DF63DF /* GoogleService-Info-Dev.plist in Resources */,
 				F1EB049A29BE236B009764E8 /* NotoSans-Light.ttf in Resources */,
 				F1EB049929BE236B009764E8 /* NotoSans-LightItalic.ttf in Resources */,
 				F1EB043A29BCDFE9009764E8 /* .swiftlint.yml in Resources */,
@@ -536,7 +566,9 @@
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
+				F1A46DCA29CA03D000DF63DF /* Environment.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
+				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,
 				F1EB046129BDCBEB009764E8 /* HomeCoordinator.swift in Sources */,
 				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,
