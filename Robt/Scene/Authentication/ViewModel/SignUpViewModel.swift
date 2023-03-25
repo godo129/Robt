@@ -39,6 +39,7 @@ final class SignUpViewModel {
                     do {
                         let userID = try await self.signUpViewUseCase.appleSignUp()
                         try await self.signUpViewUseCase.registUser(id: userID)
+                        self.coordinator?.delegate?.finish(appMode: .authentication)
                     } catch {
                         print(error.localizedDescription)
                         self.outPut.send(.appleSignUpErrorOccured)

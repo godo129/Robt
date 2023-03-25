@@ -59,12 +59,15 @@ extension RootCoordinator {
 extension RootCoordinator: AuthenticationCoordinatorDelegate, HomeCoordinatorDelegate {
 
     func finish(appMode: AppMode) {
-        navigationController.viewControllers = []
-        switch appMode {
-        case .authentication:
-            start(appMode: .home)
-        case .home:
-            start(appMode: .authentication)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.navigationController.viewControllers = []
+            switch appMode {
+            case .authentication:
+                self.start(appMode: .home)
+            case .home:
+                self.start(appMode: .authentication)
+            }
         }
     }
 }
