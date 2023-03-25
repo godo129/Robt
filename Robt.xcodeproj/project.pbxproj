@@ -16,6 +16,10 @@
 		F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */; };
 		F1A46DCA29CA03D000DF63DF /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DC929CA03D000DF63DF /* Environment.swift */; };
 		F1A46DCF29CF38C500DF63DF /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */; };
+		F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD029CF398900DF63DF /* NetworkProvider.swift */; };
+		F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD329CF3B8200DF63DF /* UserAPI.swift */; };
+		F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD529CF3BC300DF63DF /* UserRepository.swift */; };
+		F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD729CF3CA900DF63DF /* APIProtocol.swift */; };
 		F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */; };
 		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
@@ -68,6 +72,10 @@
 		F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageType.swift; sourceTree = "<group>"; };
 		F1A46DC929CA03D000DF63DF /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
+		F1A46DD029CF398900DF63DF /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		F1A46DD329CF3B8200DF63DF /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		F1A46DD529CF3BC300DF63DF /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		F1A46DD729CF3CA900DF63DF /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
 		F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationRepository.swift; sourceTree = "<group>"; };
 		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
@@ -144,7 +152,7 @@
 		F1A46DC529C9FF9400DF63DF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */,
+				F1A46DD329CF3B8200DF63DF /* UserAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -160,8 +168,18 @@
 		F1A46DCB29CF353400DF63DF /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DD029CF398900DF63DF /* NetworkProvider.swift */,
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		F1A46DD229CF3ACE00DF63DF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */,
+				F1A46DD729CF3CA900DF63DF /* APIProtocol.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F1B8298729C18E830058C843 /* Feature */ = {
@@ -281,6 +299,7 @@
 		F1EB047329BE1838009764E8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DD229CF3ACE00DF63DF /* Network */,
 				F1A46DC529C9FF9400DF63DF /* API */,
 				F1F1E54329C5F7F900C21576 /* Provider */,
 				F1EB047729BE1B75009764E8 /* UI */,
@@ -386,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */,
+				F1A46DD529CF3BC300DF63DF /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -553,17 +573,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
 				F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */,
 				F1EB047929BE1B7F009764E8 /* Fonts.swift in Sources */,
 				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
+				F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
 				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
+				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1A46DCA29CA03D000DF63DF /* Environment.swift in Sources */,
@@ -575,6 +598,7 @@
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
+				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
