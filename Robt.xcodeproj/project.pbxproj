@@ -23,6 +23,7 @@
 		F1A46DDC29CF62BF00DF63DF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DDB29CF62BF00DF63DF /* SignInViewController.swift */; };
 		F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DDD29CF645F00DF63DF /* SignInViewModel.swift */; };
 		F1A46DE029CF64B800DF63DF /* InputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DDF29CF64B800DF63DF /* InputOutput.swift */; };
+		F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */; };
 		F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */; };
 		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		F1A46DDB29CF62BF00DF63DF /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F1A46DDD29CF645F00DF63DF /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		F1A46DDF29CF64B800DF63DF /* InputOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutput.swift; sourceTree = "<group>"; };
+		F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewUseCase.swift; sourceTree = "<group>"; };
 		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
 		F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationRepository.swift; sourceTree = "<group>"; };
 		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */,
+				F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
+				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,

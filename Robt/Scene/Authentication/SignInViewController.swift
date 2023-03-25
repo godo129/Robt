@@ -54,12 +54,15 @@ class SignInViewController: UIViewController {
 
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.sink { event in
-            
+            switch event {
+            case .signInError:
+                print("signin error")
+            }
         }
         .store(in: &cancellables)
-        
-        appleSignInButton.tapPublisher.sink { _ in
-            
+
+        appleSignInButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.appleSignInButtonTapped)
         }
         .store(in: &cancellables)
     }

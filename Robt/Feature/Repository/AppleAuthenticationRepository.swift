@@ -88,7 +88,7 @@ final class AppleAuthenticationRepository: NSObject, AppleAuthenticationReposito
                 do {
                     let userID = try await keychainProvider.read(item: .appleAccount())
                     appleProvider.getCredentialState(forUserID: userID) { credentialState, error in
-                        guard error != nil else {
+                        guard error == nil else {
                             continuation.resume(throwing: error ?? AppleAuthenticationError.signInError)
                             return
                         }
