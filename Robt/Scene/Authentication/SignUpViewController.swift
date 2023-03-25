@@ -84,7 +84,7 @@ final class SignUpViewController: UIViewController {
 
 extension SignUpViewController {
     private func configuration() {
-        [appleSignUpButton, emailSignUpButton].forEach {
+        [appleSignUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -96,10 +96,10 @@ extension SignUpViewController {
             make.leading.trailing.equalToSuperview().inset(20)
         }
 
-        emailSignUpButton.snp.makeConstraints { make in
-            make.top.equalTo(appleSignUpButton.snp.bottom).offset(32)
-            make.height.equalTo(50)
-            make.leading.trailing.equalToSuperview().inset(20)
-        }
+//        emailSignUpButton.snp.makeConstraints { make in
+//            make.top.equalTo(appleSignUpButton.snp.bottom).offset(32)
+//            make.height.equalTo(50)
+//            make.leading.trailing.equalToSuperview().inset(20)
+//        }
     }
 }
