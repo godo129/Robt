@@ -50,13 +50,13 @@ extension RootCoordinator {
         authenticationCoordinator.delegate = self
         childCoordinators.append(authenticationCoordinator)
 
-        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
-        homeCoordinator.delegate = self
-        childCoordinators.append(homeCoordinator)
+        let tabCoordinator = TabBarCoordinator(navigationController: navigationController)
+        tabCoordinator.delegate = self
+        childCoordinators.append(tabCoordinator)
     }
 }
 
-extension RootCoordinator: AuthenticationCoordinatorDelegate, HomeCoordinatorDelegate {
+extension RootCoordinator: AuthenticationCoordinatorDelegate, TaBarCoordinatorDelegate {
 
     func finish(appMode: AppMode) {
         DispatchQueue.main.async { [weak self] in

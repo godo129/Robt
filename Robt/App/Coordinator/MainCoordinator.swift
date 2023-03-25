@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol HomeCoordinatorDelegate: AnyObject {
-    func finish(appMode: AppMode)
+protocol MainCoordinatorDelegate: AnyObject {
+    func finish(tab: TabBarType)
 }
 
-final class HomeCoordinator: Coordinator {
+final class MainCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    weak var delegate: HomeCoordinatorDelegate?
+    weak var delegate: MainCoordinatorDelegate?
 
     init(
         navigationController: UINavigationController
@@ -23,7 +23,7 @@ final class HomeCoordinator: Coordinator {
     }
 }
 
-extension HomeCoordinator {
+extension MainCoordinator {
 
     func start() {
         showHomeViewController()
