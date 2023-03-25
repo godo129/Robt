@@ -10,9 +10,9 @@ import Foundation
 final class DependenciesContainer {
     static let share = DependenciesContainer()
     private var dependencies: [DependencyKey: Any] = [:]
-    
+
     private init() {}
-    
+
     func register<T>(
         _ type: T.Type,
         impl: Any,
@@ -21,7 +21,7 @@ final class DependenciesContainer {
         let dependencyKey = DependencyKey(type: type, name: name)
         dependencies[dependencyKey] = impl
     }
-    
+
     func resolve<T>(
         _ type: T.Type,
         name: String? = nil
