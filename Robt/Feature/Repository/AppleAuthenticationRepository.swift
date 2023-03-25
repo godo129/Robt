@@ -125,18 +125,18 @@ extension AppleAuthenticationRepository: ASAuthorizationControllerDelegate {
             Task {
                 do {
                     try await keychainProvider.delete(item: .appleAccount())
+                } catch {
+                    try await keychainProvider.save(item: .appleAccount(userIdentifier))
+                    continuation?.resume(returning: userIdentifier)
+                    continuation = nil
+                }
+                do {
                     try await keychainProvider.save(item: .appleAccount(userIdentifier))
                     continuation?.resume(returning: userIdentifier)
                     continuation = nil
                 } catch {
-                    if error.localizedDescription == "deleteError" {
-                        try await keychainProvider.save(item: .appleAccount(userIdentifier))
-                        continuation?.resume(returning: userIdentifier)
-                        continuation = nil
-                    } else {
-                        continuation?.resume(throwing: error)
-                        continuation = nil
-                    }
+                    continuation?.resume(throwing: error)
+                    continuation = nil
                 }
             }
         case let passwordCredential as ASPasswordCredential:
@@ -145,18 +145,18 @@ extension AppleAuthenticationRepository: ASAuthorizationControllerDelegate {
             Task {
                 do {
                     try await keychainProvider.delete(item: .appleAccount())
+                } catch {
+                    try await keychainProvider.save(item: .appleAccount(userName))
+                    continuation?.resume(returning: userName)
+                    continuation = nil
+                }
+                do {
                     try await keychainProvider.save(item: .appleAccount(userName))
                     continuation?.resume(returning: userName)
                     continuation = nil
                 } catch {
-                    if error.localizedDescription == "deleteError" {
-                        try await keychainProvider.save(item: .appleAccount(userName))
-                        continuation?.resume(returning: userName)
-                        continuation = nil
-                    } else {
-                        continuation?.resume(throwing: error)
-                        continuation = nil
-                    }
+                    continuation?.resume(throwing: error)
+                    continuation = nil
                 }
             }
         default:

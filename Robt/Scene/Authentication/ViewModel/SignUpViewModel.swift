@@ -38,10 +38,9 @@ final class SignUpViewModel {
                 Task {
                     do {
                         let userID = try await self.signUpViewUseCase.appleSignUp()
-//                        DispatchQueue.main.async {
-//                            self.coordinator?.showAuthentication()
-//                        }
+                        try await self.signUpViewUseCase.registUser(id: userID)
                     } catch {
+                        print(error.localizedDescription)
                         self.outPut.send(.appleSignUpErrorOccured)
                     }
                 }
