@@ -21,8 +21,8 @@ enum UserAPI: API {
 
     var path: String {
         switch self {
-        case let .user(string):
-            return "/users?documentId=\(string)"
+        case .user:
+            return "/users"
         }
     }
 
@@ -42,8 +42,8 @@ enum UserAPI: API {
 
     var parameters: [String: String]? {
         switch self {
-        case .user:
-            return nil
+        case let .user(string):
+            return ["documentId": string]
         }
     }
 

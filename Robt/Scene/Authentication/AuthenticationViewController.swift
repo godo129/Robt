@@ -76,9 +76,14 @@ extension AuthenticationViewController {
 
     private func buttonConfiguration() {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
     }
 
     @objc private func signUpButtonTapped() {
         coordinator.showSignUpViewController()
+    }
+
+    @objc private func signInButtonTapped() {
+        coordinator.showSingInViewController()
     }
 }

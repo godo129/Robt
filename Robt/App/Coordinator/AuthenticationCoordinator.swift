@@ -42,4 +42,13 @@ extension AuthenticationCoordinator {
         let signUpViewcontroller = SignUpViewController(viewModel: signUpViewModel)
         navigationController.pushViewController(signUpViewcontroller, animated: true)
     }
+
+    func showSingInViewController() {
+        let signInViewModel = SignInViewModel(
+            usecase: DependenciesContainer.share.resolve(SignInViewUseCaseProtocol.self),
+            coordinator: self
+        )
+        let signInViewController = SignInViewController(viewModel: signInViewModel)
+        navigationController.pushViewController(signInViewController, animated: true)
+    }
 }
