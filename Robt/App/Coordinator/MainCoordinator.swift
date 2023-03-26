@@ -7,14 +7,18 @@
 
 import UIKit
 
-protocol MainCoordinatorDelegate: AnyObject {
-    func finish(tab: TabBarType)
+protocol TabDelegate: AnyObject {
+    func finish(tabType: TabBarType)
 }
 
-final class MainCoordinator: Coordinator {
+protocol TabProtocol: Coordinator {
+    var delegate: TabDelegate? { get set }
+}
+
+final class MainCoordinator: TabProtocol {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    weak var delegate: MainCoordinatorDelegate?
+    weak var delegate: TabDelegate?
 
     init(
         navigationController: UINavigationController

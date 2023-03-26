@@ -29,6 +29,13 @@ final class DependenciesDefinition {
             UserRepositoryProtocol.self,
             impl: UserRepository(userProvider: NetworkProvider<UserAPI>())
         )
+        dependecies.register(
+            LocalRepositoryProtocol.self,
+            impl: LocalRepository(
+                keychainProvider: dependecies.resolve(KeychainProviderProtocol.self
+                )
+            )
+        )
 
         // MARK: - UseCase
 
@@ -43,6 +50,14 @@ final class DependenciesDefinition {
             SignInViewUseCaseProtocol.self,
             impl: SignInViewUseCase(
                 appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self)
+            )
+        )
+        dependecies.register(
+            MyPageViewUseCaseProtocol.self,
+            impl: MyPageViewUseCase(
+                appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self),
+                userRepository: dependecies.resolve(UserRepositoryProtocol.self),
+                localRepository: dependecies.resolve(LocalRepositoryProtocol.self)
             )
         )
     }

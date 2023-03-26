@@ -29,6 +29,9 @@
 		F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DE929CF882300DF63DF /* MyPageCoordinator.swift */; };
 		F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */; };
 		F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */; };
+		F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */; };
+		F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DF329D0340900DF63DF /* LocalRepository.swift */; };
+		F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DF629D0366A00DF63DF /* MyPageViewModel.swift */; };
 		F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */; };
 		F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */; };
 		F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB03EA29BCCA30009764E8 /* AppDelegate.swift */; };
@@ -94,6 +97,9 @@
 		F1A46DE929CF882300DF63DF /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarType.swift; sourceTree = "<group>"; };
 		F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleButton.swift; sourceTree = "<group>"; };
+		F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewUseCase.swift; sourceTree = "<group>"; };
+		F1A46DF329D0340900DF63DF /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
+		F1A46DF629D0366A00DF63DF /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		F1B8298629C18C7C0058C843 /* Robt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Robt.entitlements; sourceTree = "<group>"; };
 		F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationRepository.swift; sourceTree = "<group>"; };
 		F1B8298A29C1A0EC0058C843 /* KeychainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProvider.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 		F1A46DE329CF822C00DF63DF /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				F1A46DF529D0365700DF63DF /* ViewModel */,
 				F1A46DE529CF824700DF63DF /* MyPageViewController.swift */,
 			);
 			path = MyPage;
@@ -221,6 +228,14 @@
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		F1A46DF529D0365700DF63DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DF629D0366A00DF63DF /* MyPageViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F1B8298729C18E830058C843 /* Feature */ = {
@@ -448,6 +463,7 @@
 			children = (
 				F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */,
 				F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */,
+				F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -457,6 +473,7 @@
 			children = (
 				F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */,
 				F1A46DD529CF3BC300DF63DF /* UserRepository.swift */,
+				F1A46DF329D0340900DF63DF /* LocalRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -635,8 +652,10 @@
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
+				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
+				F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */,
 				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
@@ -648,6 +667,7 @@
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
+				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,
 				F1EB046129BDCBEB009764E8 /* MainCoordinator.swift in Sources */,
 				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,

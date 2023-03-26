@@ -5,11 +5,16 @@
 //  Created by hong on 2023/03/26.
 //
 
+import Combine
 import SnapKit
 import Then
 import UIKit
 
 final class MyPageViewController: UIViewController {
+
+    private let viewModel: MyPageViewModel
+    private var cancellables = Set<AnyCancellable>()
+    private let input: PassthroughSubject<MyPageViewModel.Input, Never> = .init()
 
     private lazy var signOutButton = UIButton().then {
         $0.setTitle("로그아웃", for: .normal)
@@ -27,10 +32,45 @@ final class MyPageViewController: UIViewController {
         $0.titleLabel?.font = Font.semiBold(size: 20)
     }
 
+    init(viewModel: MyPageViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configure()
+        bind()
+    }
+
+    private func bind() {
+
+        let output = viewModel.transform(input: input.eraseToAnyPublisher())
+        output.sink { event in
+            switch event {
+            case .signOutError:
+                print("로그아웃 에러")
+            case .withdrawalError:
+                print("회원 탈퇴 에러")
+            }
+        }
+        .store(in: &cancellables)
+
+        signOutButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.signOutButtonTapped)
+        }
+        .store(in: &cancellables)
+
+        withdrawalButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.withdrawalButtonTapped)
+        }
+        .store(in: &cancellables)
     }
 }
 

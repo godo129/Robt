@@ -7,15 +7,11 @@
 
 import UIKit
 
-protocol MyPageCoordinatorDelegate: AnyObject {
-    func finish(tap: TabBarType)
-}
-
-final class MyPageCoordinator: Coordinator {
+final class MyPageCoordinator: TabProtocol {
     var childCoordinators: [Coordinator] = []
 
     var navigationController: UINavigationController
-    weak var delegate: MyPageCoordinatorDelegate?
+    weak var delegate: TabDelegate?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -29,7 +25,11 @@ extension MyPageCoordinator {
     }
 
     func showMyPageViewController() {
-        let viewController = MyPageViewController()
+        let viewModel = MyPageViewModel(
+            usecase: DependenciesContainer.share.resolve(MyPageViewUseCaseProtocol.self),
+            coordinator: self
+        )
+        let viewController = MyPageViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
