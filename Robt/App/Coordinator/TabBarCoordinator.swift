@@ -51,6 +51,7 @@ extension TabBarCoordinator {
         }
 //        coordinator.delegate = self
         childCoordinators.append(coordinator)
+        coordinator.start()
 
         tabNavigationController.tabBarItem = UITabBarItem(
             title: nil,
