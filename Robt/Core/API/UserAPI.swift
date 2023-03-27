@@ -10,6 +10,7 @@ import Foundation
 enum UserAPI: API {
 
     case user(String)
+    case userCollection(String)
 
     var baseURL: URL {
         #if DEBUG
@@ -23,12 +24,14 @@ enum UserAPI: API {
         switch self {
         case .user:
             return "/users"
+        case let .userCollection(userId):
+            return "/users/\(userId)"
         }
     }
 
     var body: Encodable? {
         switch self {
-        case .user:
+        case .user, .userCollection:
             return nil
         }
     }
@@ -37,6 +40,8 @@ enum UserAPI: API {
         switch self {
         case .user:
             return .post
+        case .userCollection:
+            return .delete
         }
     }
 
@@ -44,12 +49,14 @@ enum UserAPI: API {
         switch self {
         case let .user(string):
             return ["documentId": string]
+        case .userCollection:
+            return nil
         }
     }
 
     var headers: [String: String]? {
         switch self {
-        case .user:
+        case .user, .userCollection:
             return nil
         }
     }

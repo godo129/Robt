@@ -3,3 +3,4 @@ excluded:
     - Robt/App/SceneDelegate.swift
 disabled_rules:
     - force_cast
+    - force_try

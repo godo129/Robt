@@ -12,6 +12,7 @@ protocol TaBarCoordinatorDelegate: AnyObject {
 }
 
 final class TabBarCoordinator: Coordinator {
+
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     let tabBarController = UITabBarController()
@@ -41,7 +42,7 @@ extension TabBarCoordinator {
 
     private func createTabNavigationController(tabBarType: TabBarType) -> UINavigationController {
         let tabNavigationController = UINavigationController()
-        let coordinator: Coordinator
+        let coordinator: TabProtocol
         switch tabBarType {
         case .main:
             coordinator = MainCoordinator(navigationController: tabNavigationController)
@@ -49,8 +50,9 @@ extension TabBarCoordinator {
         case .mypage:
             coordinator = MyPageCoordinator(navigationController: tabNavigationController)
         }
-//        coordinator.delegate = self
+        coordinator.delegate = self
         childCoordinators.append(coordinator)
+        coordinator.start()
 
         tabNavigationController.tabBarItem = UITabBarItem(
             title: nil,
@@ -59,5 +61,16 @@ extension TabBarCoordinator {
         )
 
         return tabNavigationController
+    }
+}
+
+extension TabBarCoordinator: TabDelegate {
+    func finish(tabType: TabBarType) {
+        switch tabType {
+        case .main:
+            delegate?.finish(appMode: .home)
+        case .mypage:
+            delegate?.finish(appMode: .home)
+        }
     }
 }

@@ -5,6 +5,7 @@
 //  Created by hong on 2023/03/15.
 //
 
+import Alamofire
 import AuthenticationServices
 import Foundation
 
@@ -122,6 +123,20 @@ extension AppleAuthenticationRepository: ASAuthorizationControllerDelegate {
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
+//            let authorizationCode = appleIDCredential.identityToken!
+//            let accessToken = String(data: authorizationCode, encoding: .utf8)!
+//            print(accessToken)
+//            let token = appleIDCredential.authorizationCode!
+//            let refreshToken = String(data: token, encoding: .utf8)!
+//            print(refreshToken)
+//
+//            let jwtProvider = JWTTokenProvider()
+//            let header = jwtProvider.header(alg: "ES256", kid: "7QF4P98SP9")
+//            let payload = jwtProvider.payload(iss: "KD3GVSQ9P4", expLimit: 20)
+//            let signature = jwtProvider.signature(header: header, payload: payload)
+//            let clientSecret = jwtProvider.jwt(header: header, payload: payload, signature: signature)
+//            print(clientSecret)
+
             Task {
                 do {
                     try await keychainProvider.delete(item: .appleAccount())
@@ -169,6 +184,70 @@ extension AppleAuthenticationRepository: ASAuthorizationControllerDelegate {
         continuation?.resume(throwing: error)
         continuation = nil
     }
+
+    // MARK: - 애플 토큰 삭제 (탈퇴) HTTP 통신
+
+    // Alamofire 라이브러리를 사용하였다.
+    func revokeAppleToken(clientSecret: String, token: String, completionHandler: @escaping () -> Void) {
+        let url = "https://appleid.apple.com/auth/revoke"
+        let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
+        let parameters: Parameters = [
+            "client_id": "com.godo.robt",
+            "client_secret": clientSecret,
+            "token": token
+        ]
+
+        AF.request(url,
+                   method: .post,
+                   parameters: parameters,
+                   headers: header)
+            .validate(statusCode: 200 ..< 600)
+            .responseData { response in
+                guard let statusCode = response.response?.statusCode else { return }
+                if statusCode == 200 {
+                    print("애플 토큰 삭제 성공!")
+                    completionHandler()
+                }
+            }
+    }
+
+    // SERVICE
+
+    // MARK: - 애플 리프레시 토큰 발급
+
+    func getAppleRefreshToken(code: String, completionHandler: @escaping (AppleTokenResponse) -> Void) {
+        let url = "https://appleid.apple.com/auth/token"
+        let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
+        let parameters: Parameters = [
+            "client_id": "com.godo.robt",
+            "client_secret": "1번의jwt토큰",
+            "code": code,
+            "grant_type": "authorization_code"
+        ]
+
+        AF.request(url,
+                   method: .post,
+                   parameters: parameters,
+                   headers: header)
+            .validate(statusCode: 200 ..< 600)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    guard let data = response.data else { return }
+                    let responseData = data
+                    print(responseData)
+
+                    guard let output = try? JSONDecoder().decode(AppleTokenResponse.self, from: data) else {
+                        print("Error: JSON Data Parsing failed")
+                        return
+                    }
+
+                    completionHandler(output)
+                case .failure:
+                    print("애플 토큰 발급 실패 - \(response.error.debugDescription)")
+                }
+            }
+    }
 }
 
 extension AppleAuthenticationRepository: ASAuthorizationControllerPresentationContextProviding {
@@ -178,5 +257,17 @@ extension AppleAuthenticationRepository: ASAuthorizationControllerPresentationCo
             fatalError("couldn't find window")
         }
         return window
+    }
+}
+
+// MODEL
+
+// MARK: - 애플 엑세스 토큰 발급 응답 모델
+
+struct AppleTokenResponse: Codable {
+    let refreshToken: String?
+
+    enum CodingKeys: String, CodingKey {
+        case refreshToken = "refresh_token"
     }
 }

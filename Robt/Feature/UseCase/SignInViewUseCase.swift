@@ -18,6 +18,6 @@ struct SignInViewUseCase: SignInViewUseCaseProtocol {
     }
 
     func signIn() async throws -> String {
-        return try await appleAuthenticationRepository.signIn()
+        return try await appleAuthenticationRepository.signUp()
     }
 }
