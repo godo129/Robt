@@ -50,6 +50,7 @@ final class MyPageViewModel: InputOutput {
                 Task {
                     do {
                         try await self.usecase.withdrawal()
+                        self.coordinator?.delegate?.finish(tabType: .mypage)
                     } catch {
                         self.outPut.send(.withdrawalError)
                     }
