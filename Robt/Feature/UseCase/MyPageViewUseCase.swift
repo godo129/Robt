@@ -34,6 +34,6 @@ final class MyPageViewUseCase: MyPageViewUseCaseProtocol {
 
     func withdrawal() async throws {
         let userId = try await localRepository.read(.appleAccount())
-        try await userRepository.delete(.userCollection(userId))
+        return try await userRepository.delete(.userCollection(userId))
     }
 }
