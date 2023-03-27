@@ -56,7 +56,6 @@ struct JWTTokenProvider {
         let jwt = "\(header).\(payload).\(signature)"
         return jwt
     }
-    
-    func makeJWT() {
-    }
+
+    func makeJWT() {}
 }
