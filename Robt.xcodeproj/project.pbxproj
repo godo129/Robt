@@ -77,6 +77,9 @@
 		F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54829C741B000C21576 /* SignUpViewModel.swift */; };
 		F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54A29C7429C00C21576 /* UIControl+.swift */; };
 		F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */; };
+		F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089429D1E79100BB24CA /* HomeViewModel.swift */; };
+		F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */; };
+		F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +152,9 @@
 		F1F1E54829C741B000C21576 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		F1F1E54A29C7429C00C21576 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUseCase.swift; sourceTree = "<group>"; };
+		F1F7089429D1E79100BB24CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUseCase.swift; sourceTree = "<group>"; };
+		F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +227,9 @@
 		F1A46DE429CF823400DF63DF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F1F7089329D1E78500BB24CA /* ViewModel */,
 				F1EB046429BDCD7F009764E8 /* HomeViewController.swift */,
+				F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -469,6 +477,7 @@
 				F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */,
 				F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */,
 				F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */,
+				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -481,6 +490,14 @@
 				F1A46DF329D0340900DF63DF /* LocalRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		F1F7089329D1E78500BB24CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A46DDC29CF62BF00DF63DF /* SignInViewController.swift in Sources */,
+				F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */,
 				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
@@ -670,6 +688,8 @@
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
+				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
+				F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */,
 				F1A46DE829CF83C700DF63DF /* TabBarCoordinator.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,

@@ -35,7 +35,13 @@ extension MainCoordinator {
     }
 
     func showHomeViewController() {
-        let homeViewController = HomeViewController()
-        navigationController.pushViewController(homeViewController, animated: true)
+        let viewModel = HomeViewModel(usecase: HomeViewUseCase(), coordinator: self)
+        let viewController = HomeViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showChatWithRobotViewController() {
+        let viewController = ChatWithRobotViewController()
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
