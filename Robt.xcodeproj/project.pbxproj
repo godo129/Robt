@@ -81,6 +81,7 @@
 		F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */; };
 		F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */; };
 		F1F708AE29D33B5400BB24CA /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */; };
+		F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +158,7 @@
 		F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUseCase.swift; sourceTree = "<group>"; };
 		F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewController.swift; sourceTree = "<group>"; };
 		F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				F1EB046429BDCD7F009764E8 /* HomeViewController.swift */,
 				F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */,
 				F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */,
+				F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
 				F1A46DDA29CF591D00DF63DF /* Encodable+.swift in Sources */,
+				F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */,
 				F1A46DE029CF64B800DF63DF /* InputOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,58 +11,73 @@ import UIKit
 
 final class ChatWithRobotViewController: UIViewController {
 
-    private let chattingTableView: UITableView = .init()
-    private let chatTextField: UITextField = .init()
+    private enum Section {
+        case main
+    }
 
-    private let messages: [String] = ["ewafwefe", "awefwaeeawaefawefwewfewefaewfewfwee", "testetsesetsteetaetetwtwtewtawetaw\nawetweat\nwaetwaet\ntaeeat"]
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
+
+    private var chatMessages: [ChatMessage] = [
+        .init(text: "awehotawhotwaoawtehpawwopiapowhpio"),
+        .init(text: "WAetaweahwotatwhtw\nawethoewathatwehoaitwehpoawiowethpoithoatw")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        configure()
-        chattingTableView.reloadData()
+        configureCollectionView()
+        configureDataSource()
+        applySnapshot()
     }
 }
 
 extension ChatWithRobotViewController {
-    func configure() {
-        [chattingTableView].forEach {
-            view.addSubview($0)
-        }
 
-        chattingTableView.register(
-            ChatTableViewCell.self,
-            forCellReuseIdentifier: ChatTableViewCell.identifier
-        )
-        layoutConfigure()
-        chattingTableView.delegate = self
-        chattingTableView.dataSource = self
-    }
-
-    func layoutConfigure() {
-        chattingTableView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(50)
+    private func configureCollectionView() {
+        let layout = createLayout()
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .white
+        collectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: "ChatMessageCell")
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
-}
 
-extension ChatWithRobotViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return messages.count
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(collectionView: collectionView) { collectionView, indexPath, item in
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCell", for: indexPath) as! ChatCollectionViewCell
+            cell.configure(with: item, who: true)
+            return cell
+        }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ChatTableViewCell.identifier,
-            for: indexPath
-        ) as? ChatTableViewCell else {
-            return UITableViewCell()
-        }
-        let message = messages[indexPath.row]
-        print(message)
-        cell.configure(with: message)
-        return cell
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ChatMessage>()
+        snapshot.appendSections([.main])
+        let messageItems = chatMessages
+        snapshot.appendItems(messageItems, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+    func addChatMessage(_ chatMessage: ChatMessage) {
+        chatMessages.append(chatMessage)
+        applySnapshot()
+        collectionView.scrollToItem(at: IndexPath(item: chatMessages.count - 1, section: 0), at: .bottom, animated: true)
     }
 }
