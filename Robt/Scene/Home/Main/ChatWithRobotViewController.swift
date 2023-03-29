@@ -17,6 +17,15 @@ final class ChatWithRobotViewController: UIViewController {
 
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
+    private var commentTextField = CommentTextField(left: 20, right: 20).then {
+        $0.backgroundColor = UIColor.gray
+        $0.layer.cornerRadius = 20
+        $0.layer.borderColor = UIColor.purple.cgColor
+        $0.layer.borderWidth = 2
+        $0.placeholder = "Enter message"
+    }
+
+    private var commentView = UIView()
 
     private var chatMessages: [ChatMessage] = [
         .init(text: "awehotawhotwaoawtehpawwopiapowhpio"),
@@ -28,6 +37,7 @@ final class ChatWithRobotViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
         applySnapshot()
+        commentViewConfigure()
     }
 }
 
@@ -79,5 +89,21 @@ extension ChatWithRobotViewController {
         chatMessages.append(chatMessage)
         applySnapshot()
         collectionView.scrollToItem(at: IndexPath(item: chatMessages.count - 1, section: 0), at: .bottom, animated: true)
+    }
+}
+
+extension ChatWithRobotViewController {
+    private func commentViewConfigure() {
+        view.addSubview(commentView)
+        commentView.addSubview(commentTextField)
+
+        commentView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalTo(100)
+        }
+        commentTextField.snp.makeConstraints { make in
+            make.edges.equalTo(commentView).inset(30)
+        }
     }
 }

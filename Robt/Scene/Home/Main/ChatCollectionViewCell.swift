@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatCollectionViewCell: UICollectionViewCell {
+final class ChatCollectionViewCell: UICollectionViewCell {
 
     private let messageLabel: UILabel = {
         let label = UILabel()
@@ -39,8 +39,4 @@ class ChatCollectionViewCell: UICollectionViewCell {
         messageLabel.text = chatMessage.text
         messageLabel.textAlignment = who ? .right : .left
     }
-}
-
-struct ChatMessage: Hashable {
-    let text: String
 }
