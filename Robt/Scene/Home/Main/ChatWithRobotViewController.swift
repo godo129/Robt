@@ -17,7 +17,7 @@ final class ChatWithRobotViewController: UIViewController {
 
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
-    private var commentTextField = CommentTextField(left: 20, right: 20).then {
+    private lazy var commentTextField = CommentTextField(left: 20, right: 20).then {
         $0.backgroundColor = UIColor.gray
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor.purple.cgColor
@@ -29,7 +29,7 @@ final class ChatWithRobotViewController: UIViewController {
 
     private var chatMessages: [ChatMessage] = [
         .init(text: "awehotawhotwaoawtehpawwopiapowhpio"),
-        .init(text: "WAetaweahwotatwhtw\nawethoewathatwehoaitwehpoawiowethpoithoatw")
+        .init(text: "WAetaweahwotatwhtw\nawethoewathatwehoaitw\nehpoawiowethpoi\nthoatw")
     ]
 
     override func viewDidLoad() {
@@ -46,7 +46,6 @@ extension ChatWithRobotViewController {
     private func configureCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
         collectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: "ChatMessageCell")
         view.addSubview(collectionView)
@@ -59,20 +58,27 @@ extension ChatWithRobotViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(collectionView: collectionView) { collectionView, indexPath, item in
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCell", for: indexPath) as! ChatCollectionViewCell
-            cell.configure(with: item, who: true)
+            cell.bind(text: item.text)
             return cell
         }
     }
 
     private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        let heightDimension = NSCollectionLayoutDimension.estimated(500)
+
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: heightDimension
+        )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: heightDimension)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 10
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
+
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }

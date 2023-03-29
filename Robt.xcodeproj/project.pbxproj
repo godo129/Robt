@@ -83,7 +83,6 @@
 		F1F708AE29D33B5400BB24CA /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */; };
 		F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */; };
 		F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B329D3467800BB24CA /* ChatMessage.swift */; };
-		F1F708B629D4825300BB24CA /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B529D4825300BB24CA /* ChatView.swift */; };
 		F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B729D485BD00BB24CA /* CommentTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -163,7 +162,6 @@
 		F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1F708B329D3467800BB24CA /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
-		F1F708B529D4825300BB24CA /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		F1F708B729D485BD00BB24CA /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
-				F1F708B529D4825300BB24CA /* ChatView.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
 			);
 			path = UI;
@@ -732,7 +729,6 @@
 				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,
 				F1EB046129BDCBEB009764E8 /* MainCoordinator.swift in Sources */,
-				F1F708B629D4825300BB24CA /* ChatView.swift in Sources */,
 				F1EB046529BDCD7F009764E8 /* HomeViewController.swift in Sources */,
 				F1A46DE629CF824700DF63DF /* MyPageViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
