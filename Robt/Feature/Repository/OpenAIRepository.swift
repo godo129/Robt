@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct OpenAIRepository {
+final class OpenAIRepository {
     private let openAIProvider: NetworkProvider<OpenAIAPI>
     init(openAIProvider: NetworkProvider<OpenAIAPI>) {
         self.openAIProvider = openAIProvider
     }
 
-    func chat(_ text: String) async throws {
+    func chat(_ message: ChatMessage) async throws {
         do {
-            let data = try await openAIProvider.request(.chat(.init(messages: [.init(role: "user", content: text)])))
+            let data = try await openAIProvider.request(.chat(.init(messages: [message])))
+            print(data.decode(ChatResponse.self))
         } catch {
             print(error)
         }

@@ -88,6 +88,9 @@
 		F1F708C129D7F99400BB24CA /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C029D7F99400BB24CA /* ChatRequest.swift */; };
 		F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C229D7FBB500BB24CA /* APIEnvironment.swift */; };
 		F1F708C529D7FCD600BB24CA /* OpenAIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */; };
+		F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C629D8086000BB24CA /* ChatRole.swift */; };
+		F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C829D80AB400BB24CA /* ChatResponse.swift */; };
+		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +174,9 @@
 		F1F708C029D7F99400BB24CA /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
 		F1F708C229D7FBB500BB24CA /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRepository.swift; sourceTree = "<group>"; };
+		F1F708C629D8086000BB24CA /* ChatRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRole.swift; sourceTree = "<group>"; };
+		F1F708C829D80AB400BB24CA /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
+		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +414,7 @@
 				F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */,
 				F1F1E54A29C7429C00C21576 /* UIControl+.swift */,
 				F1A46DD929CF591D00DF63DF /* Encodable+.swift */,
+				F1F708CA29D80B9800BB24CA /* Data+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -543,8 +550,9 @@
 		F1F708BD29D7F97900BB24CA /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				F1F708BF29D7F98600BB24CA /* Response */,
 				F1F708BE29D7F98100BB24CA /* Request */,
+				F1F708BF29D7F98600BB24CA /* Response */,
+				F1F708C629D8086000BB24CA /* ChatRole.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -560,6 +568,7 @@
 		F1F708BF29D7F98600BB24CA /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -746,6 +755,7 @@
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
+				F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */,
 				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
@@ -764,7 +774,9 @@
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
+				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
+				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
 				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,

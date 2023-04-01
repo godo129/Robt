@@ -8,19 +8,14 @@
 import Foundation
 
 struct ChatRequest: Encodable {
-    let model: String = "gpt-3.5-turbo"
-    let messages: [Message]
+    let model: String = APIEnvironment.chatModel
+    let messages: [ChatMessage]
     let temperature: Float = APIEnvironment.openAITemperature
     let maxTokens: Int = APIEnvironment.openAIMaxTokens
-    let stop: [String] = ["aaaaaa"]
+    let stop: [String] = ["stop Chat"]
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case model, messages, temperature, stop
         case maxTokens = "max_tokens"
-    }
-
-    struct Message: Encodable {
-        let role: String
-        let content: String
     }
 }

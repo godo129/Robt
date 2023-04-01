@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct ChatMessage: Hashable {
-    let text: String
+struct ChatMessage: Hashable, Codable {
+    let role: ChatRole
+    let content: String
 }

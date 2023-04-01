@@ -13,4 +13,5 @@ enum APIEnvironment {
     ) as! String
     static var openAITemperature: Float = 0.5
     static var openAIMaxTokens: Int = 200
+    static var chatModel: String = "gpt-3.5-turbo"
 }

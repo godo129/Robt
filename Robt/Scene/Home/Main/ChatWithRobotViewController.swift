@@ -27,10 +27,7 @@ final class ChatWithRobotViewController: UIViewController {
 
     private var commentView = UIView()
 
-    private var chatMessages: [ChatMessage] = [
-        .init(text: "awehotawhotwaoawtehpawwopiapowhawefaewfaewfewafaewafepio"),
-        .init(text: "WAetaweahwotatwhtw\nawethoewathatwehoaitw\nehpoawiowethpoi\nthoatw")
-    ]
+    private var chatMessages: [ChatMessage] = [.init(role: .user, content: "안녕ㅈㄷㅁㅅㅁㅈㄷㄷㅈㅁㅈㅁㄷㅅㅁㅈㄷㅅㅈㅁㅅㄷㅈㅅㅁㄷㅈㅅㅁㄷㅅㅈㅅㅈㅅㅈㅁㅁㅅㅈㄷ"), .init(role: .assistant, content: "반가워")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +52,22 @@ extension ChatWithRobotViewController {
     }
 
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(collectionView: collectionView) { collectionView, indexPath, item in
+        dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(
+            collectionView: collectionView
+        ) { collectionView, indexPath, item in
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCell", for: indexPath) as! ChatCollectionViewCell
-            cell.bind(text: item.text, who: false)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "ChatMessageCell",
+                for: indexPath
+            ) as! ChatCollectionViewCell
+            cell.bind(chat: item)
             return cell
         }
     }
 
     private func createLayout() -> UICollectionViewLayout {
         let heightDimension = NSCollectionLayoutDimension.estimated(500)
+        let widthDimension = NSCollectionLayoutDimension.estimated(500)
 
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
@@ -72,7 +75,7 @@ extension ChatWithRobotViewController {
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8),
                                                heightDimension: heightDimension)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
@@ -94,7 +97,12 @@ extension ChatWithRobotViewController {
     func addChatMessage(_ chatMessage: ChatMessage) {
         chatMessages.append(chatMessage)
         applySnapshot()
-        collectionView.scrollToItem(at: IndexPath(item: chatMessages.count - 1, section: 0), at: .bottom, animated: true)
+//        collectionView.scrollToItem(
+//            at: IndexPath(
+//                item: chatMessages.count - 1,
+//                section: 0
+//            ), at: .bottom, animated: true
+//        )
     }
 }
 
