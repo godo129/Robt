@@ -11,10 +11,9 @@ import UIKit
 final class ChatCollectionViewCell: UICollectionViewCell {
 
     private lazy var messageLabel = UILabel().then {
-        $0.numberOfLines = 0
         $0.textAlignment = .center
         $0.font = Font.medium(size: 16)
-        $0.textColor = .black
+        $0.numberOfLines = 0
     }
 
     private lazy var bubbleView = UIStackView().then {
@@ -51,13 +50,15 @@ extension ChatCollectionViewCell {
         }
         messageLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(bubbleView.snp.verticalEdges)
-            make.horizontalEdges.equalTo(bubbleView.snp.horizontalEdges).inset(20)
+            make.horizontalEdges.equalTo(bubbleView.snp.horizontalEdges).inset(50)
         }
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         messageLabel.text = nil
+        bubbleView.snp.removeConstraints()
+        messageLabel.snp.removeConstraints()
     }
 
     func bind(chat: ChatMessage) {
@@ -67,11 +68,13 @@ extension ChatCollectionViewCell {
             messageLabel.textAlignment = .right
             bubbleView.snp.makeConstraints { make in
                 make.trailing.equalToSuperview().inset(50)
+                make.leading.lessThanOrEqualToSuperview().inset(50)
             }
         case .user:
             messageLabel.textAlignment = .left
             bubbleView.snp.makeConstraints { make in
                 make.leading.equalToSuperview().inset(50)
+                make.trailing.lessThanOrEqualToSuperview().inset(50)
             }
         }
     }

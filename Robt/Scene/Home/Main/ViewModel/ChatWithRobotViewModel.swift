@@ -36,7 +36,7 @@ final class ChatWithRobotViewModel: InputOutput {
 
         input.sink { event in
             switch event {
-            case .message(let message):
+            case let .message(message):
                 Task {
                     do {
                         let chats = try await self.useCase.chatting(text: message)
