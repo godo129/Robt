@@ -20,6 +20,7 @@ final class ChatCollectionViewCell: UICollectionViewCell {
         $0.axis = .vertical
         $0.distribution = .fillProportionally
         $0.spacing = 10
+        $0.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         $0.isLayoutMarginsRelativeArrangement = true
         $0.backgroundColor = .purple
         $0.layer.cornerRadius = 10
@@ -47,10 +48,6 @@ extension ChatCollectionViewCell {
     private func layoutConfigure() {
         bubbleView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
-        }
-        messageLabel.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(bubbleView.snp.verticalEdges)
-            make.horizontalEdges.equalTo(bubbleView.snp.horizontalEdges).inset(50)
         }
     }
 
