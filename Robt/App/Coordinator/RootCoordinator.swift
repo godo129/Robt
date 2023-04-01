@@ -28,8 +28,10 @@ final class RootCoordinator: Coordinator {
 extension RootCoordinator {
 
     func start() {
-        let mode = modeChecker()
-        start(appMode: mode)
+        Task { @MainActor in
+            let mode = await self.modeChecker()
+            self.start(appMode: mode)
+        }
     }
 
     private func start(appMode: AppMode) {
@@ -37,12 +39,17 @@ extension RootCoordinator {
         childCoordinators[appMode.tag].start()
     }
 
-    private func isAuthenticated() -> Bool {
-        return false
+    private func isAuthenticated() async -> Bool {
+        do {
+            _ = try await KeychainProvider().read(item: .appleAccount())
+            return true
+        } catch {
+            return false
+        }
     }
 
-    private func modeChecker() -> AppMode {
-        isAuthenticated() ? .home : .authentication
+    private func modeChecker() async -> AppMode {
+        await isAuthenticated() ? .home : .authentication
     }
 
     private func childCoordinatorConfiguration() {

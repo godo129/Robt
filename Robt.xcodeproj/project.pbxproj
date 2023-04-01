@@ -80,6 +80,10 @@
 		F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089429D1E79100BB24CA /* HomeViewModel.swift */; };
 		F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */; };
 		F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */; };
+		F1F708AE29D33B5400BB24CA /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */; };
+		F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */; };
+		F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B329D3467800BB24CA /* ChatMessage.swift */; };
+		F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B729D485BD00BB24CA /* CommentTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +159,10 @@
 		F1F7089429D1E79100BB24CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUseCase.swift; sourceTree = "<group>"; };
 		F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewController.swift; sourceTree = "<group>"; };
+		F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1F708B329D3467800BB24CA /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		F1F708B729D485BD00BB24CA /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +238,8 @@
 				F1F7089329D1E78500BB24CA /* ViewModel */,
 				F1EB046429BDCD7F009764E8 /* HomeViewController.swift */,
 				F1F7089829D1E8D300BB24CA /* ChatWithRobotViewController.swift */,
+				F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */,
+				F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -238,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
+				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -437,6 +448,7 @@
 		F1EB04A429BE2796009764E8 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708B129D3466200BB24CA /* Model */,
 				F1A46DED29D02DF200DF63DF /* UI */,
 				F1EB047429BE1848009764E8 /* Extension */,
 				F1A46DDF29CF64B800DF63DF /* InputOutput.swift */,
@@ -498,6 +510,22 @@
 				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F1F708B129D3466200BB24CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1F708B229D3466C00BB24CA /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1F708B229D3466C00BB24CA /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F1F708B329D3467800BB24CA /* ChatMessage.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -670,7 +698,9 @@
 				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
+				F1F708AE29D33B5400BB24CA /* ChatTableViewCell.swift in Sources */,
 				F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */,
+				F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */,
 				F1EB047929BE1B7F009764E8 /* Fonts.swift in Sources */,
 				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */,
@@ -692,6 +722,7 @@
 				F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */,
 				F1A46DE829CF83C700DF63DF /* TabBarCoordinator.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
+				F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
@@ -707,6 +738,7 @@
 				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
 				F1A46DDA29CF591D00DF63DF /* Encodable+.swift in Sources */,
+				F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */,
 				F1A46DE029CF64B800DF63DF /* InputOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
