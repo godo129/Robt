@@ -19,7 +19,8 @@ final class ChatWithRobotViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
     private lazy var commentTextField = CommentTextField(left: 20, right: 20).then {
-        $0.backgroundColor = UIColor.gray
+        $0.backgroundColor = .white
+        $0.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor.purple.cgColor
         $0.layer.borderWidth = 2
@@ -49,11 +50,21 @@ final class ChatWithRobotViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        title = "채팅"
         configureCollectionView()
         configureDataSource()
         applySnapshot(items: chatMessages)
         commentViewConfigure()
         bind()
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        tabBarController?.setTabBarVisible(visible: false, duration: 0.4, animated: true)
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     private func bind() {
@@ -132,10 +143,9 @@ extension ChatWithRobotViewController {
     private func commentViewConfigure() {
         view.addSubview(commentView)
         commentView.addSubview(commentTextField)
-
         commentView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(100)
         }
         commentTextField.snp.makeConstraints { make in

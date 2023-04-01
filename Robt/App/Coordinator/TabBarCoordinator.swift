@@ -20,7 +20,9 @@ final class TabBarCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.navigationController.isNavigationBarHidden = true
+        navigationController.isNavigationBarHidden = true
+        tabBarController.tabBar.layer.borderColor = UIColor.gray.cgColor
+        tabBarController.tabBar.layer.borderWidth = 1
     }
 }
 
@@ -35,7 +37,7 @@ extension TabBarCoordinator {
         }
         tabBarController.viewControllers = navigationControllers
         navigationController.viewControllers = [tabBarController]
-
+        tabBarController.view.backgroundColor = .white
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.tabBar.isTranslucent = false
     }
@@ -46,7 +48,6 @@ extension TabBarCoordinator {
         switch tabBarType {
         case .main:
             coordinator = MainCoordinator(navigationController: tabNavigationController)
-            coordinator.start()
         case .mypage:
             coordinator = MyPageCoordinator(navigationController: tabNavigationController)
         }

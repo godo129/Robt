@@ -93,6 +93,7 @@
 		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
 		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
 		F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */; };
+		F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D529D849B800BB24CA /* UITabBarController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +182,7 @@
 		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
 		F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewModel.swift; sourceTree = "<group>"; };
+		F1F708D529D849B800BB24CA /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
+				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
+				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
 				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
