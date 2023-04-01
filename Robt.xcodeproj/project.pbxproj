@@ -95,6 +95,7 @@
 		F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */; };
 		F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D529D849B800BB24CA /* UITabBarController+.swift */; };
 		F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D729D84E9200BB24CA /* UIViewController+.swift */; };
+		F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D929D8794400BB24CA /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +186,7 @@
 		F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewModel.swift; sourceTree = "<group>"; };
 		F1F708D529D849B800BB24CA /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		F1F708D729D84E9200BB24CA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		F1F708D929D8794400BB24CA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,8 +275,6 @@
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
-				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
-				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -423,6 +423,9 @@
 				F1F1E54A29C7429C00C21576 /* UIControl+.swift */,
 				F1A46DD929CF591D00DF63DF /* Encodable+.swift */,
 				F1F708CA29D80B9800BB24CA /* Data+.swift */,
+				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
+				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
+				F1F708D929D8794400BB24CA /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
+				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
 				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,

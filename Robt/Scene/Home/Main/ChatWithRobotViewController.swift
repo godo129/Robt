@@ -28,11 +28,7 @@ final class ChatWithRobotViewController: UIViewController {
     }
 
     private lazy var commentView: UIStackView = .init()
-
-    private var chatMessages: [ChatMessage] = [
-        .init(role: .user, content: "안녕ㅈㄷㅁㅅㅁㅈㄷㄷㅈㅁㅈㅁㄷㅅㅁㅈㄷㅅㅈㅁㅅㄷㅈㅅㅁㄷㅈㅅㅁㄷㅅㅈㅅㅈㅅㅈㅁㅁㅅㅈㄷ"),
-        .init(role: .assistant, content: "반가워")
-    ]
+    private lazy var acitivtIndicator: UIActivityIndicatorView = .init(style: .large)
 
     private let viewModel: ChatWithRobotViewModel
     private var cancellabels: Set<AnyCancellable> = .init()
@@ -54,8 +50,8 @@ final class ChatWithRobotViewController: UIViewController {
         title = "채팅"
         configureCollectionView()
         configureDataSource()
-        applySnapshot(items: chatMessages)
         commentViewConfigure()
+        inidicatorConfigure()
         bind()
     }
 
@@ -65,6 +61,7 @@ final class ChatWithRobotViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    @MainActor
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.sink { [weak self] event in
@@ -72,6 +69,7 @@ final class ChatWithRobotViewController: UIViewController {
             switch event {
             case let .chatMessages(chats):
                 self.applySnapshot(items: chats)
+                self.viewInteractiveBlock(false)
             case let .chatError(error):
                 print(error)
             }
@@ -80,9 +78,17 @@ final class ChatWithRobotViewController: UIViewController {
 
         keyboardHeightPublisher.sink { [weak self] keyboardHeight in
             guard let self else { return }
-
             self.viewPadding(bottom: keyboardHeight)
         }
+        .store(in: &cancellabels)
+
+        commentTextField.inputPublish.sink(receiveValue: { [weak self] text in
+            guard let self else { return }
+            self.commentTextField.resignFirstResponder()
+            self.commentTextField.text = ""
+            self.input.send(.message(text))
+            self.viewInteractiveBlock(true)
+        })
         .store(in: &cancellabels)
     }
 }
@@ -155,6 +161,24 @@ extension ChatWithRobotViewController {
         }
         commentTextField.snp.makeConstraints { make in
             make.edges.equalTo(commentView).inset(30)
+        }
+    }
+
+    private func inidicatorConfigure() {
+        acitivtIndicator.center = view.center
+        view.addSubview(acitivtIndicator)
+    }
+
+    private func viewInteractiveBlock(_ bool: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if bool {
+                self.view.isUserInteractionEnabled = false
+                self.acitivtIndicator.startAnimating()
+            } else {
+                self.acitivtIndicator.stopAnimating()
+                self.view.isUserInteractionEnabled = true
+            }
         }
     }
 }
