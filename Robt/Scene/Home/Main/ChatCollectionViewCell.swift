@@ -22,13 +22,13 @@ final class ChatCollectionViewCell: UICollectionViewCell {
         $0.distribution = .fillProportionally
         $0.spacing = 10
         $0.isLayoutMarginsRelativeArrangement = true
-        $0.backgroundColor = .yellow
+        $0.backgroundColor = .purple
+        $0.layer.cornerRadius = 10
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        backgroundColor = .yellow
     }
 
     @available(*, unavailable)
@@ -42,14 +42,16 @@ extension ChatCollectionViewCell {
         addSubview(bubbleView)
         bubbleView.addArrangedSubview(messageLabel)
         layoutConfigure()
+        bubbleView.setCustomSpacing(8, after: messageLabel)
     }
 
     private func layoutConfigure() {
         bubbleView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.verticalEdges.equalToSuperview()
         }
         messageLabel.snp.makeConstraints { make in
-            make.edges.equalTo(bubbleView)
+            make.verticalEdges.equalTo(bubbleView.snp.verticalEdges)
+            make.horizontalEdges.equalTo(bubbleView.snp.horizontalEdges).inset(20)
         }
     }
 
@@ -58,7 +60,18 @@ extension ChatCollectionViewCell {
         messageLabel.text = nil
     }
 
-    func bind(text: String) {
+    func bind(text: String, who: Bool) {
         messageLabel.text = text
+        if who {
+            messageLabel.textAlignment = .right
+            bubbleView.snp.makeConstraints { make in
+                make.trailing.equalToSuperview().inset(50)
+            }
+        } else {
+            messageLabel.textAlignment = .left
+            bubbleView.snp.makeConstraints { make in
+                make.leading.equalToSuperview().inset(50)
+            }
+        }
     }
 }

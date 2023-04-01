@@ -28,7 +28,7 @@ final class ChatWithRobotViewController: UIViewController {
     private var commentView = UIView()
 
     private var chatMessages: [ChatMessage] = [
-        .init(text: "awehotawhotwaoawtehpawwopiapowhpio"),
+        .init(text: "awehotawhotwaoawtehpawwopiapowhawefaewfaewfewafaewafepio"),
         .init(text: "WAetaweahwotatwhtw\nawethoewathatwehoaitw\nehpoawiowethpoi\nthoatw")
     ]
 
@@ -58,7 +58,7 @@ extension ChatWithRobotViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(collectionView: collectionView) { collectionView, indexPath, item in
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCell", for: indexPath) as! ChatCollectionViewCell
-            cell.bind(text: item.text)
+            cell.bind(text: item.text, who: false)
             return cell
         }
     }
