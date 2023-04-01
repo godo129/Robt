@@ -10,20 +10,25 @@ import UIKit
 
 final class ChatCollectionViewCell: UICollectionViewCell {
 
+    static let identifier = String(describing: ChatCollectionViewCell.self)
+
     private lazy var messageLabel = UILabel().then {
-        $0.numberOfLines = 0
-        $0.textAlignment = .center
         $0.font = Font.medium(size: 16)
+        $0.numberOfLines = 0
         $0.textColor = .black
+    }
+
+    private lazy var messageView = UIStackView().then {
+        $0.backgroundColor = .yellow
+        $0.layer.cornerRadius = 10
+        $0.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        $0.isLayoutMarginsRelativeArrangement = true
     }
 
     private lazy var bubbleView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .fillProportionally
         $0.spacing = 10
-        $0.isLayoutMarginsRelativeArrangement = true
-        $0.backgroundColor = .purple
-        $0.layer.cornerRadius = 10
     }
 
     override init(frame: CGRect) {
@@ -40,18 +45,18 @@ final class ChatCollectionViewCell: UICollectionViewCell {
 extension ChatCollectionViewCell {
     private func configure() {
         addSubview(bubbleView)
-        bubbleView.addArrangedSubview(messageLabel)
+        messageView.addArrangedSubview(messageLabel)
+        bubbleView.addArrangedSubview(messageView)
         layoutConfigure()
-        bubbleView.setCustomSpacing(8, after: messageLabel)
     }
 
     private func layoutConfigure() {
         bubbleView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview()
         }
-        messageLabel.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(bubbleView.snp.verticalEdges)
-            make.horizontalEdges.equalTo(bubbleView.snp.horizontalEdges).inset(20)
+        messageView.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview()
+            make.horizontalEdges.lessThanOrEqualToSuperview()
         }
     }
 
@@ -63,15 +68,17 @@ extension ChatCollectionViewCell {
     func bind(chat: ChatMessage) {
         messageLabel.text = chat.content
         switch chat.role {
-        case .assistant, .system:
+        case .user:
             messageLabel.textAlignment = .right
             bubbleView.snp.makeConstraints { make in
-                make.trailing.equalToSuperview().inset(50)
+                make.trailing.equalToSuperview().inset(20)
+                make.leading.lessThanOrEqualToSuperview().inset(50)
             }
-        case .user:
+        case .system, .assistant:
             messageLabel.textAlignment = .left
             bubbleView.snp.makeConstraints { make in
-                make.leading.equalToSuperview().inset(50)
+                make.leading.equalToSuperview().inset(20)
+                make.trailing.lessThanOrEqualToSuperview().inset(50)
             }
         }
     }

@@ -41,7 +41,9 @@ extension MainCoordinator {
     }
 
     func showChatWithRobotViewController() {
-        let viewController = ChatWithRobotViewController()
+        let usecase = DependenciesContainer.share.resolve(ChatViewUsecase.self)
+        let viewModel = ChatWithRobotViewModel(useCase: usecase, coordinator: self)
+        let viewController = ChatWithRobotViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

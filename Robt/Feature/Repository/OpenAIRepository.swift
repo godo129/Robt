@@ -22,6 +22,7 @@ final class OpenAIRepository {
     }
 
     func chatting(_ message: ChatMessage) async throws -> [ChatMessage] {
+        chatMessages.append(message)
         guard let data = try? await openAIProvider.request(
             .chat(ChatRequest(messages: chatMessages + [message]))
         ) else {
@@ -35,6 +36,6 @@ final class OpenAIRepository {
     }
 
     private func updateChat(_ messages: [ChatMessage]) {
-        chatMessages = messages
+        chatMessages.append(messages[0])
     }
 }

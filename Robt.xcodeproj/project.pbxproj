@@ -92,6 +92,10 @@
 		F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C829D80AB400BB24CA /* ChatResponse.swift */; };
 		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
 		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
+		F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */; };
+		F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D529D849B800BB24CA /* UITabBarController+.swift */; };
+		F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D729D84E9200BB24CA /* UIViewController+.swift */; };
+		F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D929D8794400BB24CA /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +183,10 @@
 		F1F708C829D80AB400BB24CA /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
 		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
+		F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewModel.swift; sourceTree = "<group>"; };
+		F1F708D529D849B800BB24CA /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
+		F1F708D729D84E9200BB24CA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		F1F708D929D8794400BB24CA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,10 +365,8 @@
 		F1EB045729BDC61F009764E8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				F1EB045C29BDC986009764E8 /* AppMode.swift */,
 				F1EB045829BDC62B009764E8 /* RootCoordinator.swift */,
 				F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */,
-				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
 				F1A46DE729CF83C700DF63DF /* TabBarCoordinator.swift */,
 				F1EB046029BDCBEB009764E8 /* MainCoordinator.swift */,
 				F1A46DE929CF882300DF63DF /* MyPageCoordinator.swift */,
@@ -417,6 +423,9 @@
 				F1F1E54A29C7429C00C21576 /* UIControl+.swift */,
 				F1A46DD929CF591D00DF63DF /* Encodable+.swift */,
 				F1F708CA29D80B9800BB24CA /* Data+.swift */,
+				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
+				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
+				F1F708D929D8794400BB24CA /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -529,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
+				F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -536,6 +546,7 @@
 		F1F708B129D3466200BB24CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708D029D81B2100BB24CA /* Type */,
 				F1F708BD29D7F97900BB24CA /* DTO */,
 				F1F708B229D3466C00BB24CA /* Entity */,
 			);
@@ -574,6 +585,15 @@
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		F1F708D029D81B2100BB24CA /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
+				F1EB045C29BDC986009764E8 /* AppMode.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -765,11 +785,13 @@
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
 				F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */,
 				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
+				F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
 				F1A46DF929D08E9300DF63DF /* JWTTokenProvider.swift in Sources */,
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
+				F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */,
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
 				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
 				F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */,
@@ -781,6 +803,7 @@
 				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
+				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
 				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,
@@ -790,6 +813,7 @@
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
+				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
 				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,

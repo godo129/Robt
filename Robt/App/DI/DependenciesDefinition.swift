@@ -36,6 +36,12 @@ final class DependenciesDefinition {
                 )
             )
         )
+        dependecies.register(
+            OpenAIRepository.self,
+            impl: OpenAIRepository(
+                openAIProvider: NetworkProvider<OpenAIAPI>()
+            )
+        )
 
         // MARK: - UseCase
 
@@ -58,6 +64,12 @@ final class DependenciesDefinition {
                 appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self),
                 userRepository: dependecies.resolve(UserRepositoryProtocol.self),
                 localRepository: dependecies.resolve(LocalRepositoryProtocol.self)
+            )
+        )
+        dependecies.register(
+            ChatViewUsecase.self,
+            impl: ChatViewUsecase(
+                openAIRepository: dependecies.resolve(OpenAIRepository.self)
             )
         )
     }
