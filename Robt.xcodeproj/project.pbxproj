@@ -94,6 +94,7 @@
 		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
 		F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */; };
 		F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D529D849B800BB24CA /* UITabBarController+.swift */; };
+		F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D729D84E9200BB24CA /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +184,7 @@
 		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
 		F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewModel.swift; sourceTree = "<group>"; };
 		F1F708D529D849B800BB24CA /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
+		F1F708D729D84E9200BB24CA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
 				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
+				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
 				F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */,
 				F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */,
+				F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */,
 				F1B8298B29C1A0EC0058C843 /* KeychainProvider.swift in Sources */,
 				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
 				F1A46DF929D08E9300DF63DF /* JWTTokenProvider.swift in Sources */,

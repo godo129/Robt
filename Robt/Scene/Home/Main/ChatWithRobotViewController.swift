@@ -27,7 +27,7 @@ final class ChatWithRobotViewController: UIViewController {
         $0.placeholder = "Enter message"
     }
 
-    private let commentView: UIStackView = .init()
+    private lazy var commentView: UIStackView = .init()
 
     private var chatMessages: [ChatMessage] = [
         .init(role: .user, content: "안녕ㅈㄷㅁㅅㅁㅈㄷㄷㅈㅁㅈㅁㄷㅅㅁㅈㄷㅅㅈㅁㅅㄷㅈㅅㅁㄷㅈㅅㅁㄷㅅㅈㅅㅈㅅㅈㅁㅁㅅㅈㄷ"),
@@ -57,13 +57,11 @@ final class ChatWithRobotViewController: UIViewController {
         applySnapshot(items: chatMessages)
         commentViewConfigure()
         bind()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        tabBarController?.setTabBarVisible(visible: false, duration: 0.4, animated: true)
-        tabBarController?.tabBar.isHidden = true
+        tabBarController?.setTabBarVisible(visible: false, duration: 0.2, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
@@ -77,6 +75,13 @@ final class ChatWithRobotViewController: UIViewController {
             case let .chatError(error):
                 print(error)
             }
+        }
+        .store(in: &cancellabels)
+
+        keyboardHeightPublisher.sink { [weak self] keyboardHeight in
+            guard let self else { return }
+
+            self.viewPadding(bottom: keyboardHeight)
         }
         .store(in: &cancellabels)
     }
