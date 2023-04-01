@@ -67,7 +67,6 @@ extension ChatWithRobotViewController {
 
     private func createLayout() -> UICollectionViewLayout {
         let heightDimension = NSCollectionLayoutDimension.estimated(500)
-        let widthDimension = NSCollectionLayoutDimension.estimated(500)
 
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
@@ -75,7 +74,7 @@ extension ChatWithRobotViewController {
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8),
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: heightDimension)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 

@@ -91,6 +91,7 @@
 		F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C629D8086000BB24CA /* ChatRole.swift */; };
 		F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C829D80AB400BB24CA /* ChatResponse.swift */; };
 		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
+		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +178,7 @@
 		F1F708C629D8086000BB24CA /* ChatRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRole.swift; sourceTree = "<group>"; };
 		F1F708C829D80AB400BB24CA /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
 		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +509,7 @@
 				F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */,
 				F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */,
 				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
+				F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				F1F708C129D7F99400BB24CA /* ChatRequest.swift in Sources */,
 				F1A46DDC29CF62BF00DF63DF /* SignInViewController.swift in Sources */,
 				F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */,
+				F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */,
 				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,

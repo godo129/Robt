@@ -15,6 +15,7 @@ struct NetworkProvider<T: API> {
         case error
     }
 
+    @MainActor
     func request(_ element: T) async throws -> Data {
         return try await withCheckedThrowingContinuation { continuation in
             AF.request(element)
