@@ -8,6 +8,7 @@
 import SnapKit
 import Then
 import UIKit
+import Combine
 
 final class ChatWithRobotViewController: UIViewController {
 
@@ -24,17 +25,48 @@ final class ChatWithRobotViewController: UIViewController {
         $0.layer.borderWidth = 2
         $0.placeholder = "Enter message"
     }
-
-    private var commentView = UIView()
-
-    private var chatMessages: [ChatMessage] = [.init(role: .user, content: "안녕ㅈㄷㅁㅅㅁㅈㄷㄷㅈㅁㅈㅁㄷㅅㅁㅈㄷㅅㅈㅁㅅㄷㅈㅅㅁㄷㅈㅅㅁㄷㅅㅈㅅㅈㅅㅈㅁㅁㅅㅈㄷ"), .init(role: .assistant, content: "반가워")]
-
+    
+    private let commentView: UIStackView = .init()
+    
+    private var chatMessages: [ChatMessage] = [
+        .init(role: .user, content: "안녕ㅈㄷㅁㅅㅁㅈㄷㄷㅈㅁㅈㅁㄷㅅㅁㅈㄷㅅㅈㅁㅅㄷㅈㅅㅁㄷㅈㅅㅁㄷㅅㅈㅅㅈㅅㅈㅁㅁㅅㅈㄷ"),
+            .init(role: .assistant, content: "반가워")
+    ]
+    
+    private let viewModel: ChatWithRobotViewModel
+    private var cancellabels: Set<AnyCancellable> = .init()
+    private let input: PassthroughSubject<ChatWithRobotViewModel.Input, Never> = .init()
+    
+    init(viewModel: ChatWithRobotViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configureDataSource()
-        applySnapshot()
+        applySnapshot(items: chatMessages)
         commentViewConfigure()
+        bind()
+    }
+    
+    private func bind() {
+        let output = viewModel.transform(input: input.eraseToAnyPublisher())
+        output.sink { [weak self] event in
+            guard let self else {return}
+            switch event {
+            case .chatMessages(let chats):
+                self.applySnapshot(items: chats)
+            case .chatError(let error):
+                print(error)
+            }
+        }
+        .store(in: &cancellabels)
     }
 }
 
@@ -85,23 +117,12 @@ extension ChatWithRobotViewController {
         return layout
     }
 
-    private func applySnapshot() {
+    private func applySnapshot(items: [ChatMessage]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, ChatMessage>()
+        snapshot.deleteAllItems()
         snapshot.appendSections([.main])
-        let messageItems = chatMessages
-        snapshot.appendItems(messageItems, toSection: .main)
+        snapshot.appendItems(items, toSection: .main)
         dataSource.apply(snapshot, animatingDifferences: true)
-    }
-
-    func addChatMessage(_ chatMessage: ChatMessage) {
-        chatMessages.append(chatMessage)
-        applySnapshot()
-//        collectionView.scrollToItem(
-//            at: IndexPath(
-//                item: chatMessages.count - 1,
-//                section: 0
-//            ), at: .bottom, animated: true
-//        )
     }
 }
 

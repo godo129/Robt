@@ -92,6 +92,7 @@
 		F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C829D80AB400BB24CA /* ChatResponse.swift */; };
 		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
 		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
+		F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,7 @@
 		F1F708C829D80AB400BB24CA /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
 		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
+		F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithRobotViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,10 +359,8 @@
 		F1EB045729BDC61F009764E8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				F1EB045C29BDC986009764E8 /* AppMode.swift */,
 				F1EB045829BDC62B009764E8 /* RootCoordinator.swift */,
 				F1EB045A29BDC8EF009764E8 /* AuthenticationCoordinator.swift */,
-				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
 				F1A46DE729CF83C700DF63DF /* TabBarCoordinator.swift */,
 				F1EB046029BDCBEB009764E8 /* MainCoordinator.swift */,
 				F1A46DE929CF882300DF63DF /* MyPageCoordinator.swift */,
@@ -529,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
+				F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -536,6 +537,7 @@
 		F1F708B129D3466200BB24CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708D029D81B2100BB24CA /* Type */,
 				F1F708BD29D7F97900BB24CA /* DTO */,
 				F1F708B229D3466C00BB24CA /* Entity */,
 			);
@@ -574,6 +576,15 @@
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		F1F708D029D81B2100BB24CA /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
+				F1EB045C29BDC986009764E8 /* AppMode.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -770,6 +781,7 @@
 				F1A46DF929D08E9300DF63DF /* JWTTokenProvider.swift in Sources */,
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
+				F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */,
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
 				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
 				F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */,
