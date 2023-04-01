@@ -25,6 +25,7 @@ final class ChatWithRobotViewController: UIViewController {
         $0.layer.borderColor = UIColor.purple.cgColor
         $0.layer.borderWidth = 2
         $0.placeholder = "Enter message"
+        $0.autocorrectionType = .no
     }
 
     private lazy var commentView: UIStackView = .init()
