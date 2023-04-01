@@ -10,6 +10,8 @@ import UIKit
 
 final class ChatCollectionViewCell: UICollectionViewCell {
 
+    static let identifier = String(describing: ChatCollectionViewCell.self)
+
     private lazy var messageLabel = UILabel().then {
         $0.textAlignment = .center
         $0.font = Font.medium(size: 16)

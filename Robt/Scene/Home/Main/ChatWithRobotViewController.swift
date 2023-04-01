@@ -101,10 +101,12 @@ extension ChatWithRobotViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
-        collectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: "ChatMessageCell")
+        collectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: ChatCollectionViewCell.identifier)
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().inset(120)
         }
     }
 
@@ -114,7 +116,7 @@ extension ChatWithRobotViewController {
         ) { collectionView, indexPath, item in
 
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "ChatMessageCell",
+                withReuseIdentifier: ChatCollectionViewCell.identifier,
                 for: indexPath
             ) as! ChatCollectionViewCell
             cell.bind(chat: item)
@@ -136,7 +138,7 @@ extension ChatWithRobotViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 40
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
@@ -157,7 +159,7 @@ extension ChatWithRobotViewController {
         commentView.addSubview(commentTextField)
         commentView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(collectionView.snp.bottom)
             make.height.equalTo(100)
         }
         commentTextField.snp.makeConstraints { make in
