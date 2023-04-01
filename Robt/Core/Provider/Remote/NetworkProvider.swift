@@ -11,7 +11,7 @@ import Foundation
 struct NetworkProvider<T: API> {
 
     enum NetworkError: Error {
-        case noData
+        case noResponse
         case error
     }
 
@@ -24,7 +24,7 @@ struct NetworkProvider<T: API> {
                         return
                     }
                     guard let data = response.data else {
-                        continuation.resume(throwing: NetworkError.noData)
+                        continuation.resume(throwing: NetworkError.noResponse)
                         return
                     }
                     print(String(data: data, encoding: .utf8)!)
