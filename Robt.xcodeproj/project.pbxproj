@@ -84,6 +84,14 @@
 		F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */; };
 		F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B329D3467800BB24CA /* ChatMessage.swift */; };
 		F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708B729D485BD00BB24CA /* CommentTextField.swift */; };
+		F1F708BC29D7F96500BB24CA /* OpenAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708BB29D7F96500BB24CA /* OpenAIAPI.swift */; };
+		F1F708C129D7F99400BB24CA /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C029D7F99400BB24CA /* ChatRequest.swift */; };
+		F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C229D7FBB500BB24CA /* APIEnvironment.swift */; };
+		F1F708C529D7FCD600BB24CA /* OpenAIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */; };
+		F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C629D8086000BB24CA /* ChatRole.swift */; };
+		F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708C829D80AB400BB24CA /* ChatResponse.swift */; };
+		F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CA29D80B9800BB24CA /* Data+.swift */; };
+		F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +171,14 @@
 		F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1F708B329D3467800BB24CA /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F1F708B729D485BD00BB24CA /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
+		F1F708BB29D7F96500BB24CA /* OpenAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPI.swift; sourceTree = "<group>"; };
+		F1F708C029D7F99400BB24CA /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
+		F1F708C229D7FBB500BB24CA /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRepository.swift; sourceTree = "<group>"; };
+		F1F708C629D8086000BB24CA /* ChatRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRole.swift; sourceTree = "<group>"; };
+		F1F708C829D80AB400BB24CA /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
+		F1F708CA29D80B9800BB24CA /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A46DD329CF3B8200DF63DF /* UserAPI.swift */,
+				F1F708BB29D7F96500BB24CA /* OpenAIAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -202,6 +219,7 @@
 		F1A46DC829CA03C200DF63DF /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708C229D7FBB500BB24CA /* APIEnvironment.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -398,6 +416,7 @@
 				F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */,
 				F1F1E54A29C7429C00C21576 /* UIControl+.swift */,
 				F1A46DD929CF591D00DF63DF /* Encodable+.swift */,
+				F1F708CA29D80B9800BB24CA /* Data+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -490,6 +509,7 @@
 				F1A46DE129CF673C00DF63DF /* SignInViewUseCase.swift */,
 				F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */,
 				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
+				F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -500,6 +520,7 @@
 				F1B8298829C18E950058C843 /* AppleAuthenticationRepository.swift */,
 				F1A46DD529CF3BC300DF63DF /* UserRepository.swift */,
 				F1A46DF329D0340900DF63DF /* LocalRepository.swift */,
+				F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -515,6 +536,7 @@
 		F1F708B129D3466200BB24CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1F708BD29D7F97900BB24CA /* DTO */,
 				F1F708B229D3466C00BB24CA /* Entity */,
 			);
 			path = Model;
@@ -526,6 +548,32 @@
 				F1F708B329D3467800BB24CA /* ChatMessage.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F1F708BD29D7F97900BB24CA /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F1F708BE29D7F98100BB24CA /* Request */,
+				F1F708BF29D7F98600BB24CA /* Response */,
+				F1F708C629D8086000BB24CA /* ChatRole.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F1F708BE29D7F98100BB24CA /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F1F708C029D7F99400BB24CA /* ChatRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		F1F708BF29D7F98600BB24CA /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,8 +741,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F708BC29D7F96500BB24CA /* OpenAIAPI.swift in Sources */,
+				F1F708C129D7F99400BB24CA /* ChatRequest.swift in Sources */,
 				F1A46DDC29CF62BF00DF63DF /* SignInViewController.swift in Sources */,
 				F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */,
+				F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */,
 				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
@@ -702,11 +753,13 @@
 				F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */,
 				F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */,
 				F1EB047929BE1B7F009764E8 /* Fonts.swift in Sources */,
+				F1F708C529D7FCD600BB24CA /* OpenAIRepository.swift in Sources */,
 				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
+				F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */,
 				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
@@ -719,12 +772,15 @@
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
 				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
+				F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */,
 				F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */,
 				F1A46DE829CF83C700DF63DF /* TabBarCoordinator.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
+				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
+				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
 				F1A46DF729D0366A00DF63DF /* MyPageViewModel.swift in Sources */,
 				F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */,

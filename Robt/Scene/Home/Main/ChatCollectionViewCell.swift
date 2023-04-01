@@ -60,14 +60,15 @@ extension ChatCollectionViewCell {
         messageLabel.text = nil
     }
 
-    func bind(text: String, who: Bool) {
-        messageLabel.text = text
-        if who {
+    func bind(chat: ChatMessage) {
+        messageLabel.text = chat.content
+        switch chat.role {
+        case .assistant, .system:
             messageLabel.textAlignment = .right
             bubbleView.snp.makeConstraints { make in
                 make.trailing.equalToSuperview().inset(50)
             }
-        } else {
+        case .user:
             messageLabel.textAlignment = .left
             bubbleView.snp.makeConstraints { make in
                 make.leading.equalToSuperview().inset(50)
