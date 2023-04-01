@@ -101,7 +101,10 @@ extension ChatWithRobotViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
-        collectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: ChatCollectionViewCell.identifier)
+        collectionView.register(
+            ChatCollectionViewCell.self,
+            forCellWithReuseIdentifier: ChatCollectionViewCell.identifier
+        )
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
