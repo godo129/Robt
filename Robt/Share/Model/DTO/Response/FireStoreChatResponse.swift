@@ -60,14 +60,14 @@ struct FireStoreChatResponse: Decodable {
 struct FireStoreMessage: Codable {
     let role: StringValue
     let content: StringValue
-//    let createdAt: TimeStampValue
+    let createdAt: StringValue
 
     enum RootKey: String, CodingKey {
         case fields
     }
 
     enum FieldKeys: String, CodingKey {
-        case role, content
+        case role, content, createdAt
 //        case createdAt = "created_at"
     }
 
@@ -76,19 +76,20 @@ struct FireStoreMessage: Codable {
         let fieldContainer = try container.nestedContainer(keyedBy: FieldKeys.self, forKey: .fields)
         self.role = try fieldContainer.decode(StringValue.self, forKey: .role)
         self.content = try fieldContainer.decode(StringValue.self, forKey: .content)
-//        self.createdAt = try fieldContainer.decode(TimeStampValue.self, forKey: .createdAt)
+        self.createdAt = try fieldContainer.decode(StringValue.self, forKey: .createdAt)
     }
 
-    init(message: ChatMessage, createAt _: Date = .init()) {
+    init(message: ChatMessage, createAt: Date = .init()) {
         self.role = StringValue(value: message.role.rawValue)
         self.content = StringValue(value: message.content)
-//        self.createdAt = TimeStampValue(value: createAt.toTimeStamp)
+        self.createdAt = StringValue(value: createAt.toTimeStamp)
     }
 
     func toEntity() -> ChatMessage {
         return ChatMessage(
             role: ChatRole(rawValue: role.value)!,
-            content: content.value
+            content: content.value,
+            createdAt: createdAt.value
         )
     }
 }
