@@ -23,17 +23,17 @@ struct FireStoreChatResponse: Codable {
                 var values: [Value]?
 
                 struct Value: Codable {
-                    let mapValue: FirStoreMessage?
+                    let mapValue: FireStoreMessage?
                 }
             }
         }
     }
 }
 
-struct FirStoreMessage: Codable {
+struct FireStoreMessage: Codable {
     let role: StringValue
     let content: StringValue
-    let createdAt: TimeStampValue
+//    let createdAt: TimeStampValue
 
     enum RootKey: String, CodingKey {
         case fields
@@ -41,7 +41,7 @@ struct FirStoreMessage: Codable {
 
     enum FieldKeys: String, CodingKey {
         case role, content
-        case createdAt = "created_at"
+//        case createdAt = "created_at"
     }
 
     init(from decoder: Decoder) throws {
@@ -49,13 +49,13 @@ struct FirStoreMessage: Codable {
         let fieldContainer = try container.nestedContainer(keyedBy: FieldKeys.self, forKey: .fields)
         self.role = try fieldContainer.decode(StringValue.self, forKey: .role)
         self.content = try fieldContainer.decode(StringValue.self, forKey: .content)
-        self.createdAt = try fieldContainer.decode(TimeStampValue.self, forKey: .createdAt)
+//        self.createdAt = try fieldContainer.decode(TimeStampValue.self, forKey: .createdAt)
     }
 
-    init(message: ChatMessage, createAt: Date = .init()) {
+    init(message: ChatMessage, createAt _: Date = .init()) {
         self.role = StringValue(value: message.role.rawValue)
         self.content = StringValue(value: message.content)
-        self.createdAt = TimeStampValue(value: createAt.toTimeStamp)
+//        self.createdAt = TimeStampValue(value: createAt.toTimeStamp)
     }
 
     func toEntity() -> ChatMessage {
@@ -65,5 +65,3 @@ struct FirStoreMessage: Codable {
         )
     }
 }
-
-

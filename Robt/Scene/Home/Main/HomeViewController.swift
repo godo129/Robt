@@ -47,6 +47,16 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .white
         configure()
         bind()
+
+        Task {
+            let repository = ChatRepository(fireStoreProvider: .init(), keychainProvider: KeychainProvider())
+            let data = try await repository.storeChat(.init(role: .user, content: "StringAWEttewtwewte"))
+            print(data)
+//            print(data)
+
+//            let data2 = FireStoreChat(name: "awtweat", fields: .init(messages: .init(message: .init(role: .assistant, content: "ewatawettwe"))))
+//            print(String(data: data2.toJson!, encoding: .utf8))
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

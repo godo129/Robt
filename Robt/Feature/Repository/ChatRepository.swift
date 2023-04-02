@@ -8,6 +8,12 @@
 import Foundation
 
 final class ChatRepository {
+    enum ChatRepositoryError: Error {
+        case decodeError
+        case responseErorr
+        case noUserId
+    }
+
     private let fireStoreProvider: NetworkProvider<FireStoreAPI>
     private let keychainProvider: KeychainProviderProtocol
     init(
@@ -22,21 +28,34 @@ final class ChatRepository {
         return try await keychainProvider.read(item: .appleAccount())
     }
 
-    func storeChat(_ message: ChatMessage) async throws {
-        let userID = try await getUserId()
-        let chat = FirStoreMessage(message: message)
-        let request = try await fireStoreProvider.request(
+    func storeChat(_ message: ChatMessage) async throws -> FireStoreChatResponse {
+        guard let userID = try? await getUserId() else {
+            throw ChatRepositoryError.noUserId
+        }
+        guard let response = try? await fireStoreProvider.request(
             .postChats(
                 userID,
-                Chat([chat])
+                Chat([message])
             )
-        )
-        print(String(data: request, encoding: .utf8)!)
+        ) else {
+            throw ChatRepositoryError.responseErorr
+        }
+        guard let data = response.decode(FireStoreChatResponse.self) else {
+            throw ChatRepositoryError.decodeError
+        }
+        return data
     }
 
-//    func getChats() async throws -> FireStoreChat {
-//        let userID = try await getUserId()
-//        let response = try await fireStoreProvider.request(.getChats("szLl1G6yNiwQCspEp4Ha"))
-//        return response.decode(FireStoreChat.self)!
-//    }
+    func getChats() async throws -> FireStoreChatResponse {
+        guard let userID = try? await getUserId() else {
+            throw ChatRepositoryError.noUserId
+        }
+        guard let response = try? await fireStoreProvider.request(.getChats(userID)) else {
+            throw ChatRepositoryError.responseErorr
+        }
+        guard let data = response.decode(FireStoreChatResponse.self) else {
+            throw ChatRepositoryError.decodeError
+        }
+        return data
+    }
 }
