@@ -80,6 +80,7 @@ final class ChatWithRobotViewController: UIViewController {
             case let .chatMessages(chattings):
                 self.chats = chattings
                 self.applySnapshot(items: self.chats)
+                self.scrollTo(index: self.chats.count)
                 self.viewInteractiveBlock(false)
             case let .chatError(error):
                 print(error)
@@ -100,6 +101,7 @@ final class ChatWithRobotViewController: UIViewController {
             self.commentTextField.text = ""
             self.chats.append(ChatMessage(role: .user, content: text))
             self.applySnapshot(items: self.chats)
+            self.scrollTo(index: self.chats.count)
             self.input.send(.message(text))
             self.viewInteractiveBlock(true)
         })
@@ -234,5 +236,12 @@ extension ChatWithRobotViewController {
         alert.addAction(deleteAction)
 
         present(alert, animated: true, completion: nil)
+    }
+
+    private func scrollTo(index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            let indexPath = IndexPath(item: index - 1, section: 0)
+            self?.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        }
     }
 }

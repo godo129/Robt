@@ -15,4 +15,10 @@ struct ChatMessage: Hashable, Codable {
     private enum CodingKeys: String, CodingKey {
         case role, content
     }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(role)
+        hasher.combine(content)
+        hasher.combine(createdAt)
+    }
 }
