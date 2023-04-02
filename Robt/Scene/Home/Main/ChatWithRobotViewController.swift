@@ -223,7 +223,7 @@ extension ChatWithRobotViewController {
     @objc func deleteActionViewPopUp() {
         let alert = UIAlertController(
             title: "지금까지 대화한 내용을 삭제하겠습니까?",
-            message: "지금 까지 대화해던 모든 내용이 삭제 됩니다.\n(그 동안의 우리의 추억은 😢😢😢)",
+            message: "지금까지 대화했던 모든 내용이 삭제됩니다.\n(그동안의 우리의 추억은 😢😢😢)",
             preferredStyle: .alert
         )
 
