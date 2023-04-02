@@ -39,9 +39,10 @@ final class SignInViewModel: InputOutput {
             case .appleSignInButtonTapped:
                 Task {
                     do {
-                        let userID = try await self.usecase.signIn()
+                        let data: () = try await self.usecase.signIn()
                         self.coordinator.delegate?.finish(appMode: .authentication)
                     } catch {
+                        print(error)
                         self.outPut.send(.signInError)
                     }
                 }

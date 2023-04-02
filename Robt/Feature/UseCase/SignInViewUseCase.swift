@@ -8,16 +8,31 @@
 import Foundation
 
 protocol SignInViewUseCaseProtocol {
-    func signIn() async throws -> String
+    func signIn() async throws
 }
 
 struct SignInViewUseCase: SignInViewUseCaseProtocol {
-    private let appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol
-    init(appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol) {
-        self.appleAuthenticationRepository = appleAuthenticationRepository
+
+    enum SignInViewUseCaseError: Error {
+        case signInError
     }
 
-    func signIn() async throws -> String {
-        return try await appleAuthenticationRepository.signUp()
+    private let appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol
+    private let userRepository: UserRepositoryProtocol
+    init(
+        appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol,
+        userRepository: UserRepositoryProtocol
+    ) {
+        self.appleAuthenticationRepository = appleAuthenticationRepository
+        self.userRepository = userRepository
+    }
+
+    func signIn() async throws {
+        do {
+            let userId = try await appleAuthenticationRepository.signUp()
+            _ = try await userRepository.isSignIn(userId: userId)
+        } catch {
+            throw SignInViewUseCaseError.signInError
+        }
     }
 }
