@@ -29,7 +29,7 @@ final class ChatRepository {
         return try await keychainProvider.read(item: .appleAccount())
     }
 
-    func storeChat(_ message: ChatMessage) async throws -> FireStoreChatResponse {
+    func storeChats(_ messages: [ChatMessage]) async throws -> FireStoreChatResponse {
         guard let _ = try? await deleteChats() else {
             throw ChatRepositoryError.deleteChatError
         }
@@ -39,7 +39,7 @@ final class ChatRepository {
         guard let response = try? await fireStoreProvider.request(
             .postChats(
                 userID,
-                FireStoreChatRequest([message])
+                FireStoreChatRequest(messages)
             )
         ) else {
             throw ChatRepositoryError.responseErorr

@@ -18,12 +18,29 @@ final class ChatViewUsecase {
         self.chatRepository = chatRepository
     }
 
-    func fetchChatting() async throws -> [ChatMessage] {
+    func fetchChats() async throws -> [ChatMessage] {
         return try await chatRepository.getChats().toEntity()
+    }
+
+    func saveChats(_ messages: [ChatMessage]) async throws -> [ChatMessage] {
+        return try await chatRepository.storeChats(messages).toEntity()
     }
 
     func chatting(text: String) async throws -> [ChatMessage] {
         let chatMessage = ChatMessage(role: .user, content: text)
-        return try await openAIRepository.chatting(chatMessage)
+        do {
+
+            var chats = try await fetchChats()
+            chats.append(chatMessage)
+            let robotChat = try await openAIRepository.chatting(chats).toEntity()
+            chats += robotChat
+            let savedChats = try await saveChats(chats)
+            return savedChats
+        } catch {
+//            throw error
+            let robotChat = try await openAIRepository.chatting([chatMessage]).toEntity()
+            let savedChats = try await saveChats(robotChat)
+            return savedChats
+        }
     }
 }
