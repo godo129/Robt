@@ -79,10 +79,10 @@ struct FireStoreMessage: Codable {
         self.createdAt = try fieldContainer.decode(StringValue.self, forKey: .createdAt)
     }
 
-    init(message: ChatMessage, createAt: Date = .init()) {
+    init(message: ChatMessage) {
         self.role = StringValue(value: message.role.rawValue)
         self.content = StringValue(value: message.content)
-        self.createdAt = StringValue(value: createAt.toTimeStamp)
+        self.createdAt = StringValue(value: message.createdAt ?? Date().toTimeStamp)
     }
 
     func toEntity() -> ChatMessage {

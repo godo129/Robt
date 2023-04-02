@@ -52,5 +52,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29F98FCD-7D98-4002-B6CB-16C6ED855DE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Robt/Feature/Repository/ChatRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getChats()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "29F98FCD-7D98-4002-B6CB-16C6ED855DE4 - d9da8566d953d712"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Robt.ChatRepository.getChats() async throws -&gt; Robt.FireStoreChatResponse"
+                  moduleName = "Robt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hong/Desktop/Robt/Robt/Robt/Feature/Repository/ChatRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "29F98FCD-7D98-4002-B6CB-16C6ED855DE4 - f82b7497eb249b14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Robt.ChatRepository.getChats() async throws -&gt; Robt.FireStoreChatResponse"
+                  moduleName = "Robt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hong/Desktop/Robt/Robt/Robt/Feature/Repository/ChatRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B54A409-7CAB-4C30-9B0D-A5C01F7BA09B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Robt/Feature/UseCase/ChatViewUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "chatting(text:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

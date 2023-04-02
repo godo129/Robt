@@ -32,7 +32,7 @@ final class ChatViewUsecase {
     }
 
     func chatting(text: String) async throws -> [ChatMessage] {
-        let chatMessage = ChatMessage(role: .user, content: text)
+        let chatMessage = ChatMessage(role: .user, content: text, createdAt: Date().toTimeStamp)
         do {
 
             var chats = try await fetchChats()

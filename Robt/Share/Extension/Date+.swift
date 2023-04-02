@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     var toTimeStamp: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:sssss.SSSSSSZ"
         let timeStampString = formatter.string(from: self)
         return timeStampString
     }
