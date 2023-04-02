@@ -62,7 +62,7 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: confirmTitle ?? "확인", style: .default, handler: { _ in
             confirmAction?()
         }))
-        alert.addAction(UIAlertAction(title: cancelTitle ?? "취소", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: cancelTitle ?? "취소", style: .destructive, handler: { _ in
             cancelAction?()
         }))
         DispatchQueue.main.async { [weak self] in

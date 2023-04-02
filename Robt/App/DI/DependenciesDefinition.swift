@@ -74,7 +74,9 @@ final class DependenciesDefinition {
             impl: MyPageViewUseCase(
                 appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self),
                 userRepository: dependecies.resolve(UserRepositoryProtocol.self),
-                localRepository: dependecies.resolve(LocalRepositoryProtocol.self)
+                localRepository: dependecies.resolve(LocalRepositoryProtocol.self),
+                chatRepository:
+                dependecies.resolve(ChatRepository.self)
             )
         )
         dependecies.register(

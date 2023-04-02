@@ -63,12 +63,28 @@ final class MyPageViewController: UIViewController {
         .store(in: &cancellables)
 
         signOutButton.tapPublisher.sink { [weak self] _ in
-            self?.input.send(.signOutButtonTapped)
+            self?.presentConfirmationAlert(
+                title: "로그아웃 하시겠습니까?",
+                message: "",
+                confirmTitle: "확인",
+                cancelTitle: "취소",
+                confirmAction: {
+                    self?.input.send(.signOutButtonTapped)
+                }
+            )
         }
         .store(in: &cancellables)
 
         withdrawalButton.tapPublisher.sink { [weak self] _ in
-            self?.input.send(.withdrawalButtonTapped)
+            self?.presentConfirmationAlert(
+                title: "회원 탈퇴하시겠습니가?",
+                message: "이전까지 있던 정보가 전부 사라집니다",
+                confirmTitle: "확인",
+                cancelTitle: "취소",
+                confirmAction: {
+                    self?.input.send(.withdrawalButtonTapped)
+                }
+            )
         }
         .store(in: &cancellables)
     }
