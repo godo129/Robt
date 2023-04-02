@@ -58,14 +58,15 @@ extension AgreementViewController {
     }
 
     private func layoutConfigure() {
-        termsOfUseView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(120)
-        }
         conformButton.snp.makeConstraints { make in
-            make.top.equalTo(termsOfUseView.snp.bottom).offset(20)
+            make.height.equalTo(50)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+
+        termsOfUseView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(conformButton.snp.top).inset(20)
         }
     }
 }
