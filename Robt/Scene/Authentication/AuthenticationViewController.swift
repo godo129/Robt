@@ -23,6 +23,10 @@ final class AuthenticationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private lazy var homeImageView = UIImageView().then {
+        $0.image = UIImage(named: "home.robot")
+    }
+
     private lazy var signInButton = UIButton().then {
         $0.setTitle("로그인", for: .normal)
         $0.setTitleColor(.black, for: .normal)
@@ -51,22 +55,24 @@ final class AuthenticationViewController: UIViewController {
         layoutConfiguration()
         buttonConfiguration()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 }
 
 extension AuthenticationViewController {
     private func configuration() {
         view.backgroundColor = .white
-        [signInButton, signUpButton].forEach {
+        [homeImageView, signInButton, signUpButton].forEach {
             view.addSubview($0)
         }
     }
 
     private func layoutConfiguration() {
+
+        homeImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(100)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(200)
+        }
+
         signInButton.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.bottom.leading.equalTo(view.safeAreaLayoutGuide).inset(20)

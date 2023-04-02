@@ -68,6 +68,11 @@ final class SignUpViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     private func bind() {
 
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
