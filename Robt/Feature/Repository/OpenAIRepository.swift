@@ -8,8 +8,8 @@
 import Foundation
 
 final class OpenAIRepository {
-
-    private var chatMessages: [ChatMessage] = []
+//
+//    private var chatMessages: [ChatMessage] = []
 
     enum OpenAIRepositoyError: Error {
         case responseError
@@ -21,21 +21,20 @@ final class OpenAIRepository {
         self.openAIProvider = openAIProvider
     }
 
-    func chatting(_ message: ChatMessage) async throws -> [ChatMessage] {
-        chatMessages.append(message)
+    func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse {
         guard let data = try? await openAIProvider.request(
-            .chat(ChatRequest(messages: chatMessages + [message]))
+            .chat(ChatRequest(messages: messages))
         ) else {
             throw OpenAIRepositoyError.responseError
         }
         guard let chats = data.decode(ChatResponse.self) else {
             throw OpenAIRepositoyError.decodeError
         }
-        updateChat(chats.toEntity())
-        return chatMessages
+//        updateChat(chats.toEntity())
+        return chats
     }
-
-    private func updateChat(_ messages: [ChatMessage]) {
-        chatMessages.append(messages[0])
-    }
+//
+//    private func updateChat(_ messages: [ChatMessage]) {
+//        chatMessages.append(messages[0])
+//    }
 }

@@ -12,6 +12,9 @@ final class ChatWithRobotViewModel: InputOutput {
 
     enum Input {
         case message(String)
+        case viewDidLoad
+        case deleteAllChats
+        case report(Int)
     }
 
     enum Output {
@@ -34,12 +37,40 @@ final class ChatWithRobotViewModel: InputOutput {
 
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
 
-        input.sink { event in
+        input.sink { [weak self] event in
+            guard let self else { return }
             switch event {
             case let .message(message):
                 Task {
                     do {
-                        let chats = try await self.useCase.chatting(text: message)
+                        var chats = try await self.useCase.chatting(text: message)
+                        self.outPut.send(.chatMessages(chats))
+                    } catch {
+                        self.outPut.send(.chatError(error))
+                    }
+                }
+            case .viewDidLoad:
+                Task {
+                    do {
+                        let chats = try await self.useCase.fetchChats()
+                        self.outPut.send(.chatMessages(chats))
+                    } catch {
+                        self.outPut.send(.chatError(error))
+                    }
+                }
+            case .deleteAllChats:
+                Task {
+                    do {
+                        try await self.useCase.deleteAllChats()
+                        self.outPut.send(.chatMessages([]))
+                    } catch {
+                        self.outPut.send(.chatError(error))
+                    }
+                }
+            case let .report(index):
+                Task {
+                    do {
+                        let chats = try await self.useCase.reportChat(index)
                         self.outPut.send(.chatMessages(chats))
                     } catch {
                         self.outPut.send(.chatError(error))

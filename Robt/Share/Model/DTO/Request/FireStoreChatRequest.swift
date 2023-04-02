@@ -7,26 +7,7 @@
 
 import Foundation
 
-struct ChatMessage2: Encodable {
-    let role: String
-    let createdAt: String
-    let content: String
-
-    private enum CodingKeys: String, CodingKey {
-        case role
-        case createdAt = "created_at"
-        case content
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(role, forKey: .role)
-        try container.encode(createdAt, forKey: .createdAt)
-        try container.encode(content, forKey: .content)
-    }
-}
-
-struct Chat: Encodable {
+struct FireStoreChatRequest: Encodable {
     let messages: [FireStoreMessage]
 
     private enum RootKey: String, CodingKey {
@@ -45,6 +26,10 @@ struct Chat: Encodable {
         case values
     }
 
+    private enum MessageCodingKey: String, CodingKey {
+        case mapValue
+    }
+
     func encode(to encoder: Encoder) throws {
         var rootContainer = encoder.container(keyedBy: RootKey.self)
         var fieldContainer = rootContainer.nestedContainer(keyedBy: FieldKey.self, forKey: .fields)
@@ -52,14 +37,10 @@ struct Chat: Encodable {
         var valueContaier = arrayContainer.nestedContainer(keyedBy: ValuesKey.self, forKey: .arrayValue)
         var messagesArrayContainer = valueContaier.nestedUnkeyedContainer(forKey: .values)
         for message in messages {
-            var messageContainer = messagesArrayContainer.nestedContainer(keyedBy: MessageCodingKeys.self)
+            var messageContainer = messagesArrayContainer.nestedContainer(keyedBy: MessageCodingKey.self)
             var fieldContainer = messageContainer.nestedContainer(keyedBy: RootKey.self, forKey: .mapValue)
             try message.encode(to: fieldContainer.superEncoder(forKey: .fields))
         }
-    }
-
-    private enum MessageCodingKeys: String, CodingKey {
-        case mapValue
     }
 
     init(_ message: [ChatMessage]) {

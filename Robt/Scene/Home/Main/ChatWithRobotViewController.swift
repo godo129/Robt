@@ -16,6 +16,8 @@ final class ChatWithRobotViewController: UIViewController {
         case main
     }
 
+    private var chats: [ChatMessage] = []
+
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
     private lazy var commentTextField = CommentTextField(left: 20, right: 20).then {
@@ -34,6 +36,7 @@ final class ChatWithRobotViewController: UIViewController {
     private let viewModel: ChatWithRobotViewModel
     private var cancellabels: Set<AnyCancellable> = .init()
     private let input: PassthroughSubject<ChatWithRobotViewModel.Input, Never> = .init()
+    private let collectionViewCellInput: PassthroughSubject<String, Never> = .init()
 
     init(viewModel: ChatWithRobotViewModel) {
         self.viewModel = viewModel
@@ -54,6 +57,8 @@ final class ChatWithRobotViewController: UIViewController {
         commentViewConfigure()
         inidicatorConfigure()
         bind()
+        navigationBarConfigure()
+        input.send(.viewDidLoad)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,17 +67,24 @@ final class ChatWithRobotViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     @MainActor
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.sink { [weak self] event in
             guard let self else { return }
             switch event {
-            case let .chatMessages(chats):
-                self.applySnapshot(items: chats)
+            case let .chatMessages(chattings):
+                self.chats = chattings
+                self.applySnapshot(items: self.chats)
+                self.scrollTo(index: self.chats.count)
                 self.viewInteractiveBlock(false)
             case let .chatError(error):
                 print(error)
+                self.viewInteractiveBlock(false)
             }
         }
         .store(in: &cancellabels)
@@ -87,6 +99,9 @@ final class ChatWithRobotViewController: UIViewController {
             guard let self else { return }
             self.commentTextField.resignFirstResponder()
             self.commentTextField.text = ""
+            self.chats.append(ChatMessage(role: .user, content: text))
+            self.applySnapshot(items: self.chats)
+            self.scrollTo(index: self.chats.count)
             self.input.send(.message(text))
             self.viewInteractiveBlock(true)
         })
@@ -117,12 +132,17 @@ extension ChatWithRobotViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(
             collectionView: collectionView
         ) { collectionView, indexPath, item in
-
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ChatCollectionViewCell.identifier,
                 for: indexPath
             ) as! ChatCollectionViewCell
-            cell.bind(chat: item)
+            cell.bind(chat: item, index: indexPath.row)
+            cell.reportButtonPressedPublish
+                .sink { index in
+                    guard let index else { return }
+                    self.input.send(.report(index))
+                }
+                .store(in: &self.cancellabels)
             return cell
         }
     }
@@ -179,12 +199,49 @@ extension ChatWithRobotViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             if bool {
-                self.view.isUserInteractionEnabled = false
+                self.commentView.isUserInteractionEnabled = false
                 self.acitivtIndicator.startAnimating()
             } else {
                 self.acitivtIndicator.stopAnimating()
-                self.view.isUserInteractionEnabled = true
+                self.commentView.isUserInteractionEnabled = true
             }
+        }
+    }
+
+    private func navigationBarConfigure() {
+        let deleteButton = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self, action: #selector(deleteActionViewPopUp)
+        )
+        navigationItem.rightBarButtonItems = [deleteButton]
+    }
+
+    private func deleteButtonTapped() {
+        input.send(.deleteAllChats)
+    }
+
+    @objc func deleteActionViewPopUp() {
+        let alert = UIAlertController(
+            title: "지금까지 대화한 내용을 삭제하겠습니까?",
+            message: "지금 까지 대화해던 모든 내용이 삭제 됩니다.\n(그 동안의 우리의 추억은 😢😢😢)",
+            preferredStyle: .alert
+        )
+
+        let cancelAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        let deleteAction = UIAlertAction(title: "예", style: .destructive) { [weak self] _ in
+            self?.deleteButtonTapped()
+        }
+        alert.addAction(deleteAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func scrollTo(index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            let indexPath = IndexPath(item: index - 1, section: 0)
+            self?.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
         }
     }
 }
