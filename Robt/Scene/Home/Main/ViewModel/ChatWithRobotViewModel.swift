@@ -43,7 +43,7 @@ final class ChatWithRobotViewModel: InputOutput {
             case let .message(message):
                 Task {
                     do {
-                        let chats = try await self.useCase.chatting(text: message)
+                        var chats = try await self.useCase.chatting(text: message)
                         self.outPut.send(.chatMessages(chats))
                     } catch {
                         self.outPut.send(.chatError(error))

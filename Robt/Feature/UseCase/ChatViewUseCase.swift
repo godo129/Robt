@@ -8,6 +8,11 @@
 import Foundation
 
 final class ChatViewUsecase {
+
+    enum ChatViewUsecaseError: Error {
+        case deleteChatIndexError
+    }
+
     private let openAIRepository: OpenAIRepository
     private let chatRepository: ChatRepository
     init(
@@ -50,12 +55,16 @@ final class ChatViewUsecase {
 
     func reportChat(_ index: Int) async throws -> [ChatMessage] {
         var chats = try await chatRepository.getChats().toEntity()
-        _ = chats.remove(at: index)
-        if chats.isEmpty {
-            try await deleteAllChats()
-            return []
+        if index < chats.count {
+            _ = chats.remove(at: index)
+            if chats.isEmpty {
+                try await deleteAllChats()
+                return []
+            } else {
+                return try await chatRepository.storeChats(chats).toEntity()
+            }
         } else {
-            return try await chatRepository.storeChats(chats).toEntity()
+            throw ChatViewUsecaseError.deleteChatIndexError
         }
     }
 }

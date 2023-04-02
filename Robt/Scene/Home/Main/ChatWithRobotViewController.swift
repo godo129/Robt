@@ -16,6 +16,8 @@ final class ChatWithRobotViewController: UIViewController {
         case main
     }
 
+    private var chats: [ChatMessage] = []
+
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ChatMessage>!
     private lazy var commentTextField = CommentTextField(left: 20, right: 20).then {
@@ -75,11 +77,13 @@ final class ChatWithRobotViewController: UIViewController {
         output.sink { [weak self] event in
             guard let self else { return }
             switch event {
-            case let .chatMessages(chats):
-                self.applySnapshot(items: chats)
+            case let .chatMessages(chattings):
+                self.chats = chattings
+                self.applySnapshot(items: self.chats)
                 self.viewInteractiveBlock(false)
             case let .chatError(error):
                 print(error)
+                self.viewInteractiveBlock(false)
             }
         }
         .store(in: &cancellabels)
@@ -94,6 +98,8 @@ final class ChatWithRobotViewController: UIViewController {
             guard let self else { return }
             self.commentTextField.resignFirstResponder()
             self.commentTextField.text = ""
+            self.chats.append(ChatMessage(role: .user, content: text))
+            self.applySnapshot(items: self.chats)
             self.input.send(.message(text))
             self.viewInteractiveBlock(true)
         })
