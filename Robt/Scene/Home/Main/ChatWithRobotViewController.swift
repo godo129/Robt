@@ -161,7 +161,7 @@ extension ChatWithRobotViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 40
+        section.interGroupSpacing = 10
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
