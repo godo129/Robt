@@ -51,6 +51,11 @@ final class AuthenticationViewController: UIViewController {
         layoutConfiguration()
         buttonConfiguration()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 }
 
 extension AuthenticationViewController {

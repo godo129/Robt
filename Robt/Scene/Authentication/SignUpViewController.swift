@@ -63,13 +63,19 @@ final class SignUpViewController: UIViewController {
         bind()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     private func bind() {
 
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.receive(on: DispatchQueue.main)
-            .sink { event in
+            .sink { [weak self] event in
                 switch event {
                 case .appleSignUpErrorOccured:
+                    self?.presentOKAlert(title: "회원가입에 실패하셨습니다", message: "")
                     print("apple signUpErrorOcurred")
                 }
             }
