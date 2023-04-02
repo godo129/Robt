@@ -227,13 +227,12 @@ extension ChatWithRobotViewController {
             preferredStyle: .alert
         )
 
-        let cancelAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-
-        let deleteAction = UIAlertAction(title: "예", style: .destructive) { [weak self] _ in
+        let cancelAction = UIAlertAction(title: "아니요", style: .destructive, handler: nil)
+        let deleteAction = UIAlertAction(title: "예", style: .cancel) { [weak self] _ in
             self?.deleteButtonTapped()
         }
         alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
     }
