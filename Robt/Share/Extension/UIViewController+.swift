@@ -34,4 +34,39 @@ extension UIViewController {
         )
         UIView.animate(withDuration: 0.5, delay: 0.2) {}
     }
+
+    func presentOKAlert(
+        title: String?,
+        message: String?,
+        completion: (() -> Void)? = nil
+    ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            completion?()
+        }))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    func presentConfirmationAlert(
+        title: String?,
+        message: String?,
+        confirmTitle: String?,
+        cancelTitle: String?,
+        confirmAction: (() -> Void)? = nil,
+        cancelAction: (() -> Void)? = nil
+    ) {
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: confirmTitle ?? "확인", style: .default, handler: { _ in
+            confirmAction?()
+        }))
+        alert.addAction(UIAlertAction(title: cancelTitle ?? "취소", style: .destructive, handler: { _ in
+            cancelAction?()
+        }))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
 }

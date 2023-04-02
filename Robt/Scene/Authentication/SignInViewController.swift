@@ -50,13 +50,26 @@ class SignInViewController: UIViewController {
         bind()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     private func bind() {
 
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
-        output.sink { event in
+        output.sink { [weak self] event in
             switch event {
             case .signInError:
-                print("signin error")
+                self?.presentOKAlert(
+                    title: "로그인에 실패했습니다",
+                    message: ""
+                )
             }
         }
         .store(in: &cancellables)

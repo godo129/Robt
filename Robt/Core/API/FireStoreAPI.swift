@@ -11,6 +11,7 @@ enum FireStoreAPI: API {
 
     case makeUser(String)
     case deleteUser(String)
+    case getUser(String)
     case postChats(String, FireStoreChatRequest)
     case getChats(String)
     case deleteChats(String)
@@ -27,7 +28,7 @@ enum FireStoreAPI: API {
         switch self {
         case .makeUser:
             return "/users"
-        case let .deleteUser(userId):
+        case let .deleteUser(userId), let .getUser(userId):
             return "/users/\(userId)"
         case let .getChats(userId), let .deleteChats(userId):
             return "/chats/\(userId)"
@@ -38,7 +39,7 @@ enum FireStoreAPI: API {
 
     var body: Encodable? {
         switch self {
-        case .makeUser, .deleteUser, .getChats, .deleteChats:
+        case .makeUser, .deleteUser, .getChats, .deleteChats, .getUser:
             return nil
         case let .postChats(_, data):
             return data
@@ -49,7 +50,7 @@ enum FireStoreAPI: API {
         switch self {
         case .makeUser, .postChats:
             return .post
-        case .getChats:
+        case .getChats, .getUser:
             return .get
         case .deleteUser, .deleteChats:
             return .delete
@@ -60,14 +61,14 @@ enum FireStoreAPI: API {
         switch self {
         case let .makeUser(userId), let .postChats(userId, _):
             return ["documentId": userId]
-        case .deleteUser, .getChats, .deleteChats:
+        case .deleteUser, .getChats, .deleteChats, .getUser:
             return nil
         }
     }
 
     var headers: [String: String]? {
         switch self {
-        case .makeUser, .deleteUser, .getChats, .deleteChats:
+        case .makeUser, .deleteUser, .getChats, .deleteChats, .getUser:
             return nil
         case .postChats:
             return ["Content-Type": "application/json"]

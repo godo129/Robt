@@ -27,7 +27,10 @@ final class DependenciesDefinition {
         )
         dependecies.register(
             UserRepositoryProtocol.self,
-            impl: UserRepository(userProvider: NetworkProvider<FireStoreAPI>())
+            impl: UserRepository(
+                fireStoreProvider: NetworkProvider<FireStoreAPI>(),
+                keychainProvider: dependecies.resolve(KeychainProviderProtocol.self)
+            )
         )
         dependecies.register(
             LocalRepositoryProtocol.self,
@@ -62,7 +65,8 @@ final class DependenciesDefinition {
         dependecies.register(
             SignInViewUseCaseProtocol.self,
             impl: SignInViewUseCase(
-                appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self)
+                appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self),
+                userRepository: dependecies.resolve(UserRepositoryProtocol.self)
             )
         )
         dependecies.register(
@@ -70,7 +74,9 @@ final class DependenciesDefinition {
             impl: MyPageViewUseCase(
                 appleAuthenticationRepository: dependecies.resolve(AppleAuthenticationRepositoryProtocol.self),
                 userRepository: dependecies.resolve(UserRepositoryProtocol.self),
-                localRepository: dependecies.resolve(LocalRepositoryProtocol.self)
+                localRepository: dependecies.resolve(LocalRepositoryProtocol.self),
+                chatRepository:
+                dependecies.resolve(ChatRepository.self)
             )
         )
         dependecies.register(
