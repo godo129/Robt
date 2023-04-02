@@ -54,6 +54,7 @@ final class ChatWithRobotViewController: UIViewController {
         commentViewConfigure()
         inidicatorConfigure()
         bind()
+        input.send(.viewDidLoad)
     }
 
     override func viewWillAppear(_ animated: Bool) {
