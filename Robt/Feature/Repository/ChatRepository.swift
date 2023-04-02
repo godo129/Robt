@@ -12,6 +12,7 @@ final class ChatRepository {
         case decodeError
         case responseErorr
         case noUserId
+        case deleteChatError
     }
 
     private let fireStoreProvider: NetworkProvider<FireStoreAPI>
@@ -29,6 +30,9 @@ final class ChatRepository {
     }
 
     func storeChat(_ message: ChatMessage) async throws -> FireStoreChatResponse {
+        guard let _ = try? await deleteChats() else {
+            throw ChatRepositoryError.deleteChatError
+        }
         guard let userID = try? await getUserId() else {
             throw ChatRepositoryError.noUserId
         }
@@ -57,5 +61,14 @@ final class ChatRepository {
             throw ChatRepositoryError.decodeError
         }
         return data
+    }
+
+    func deleteChats() async throws {
+        guard let userID = try? await getUserId() else {
+            throw ChatRepositoryError.noUserId
+        }
+        guard let _ = try? await fireStoreProvider.request(.deleteChats(userID)) else {
+            throw ChatRepositoryError.responseErorr
+        }
     }
 }
