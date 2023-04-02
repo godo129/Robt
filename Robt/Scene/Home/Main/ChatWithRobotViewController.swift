@@ -99,7 +99,7 @@ final class ChatWithRobotViewController: UIViewController {
             guard let self else { return }
             self.commentTextField.resignFirstResponder()
             self.commentTextField.text = ""
-            self.chats.append(ChatMessage(role: .user, content: text))
+            self.chats.append(ChatMessage(role: .user, content: text, createdAt: Date().toTimeStamp))
             self.applySnapshot(items: self.chats)
             self.scrollTo(index: self.chats.count)
             self.input.send(.message(text))
