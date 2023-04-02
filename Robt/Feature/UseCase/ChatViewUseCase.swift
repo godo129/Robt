@@ -47,4 +47,15 @@ final class ChatViewUsecase {
     func deleteAllChats() async throws {
         try await chatRepository.deleteChats()
     }
+
+    func reportChat(_ index: Int) async throws -> [ChatMessage] {
+        var chats = try await chatRepository.getChats().toEntity()
+        _ = chats.remove(at: index)
+        if chats.isEmpty {
+            try await deleteAllChats()
+            return []
+        } else {
+            return try await chatRepository.storeChats(chats).toEntity()
+        }
+    }
 }

@@ -34,6 +34,7 @@ final class ChatWithRobotViewController: UIViewController {
     private let viewModel: ChatWithRobotViewModel
     private var cancellabels: Set<AnyCancellable> = .init()
     private let input: PassthroughSubject<ChatWithRobotViewModel.Input, Never> = .init()
+    private let collectionViewCellInput: PassthroughSubject<String, Never> = .init()
 
     init(viewModel: ChatWithRobotViewModel) {
         self.viewModel = viewModel
@@ -123,12 +124,17 @@ extension ChatWithRobotViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, ChatMessage>(
             collectionView: collectionView
         ) { collectionView, indexPath, item in
-
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ChatCollectionViewCell.identifier,
                 for: indexPath
             ) as! ChatCollectionViewCell
-            cell.bind(chat: item)
+            cell.bind(chat: item, index: indexPath.row)
+            cell.reportButtonPressedPublish
+                .sink { index in
+                    guard let index else { return }
+                    self.input.send(.report(index))
+                }
+                .store(in: &self.cancellabels)
             return cell
         }
     }
@@ -207,7 +213,11 @@ extension ChatWithRobotViewController {
     }
 
     @objc func deleteActionViewPopUp() {
-        let alert = UIAlertController(title: "지금까지 대화한 내용을 삭제하겠습니까?", message: "그 동안의 우리의 추억은 😢😢😢", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "지금까지 대화한 내용을 삭제하겠습니까?",
+            message: "지금 까지 대화해던 모든 내용이 삭제 됩니다.\n(그 동안의 우리의 추억은 😢😢😢)",
+            preferredStyle: .alert
+        )
 
         let cancelAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
