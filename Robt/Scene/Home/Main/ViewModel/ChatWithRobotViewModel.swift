@@ -13,6 +13,7 @@ final class ChatWithRobotViewModel: InputOutput {
     enum Input {
         case message(String)
         case viewDidLoad
+        case deleteAllChats
     }
 
     enum Output {
@@ -52,6 +53,15 @@ final class ChatWithRobotViewModel: InputOutput {
                     do {
                         let chats = try await self.useCase.fetchChats()
                         self.outPut.send(.chatMessages(chats))
+                    } catch {
+                        self.outPut.send(.chatError(error))
+                    }
+                }
+            case .deleteAllChats:
+                Task {
+                    do {
+                        try await self.useCase.deleteAllChats()
+                        self.outPut.send(.chatMessages([]))
                     } catch {
                         self.outPut.send(.chatError(error))
                     }

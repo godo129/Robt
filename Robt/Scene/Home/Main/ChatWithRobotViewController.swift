@@ -54,6 +54,7 @@ final class ChatWithRobotViewController: UIViewController {
         commentViewConfigure()
         inidicatorConfigure()
         bind()
+        navigationBarConfigure()
         input.send(.viewDidLoad)
     }
 
@@ -61,6 +62,10 @@ final class ChatWithRobotViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.setTabBarVisible(visible: false, duration: 0.2, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     @MainActor
@@ -180,12 +185,38 @@ extension ChatWithRobotViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             if bool {
-                self.view.isUserInteractionEnabled = false
+                self.commentView.isUserInteractionEnabled = false
                 self.acitivtIndicator.startAnimating()
             } else {
                 self.acitivtIndicator.stopAnimating()
-                self.view.isUserInteractionEnabled = true
+                self.commentView.isUserInteractionEnabled = true
             }
         }
+    }
+
+    private func navigationBarConfigure() {
+        let deleteButton = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self, action: #selector(deleteActionViewPopUp)
+        )
+        navigationItem.rightBarButtonItems = [deleteButton]
+    }
+
+    private func deleteButtonTapped() {
+        input.send(.deleteAllChats)
+    }
+
+    @objc func deleteActionViewPopUp() {
+        let alert = UIAlertController(title: "지금까지 대화한 내용을 삭제하겠습니까?", message: "그 동안의 우리의 추억은 😢😢😢", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        let deleteAction = UIAlertAction(title: "예", style: .destructive) { [weak self] _ in
+            self?.deleteButtonTapped()
+        }
+        alert.addAction(deleteAction)
+
+        present(alert, animated: true, completion: nil)
     }
 }

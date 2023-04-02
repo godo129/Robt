@@ -43,4 +43,8 @@ final class ChatViewUsecase {
             return savedChats
         }
     }
+
+    func deleteAllChats() async throws {
+        try await chatRepository.deleteChats()
+    }
 }
