@@ -15,8 +15,8 @@ final class ChatCollectionViewCell: UICollectionViewCell {
     private var index: Int?
 
     private lazy var reportButton = UIButton(type: .system).then {
-        $0.setImage(UIImage(systemName: "exclamationmark.bubble.fill")!, for: .normal)
-        $0.setImage(UIImage(systemName: "exclamationmark.bubble.fill")!, for: .highlighted)
+        $0.setImage(UIImage(systemName: "xmark.octagon")!, for: .normal)
+        $0.setImage(UIImage(systemName: "xmark.octagon")!.imageByAddingAlpha(0.3), for: .highlighted)
     }
 
     private lazy var messageLabel = UILabel().then {
@@ -38,21 +38,8 @@ final class ChatCollectionViewCell: UICollectionViewCell {
         $0.isLayoutMarginsRelativeArrangement = true
     }
 
-//    private lazy var longPressRecognizer: UILongPressGestureRecognizer = {
-//        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-//        recognizer.minimumPressDuration = 2.0
-//        return recognizer
-//    }()
-
     private let reportButtonPressed = PassthroughSubject<Int?, Never>()
-//    @objc private func handleLongPress(_ recognizer: UILongPressGestureRecognizer) {
-//        if recognizer.state == .began {
-//            // handle the long press by publishing the event using the subject
-//            longPressSubject.send(message)
-//        }
-//    }
 
-    // expose the long press subject as a publisher
     var reportButtonPressedPublish: AnyPublisher<Int?, Never> {
         reportButtonPressed.eraseToAnyPublisher()
     }
@@ -60,7 +47,6 @@ final class ChatCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-//        addGestureRecognizer(longPressRecognizer)
         reportButton.addTarget(self, action: #selector(deleteActionViewPopUp), for: .touchUpInside)
     }
 

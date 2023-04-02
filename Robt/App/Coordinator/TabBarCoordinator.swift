@@ -56,7 +56,7 @@ extension TabBarCoordinator {
         coordinator.start()
 
         tabNavigationController.tabBarItem = UITabBarItem(
-            title: nil,
+            title: tabBarType.title,
             image: tabBarType.defaultImage,
             selectedImage: tabBarType.defaultImage
         )

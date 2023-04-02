@@ -8,8 +8,6 @@
 import Foundation
 
 final class OpenAIRepository {
-//
-//    private var chatMessages: [ChatMessage] = []
 
     enum OpenAIRepositoyError: Error {
         case responseError
@@ -30,11 +28,6 @@ final class OpenAIRepository {
         guard let chats = data.decode(ChatResponse.self) else {
             throw OpenAIRepositoyError.decodeError
         }
-//        updateChat(chats.toEntity())
         return chats
     }
-//
-//    private func updateChat(_ messages: [ChatMessage]) {
-//        chatMessages.append(messages[0])
-//    }
 }
