@@ -8,25 +8,25 @@
 import Foundation
 
 protocol UserRepositoryProtocol {
-    func regist(_ type: UserAPI) async throws
-    func delete(_ type: UserAPI) async throws
+    func regist(userId: String) async throws
+    func delete(userId: String) async throws
 }
 
 final class UserRepository: UserRepositoryProtocol {
-    private let userProvider: NetworkProvider<UserAPI>
-    init(userProvider: NetworkProvider<UserAPI>) {
+    private let userProvider: NetworkProvider<FireStoreAPI>
+    init(userProvider: NetworkProvider<FireStoreAPI>) {
         self.userProvider = userProvider
     }
 
-    private func request(_ type: UserAPI) async throws -> Data {
+    private func request(_ type: FireStoreAPI) async throws -> Data {
         return try await userProvider.request(type)
     }
 
-    func regist(_ type: UserAPI) async throws {
-        try await request(type)
+    func regist(userId: String) async throws {
+        try await request(.makeUser(userId))
     }
 
-    func delete(_ type: UserAPI) async throws {
-        try await request(type)
+    func delete(userId: String) async throws {
+        try await request(.deleteUser(userId))
     }
 }

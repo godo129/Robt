@@ -36,6 +36,7 @@ extension API {
         request.allHTTPHeaderFields = headers
         if let data = body {
             request.httpBody = data.toJson
+            print(String(data: data.toJson!, encoding: .utf8))
         }
         return request
     }

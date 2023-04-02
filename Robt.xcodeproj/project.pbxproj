@@ -16,7 +16,7 @@
 		F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */; };
 		F1A46DCF29CF38C500DF63DF /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */; };
 		F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD029CF398900DF63DF /* NetworkProvider.swift */; };
-		F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD329CF3B8200DF63DF /* UserAPI.swift */; };
+		F1A46DD429CF3B8200DF63DF /* FireStoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD329CF3B8200DF63DF /* FireStoreAPI.swift */; };
 		F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD529CF3BC300DF63DF /* UserRepository.swift */; };
 		F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD729CF3CA900DF63DF /* APIProtocol.swift */; };
 		F1A46DDA29CF591D00DF63DF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A46DD929CF591D00DF63DF /* Encodable+.swift */; };
@@ -96,6 +96,10 @@
 		F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D529D849B800BB24CA /* UITabBarController+.swift */; };
 		F1F708D829D84E9200BB24CA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D729D84E9200BB24CA /* UIViewController+.swift */; };
 		F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708D929D8794400BB24CA /* UITextField+.swift */; };
+		F1F708DC29D8A96E00BB24CA /* FireStoreChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708DB29D8A96E00BB24CA /* FireStoreChatRequest.swift */; };
+		F1F708DE29D8AB2000BB24CA /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708DD29D8AB2000BB24CA /* ChatRepository.swift */; };
+		F1F708E029D8B56A00BB24CA /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708DF29D8B56A00BB24CA /* Date+.swift */; };
+		F1F708E229D9390F00BB24CA /* FireStoreChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +109,7 @@
 		F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageType.swift; sourceTree = "<group>"; };
 		F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F1A46DD029CF398900DF63DF /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		F1A46DD329CF3B8200DF63DF /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		F1A46DD329CF3B8200DF63DF /* FireStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreAPI.swift; sourceTree = "<group>"; };
 		F1A46DD529CF3BC300DF63DF /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		F1A46DD729CF3CA900DF63DF /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		F1A46DD929CF591D00DF63DF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
@@ -187,6 +191,10 @@
 		F1F708D529D849B800BB24CA /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		F1F708D729D84E9200BB24CA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		F1F708D929D8794400BB24CA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		F1F708DB29D8A96E00BB24CA /* FireStoreChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreChatRequest.swift; sourceTree = "<group>"; };
+		F1F708DD29D8AB2000BB24CA /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		F1F708DF29D8B56A00BB24CA /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreChatResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +226,7 @@
 		F1A46DC529C9FF9400DF63DF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F1A46DD329CF3B8200DF63DF /* UserAPI.swift */,
+				F1A46DD329CF3B8200DF63DF /* FireStoreAPI.swift */,
 				F1F708BB29D7F96500BB24CA /* OpenAIAPI.swift */,
 			);
 			path = API;
@@ -426,6 +434,7 @@
 				F1F708D529D849B800BB24CA /* UITabBarController+.swift */,
 				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
 				F1F708D929D8794400BB24CA /* UITextField+.swift */,
+				F1F708DF29D8B56A00BB24CA /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -530,6 +539,7 @@
 				F1A46DD529CF3BC300DF63DF /* UserRepository.swift */,
 				F1A46DF329D0340900DF63DF /* LocalRepository.swift */,
 				F1F708C429D7FCD600BB24CA /* OpenAIRepository.swift */,
+				F1F708DD29D8AB2000BB24CA /* ChatRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -575,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F708C029D7F99400BB24CA /* ChatRequest.swift */,
+				F1F708DB29D8A96E00BB24CA /* FireStoreChatRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -583,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
+				F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -792,6 +804,7 @@
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */,
+				F1F708DE29D8AB2000BB24CA /* ChatRepository.swift in Sources */,
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
 				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
 				F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */,
@@ -802,6 +815,8 @@
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
 				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
+				F1F708DC29D8A96E00BB24CA /* FireStoreChatRequest.swift in Sources */,
+				F1F708E029D8B56A00BB24CA /* Date+.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
@@ -815,8 +830,9 @@
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
 				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,
-				F1A46DD429CF3B8200DF63DF /* UserAPI.swift in Sources */,
+				F1A46DD429CF3B8200DF63DF /* FireStoreAPI.swift in Sources */,
 				F1B8298929C18E950058C843 /* AppleAuthenticationRepository.swift in Sources */,
+				F1F708E229D9390F00BB24CA /* FireStoreChatResponse.swift in Sources */,
 				F1A46DDA29CF591D00DF63DF /* Encodable+.swift in Sources */,
 				F1F708B029D3423400BB24CA /* ChatCollectionViewCell.swift in Sources */,
 				F1A46DE029CF64B800DF63DF /* InputOutput.swift in Sources */,

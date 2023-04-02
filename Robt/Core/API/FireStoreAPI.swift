@@ -1,5 +1,5 @@
 //
-//  UserAPI.swift
+//  FireStoreAPI.swift
 //  Robt
 //
 //  Created by hong on 2023/03/25.
@@ -7,10 +7,12 @@
 
 import Foundation
 
-enum UserAPI: API {
+enum FireStoreAPI: API {
 
-    case user(String)
-    case userCollection(String)
+    case makeUser(String)
+    case deleteUser(String)
+    case postChats(String, Chat)
+    case getChats(String)
 
     var baseURL: URL {
         #if DEBUG
@@ -22,42 +24,52 @@ enum UserAPI: API {
 
     var path: String {
         switch self {
-        case .user:
+        case .makeUser:
             return "/users"
-        case let .userCollection(userId):
+        case let .deleteUser(userId):
             return "/users/\(userId)"
+        case let .getChats(userId):
+            return "/chats/\(userId)"
+        case .postChats:
+            return "/chats"
         }
     }
 
     var body: Encodable? {
         switch self {
-        case .user, .userCollection:
+        case .makeUser, .deleteUser, .getChats:
             return nil
+        case let .postChats(_, data):
+            return data
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .user:
+        case .makeUser, .postChats:
             return .post
-        case .userCollection:
+        case .getChats:
+            return .get
+        case .deleteUser:
             return .delete
         }
     }
 
     var parameters: [String: String]? {
         switch self {
-        case let .user(string):
-            return ["documentId": string]
-        case .userCollection:
+        case let .makeUser(userId), let .postChats(userId, _):
+            return ["documentId": userId]
+        case .deleteUser, .getChats:
             return nil
         }
     }
 
     var headers: [String: String]? {
         switch self {
-        case .user, .userCollection:
+        case .makeUser, .deleteUser, .getChats:
             return nil
+        case .postChats:
+            return ["Content-Type": "application/json"]
         }
     }
 }

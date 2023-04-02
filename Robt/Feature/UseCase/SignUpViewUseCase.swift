@@ -30,6 +30,6 @@ struct SignUpViewUseCase: SignUpViewUseCaseProtocol {
     }
 
     func registUser(id: String) async throws {
-        return try await userRepository.regist(.user(id))
+        return try await userRepository.regist(userId: id)
     }
 }

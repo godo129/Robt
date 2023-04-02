@@ -27,7 +27,7 @@ final class DependenciesDefinition {
         )
         dependecies.register(
             UserRepositoryProtocol.self,
-            impl: UserRepository(userProvider: NetworkProvider<UserAPI>())
+            impl: UserRepository(userProvider: NetworkProvider<FireStoreAPI>())
         )
         dependecies.register(
             LocalRepositoryProtocol.self,
