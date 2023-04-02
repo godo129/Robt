@@ -57,15 +57,14 @@ final class ChatCollectionViewCell: UICollectionViewCell {
             preferredStyle: .alert
         )
 
-        let cancelAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-
-        let deleteAction = UIAlertAction(title: "예", style: .destructive) { [weak self] _ in
+        let cancelAction = UIAlertAction(title: "아니요", style: .destructive, handler: nil)
+        let deleteAction = UIAlertAction(title: "예", style: .cancel) { [weak self] _ in
             guard let self else { return }
             self.reportButtonPressed.send(self.index)
         }
-        alert.addAction(deleteAction)
 
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
         window?.rootViewController?.present(alert, animated: true)
     }
 
