@@ -59,11 +59,7 @@ final class ChatWithRobotViewController: UIViewController {
         bind()
         navigationBarConfigure()
         input.send(.viewDidLoad)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.setTabBarVisible(visible: false, duration: 0.2, animated: true)
+        tabBarController?.setTabBarVisible(visible: false, duration: 0, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
