@@ -42,6 +42,13 @@ final class DependenciesDefinition {
                 openAIProvider: NetworkProvider<OpenAIAPI>()
             )
         )
+        dependecies.register(
+            ChatRepository.self,
+            impl: ChatRepository(
+                fireStoreProvider: NetworkProvider<FireStoreAPI>(),
+                keychainProvider: dependecies.resolve(KeychainProviderProtocol.self)
+            )
+        )
 
         // MARK: - UseCase
 
@@ -69,7 +76,8 @@ final class DependenciesDefinition {
         dependecies.register(
             ChatViewUsecase.self,
             impl: ChatViewUsecase(
-                openAIRepository: dependecies.resolve(OpenAIRepository.self)
+                openAIRepository: dependecies.resolve(OpenAIRepository.self),
+                chatRepository: dependecies.resolve(ChatRepository.self)
             )
         )
     }

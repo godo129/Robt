@@ -11,7 +11,7 @@ enum FireStoreAPI: API {
 
     case makeUser(String)
     case deleteUser(String)
-    case postChats(String, Chat)
+    case postChats(String, FireStoreChatRequest)
     case getChats(String)
     case deleteChats(String)
 

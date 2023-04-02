@@ -7,26 +7,53 @@
 
 import Foundation
 
-struct FireStoreChatResponse: Codable {
+struct FireStoreChatResponse: Decodable {
     let name: String?
-    let fields: Fields
+    let messages: [FireStoreMessage]
     let createTime: String?
     let updateTime: String?
 
-    struct Fields: Codable {
-        var messages: Messages?
+    private enum RootKey: String, CodingKey {
+        case fields
+        case name, updateTime, createTime
+    }
 
-        struct Messages: Codable {
-            var arrayValue: ArrayValue?
+    private enum FieldKey: String, CodingKey {
+        case messages
+    }
 
-            struct ArrayValue: Codable {
-                var values: [Value]?
+    private enum ArrayKey: String, CodingKey {
+        case arrayValue
+    }
 
-                struct Value: Codable {
-                    let mapValue: FireStoreMessage?
-                }
-            }
+    private enum ValuesKey: String, CodingKey {
+        case values
+    }
+
+    private enum MessageCodingKey: String, CodingKey {
+        case mapValue
+    }
+
+    init(from decoder: Decoder) throws {
+        let rootContainer = try decoder.container(keyedBy: RootKey.self)
+        let fieldContainer = try rootContainer.nestedContainer(keyedBy: FieldKey.self, forKey: .fields)
+        let arrayContainer = try fieldContainer.nestedContainer(keyedBy: ArrayKey.self, forKey: .messages)
+        let valueContaier = try arrayContainer.nestedContainer(keyedBy: ValuesKey.self, forKey: .arrayValue)
+        var messagesArrayContainer = try valueContaier.nestedUnkeyedContainer(forKey: .values)
+        var decodedMessages: [FireStoreMessage] = []
+        while !messagesArrayContainer.isAtEnd {
+            let messageContainer = try messagesArrayContainer.nestedContainer(keyedBy: MessageCodingKey.self)
+            let message = try messageContainer.decode(FireStoreMessage.self, forKey: .mapValue)
+            decodedMessages.append(message)
         }
+        self.messages = decodedMessages
+        self.name = try rootContainer.decodeIfPresent(String.self, forKey: .name)
+        self.createTime = try rootContainer.decodeIfPresent(String.self, forKey: .createTime)
+        self.updateTime = try rootContainer.decodeIfPresent(String.self, forKey: .updateTime)
+    }
+
+    func toEntity() -> [ChatMessage] {
+        return messages.map { $0.toEntity() }
     }
 }
 

@@ -39,7 +39,7 @@ final class ChatRepository {
         guard let response = try? await fireStoreProvider.request(
             .postChats(
                 userID,
-                Chat([message])
+                FireStoreChatRequest([message])
             )
         ) else {
             throw ChatRepositoryError.responseErorr
