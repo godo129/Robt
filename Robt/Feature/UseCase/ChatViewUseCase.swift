@@ -43,7 +43,10 @@ final class ChatViewUsecase {
             return savedChats
         } catch {
 //            throw error
-            let robotChat = try await openAIRepository.chatting([chatMessage]).toEntity()
+            var robotChat = try await openAIRepository.chatting([chatMessage]).toEntity()
+            if robotChat.count == 1 {
+                robotChat = [chatMessage] + robotChat
+            }
             let savedChats = try await saveChats(robotChat)
             return savedChats
         }

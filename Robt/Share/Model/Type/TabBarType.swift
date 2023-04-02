@@ -28,4 +28,13 @@ enum TabBarType: CaseIterable {
             return UIImage(systemName: "house")!
         }
     }
+
+    var title: String {
+        switch self {
+        case .main:
+            return "홈"
+        case .mypage:
+            return "마이페이지"
+        }
+    }
 }
