@@ -40,8 +40,14 @@ extension RootCoordinator {
     }
 
     private func isAuthenticated() async -> Bool {
+        let repository = UserRepository(
+            fireStoreProvider: NetworkProvider<FireStoreAPI>(),
+            keychainProvider: KeychainProvider()
+        )
+
         do {
-            _ = try await KeychainProvider().read(item: .appleAccount())
+            let userId = try await repository.getUserId()
+            _ = try await repository.isSignIn(userId: userId)
             return true
         } catch {
             return false
