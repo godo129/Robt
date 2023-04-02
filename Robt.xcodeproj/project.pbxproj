@@ -74,6 +74,7 @@
 		F1EB04A029BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048D29BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf */; };
 		F1EB04A129BE236B009764E8 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048E29BE236B009764E8 /* NotoSans-ExtraBold.ttf */; };
 		F1EB04A229BE236B009764E8 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB048F29BE236B009764E8 /* NotoSans-Italic.ttf */; };
+		F1EE1B2529D9ADDA00BEBED0 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE1B2429D9ADDA00BEBED0 /* AgreementViewController.swift */; };
 		F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54829C741B000C21576 /* SignUpViewModel.swift */; };
 		F1F1E54B29C7429C00C21576 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54A29C7429C00C21576 /* UIControl+.swift */; };
 		F1F1E54F29C744DB00C21576 /* SignUpViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */; };
@@ -169,6 +170,7 @@
 		F1EB048D29BE236B009764E8 /* NotoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		F1EB048E29BE236B009764E8 /* NotoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		F1EB048F29BE236B009764E8 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		F1EE1B2429D9ADDA00BEBED0 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		F1F1E54829C741B000C21576 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		F1F1E54A29C7429C00C21576 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		F1F1E54E29C744DB00C21576 /* SignUpViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUseCase.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				F1EB046629BDCD8D009764E8 /* AuthenticationViewController.swift */,
 				F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */,
 				F1A46DDB29CF62BF00DF63DF /* SignInViewController.swift */,
+				F1EE1B2429D9ADDA00BEBED0 /* AgreementViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				F1F708C529D7FCD600BB24CA /* OpenAIRepository.swift in Sources */,
 				F1EB045D29BDC986009764E8 /* AppMode.swift in Sources */,
 				F1A46DD129CF398900DF63DF /* NetworkProvider.swift in Sources */,
+				F1EE1B2529D9ADDA00BEBED0 /* AgreementViewController.swift in Sources */,
 				F1EB03EB29BCCA30009764E8 /* AppDelegate.swift in Sources */,
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,

@@ -15,6 +15,7 @@ final class SignUpViewController: UIViewController {
     private let viewModel: SignUpViewModel
     private var cancellables = Set<AnyCancellable>()
     private let input: PassthroughSubject<SignUpViewModel.Input, Never> = .init()
+    private let agreementViewConroller: AgreementViewController = .init()
 
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel
@@ -87,7 +88,15 @@ final class SignUpViewController: UIViewController {
             .store(in: &cancellables)
 
         appleSignUpButton.tapPublisher.sink { [weak self] _ in
-            self?.input.send(.appleButtonTap)
+            guard let self else { return }
+            self.present(self.agreementViewConroller, animated: true)
+        }
+        .store(in: &cancellables)
+
+        agreementViewConroller.conformPublish.sink { [weak self] _ in
+            guard let self else { return }
+            self.agreementViewConroller.dismiss(animated: true)
+            self.input.send(.appleButtonTap)
         }
         .store(in: &cancellables)
     }
