@@ -70,7 +70,7 @@ final class ChatWithRobotViewController: UIViewController {
     @MainActor
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
-        output.sink { [weak self] event in
+        output.receive(on: DispatchQueue.main).sink { [weak self] event in
             guard let self else { return }
             switch event {
             case let .chatMessages(chattings):
@@ -86,8 +86,10 @@ final class ChatWithRobotViewController: UIViewController {
         .store(in: &cancellabels)
 
         keyboardHeightPublisher.sink { [weak self] keyboardHeight in
-            guard let self else { return }
+            guard let self,
+                  let lastIndex = self.lastIndexOfVisibleCollectionView() else { return }
             self.viewPadding(bottom: keyboardHeight)
+            self.scrollTo(index: lastIndex + 1)
         }
         .store(in: &cancellabels)
 
@@ -238,5 +240,10 @@ extension ChatWithRobotViewController {
             let indexPath = IndexPath(item: index - 1, section: 0)
             self?.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
         }
+    }
+
+    private func lastIndexOfVisibleCollectionView() -> Int? {
+        let visibleCollectionViewCellIndexPaths = collectionView.indexPathsForVisibleItems.sorted(by: { $0[1] < $1[1] })
+        return visibleCollectionViewCellIndexPaths.last?.row
     }
 }

@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
     private let input: PassthroughSubject<HomeViewModel.Input, Never> = .init()
     private let viewModel: HomeViewModel
 
-    private lazy var chatWithRobotText = UITextView().then {
+    private lazy var chatWithRobotText = UILabel().then {
         $0.text = "로봇과 채팅하러가기!"
         $0.font = Font.semiBold(size: 20)
         $0.textColor = .black
