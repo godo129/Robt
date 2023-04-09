@@ -80,7 +80,7 @@ final class DependenciesDefinition {
             )
         )
         dependecies.register(
-            ChatViewUsecase.self,
+            ChatViewUsecaseProtocol.self,
             impl: ChatViewUsecase(
                 openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self),
                 chatRepository: dependecies.resolve(ChatRepositoryProtocol.self)

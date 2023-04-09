@@ -15,7 +15,7 @@ protocol ChatViewUsecaseProtocol {
     func reportChat(_ index: Int) async throws -> [ChatMessage]
 }
 
-final class ChatViewUsecase {
+final class ChatViewUsecase: ChatViewUsecaseProtocol {
 
     enum ChatViewUsecaseError: Error {
         case deleteChatIndexError
