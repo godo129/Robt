@@ -40,13 +40,13 @@ final class DependenciesDefinition {
             )
         )
         dependecies.register(
-            OpenAIRepository.self,
+            OpenAIRepositoryProtocol.self,
             impl: OpenAIRepository(
                 openAIProvider: NetworkProvider<OpenAIAPI>()
             )
         )
         dependecies.register(
-            ChatRepository.self,
+            ChatRepositoryProtocol.self,
             impl: ChatRepository(
                 fireStoreProvider: NetworkProvider<FireStoreAPI>(),
                 keychainProvider: dependecies.resolve(KeychainProviderProtocol.self)
@@ -76,14 +76,14 @@ final class DependenciesDefinition {
                 userRepository: dependecies.resolve(UserRepositoryProtocol.self),
                 localRepository: dependecies.resolve(LocalRepositoryProtocol.self),
                 chatRepository:
-                dependecies.resolve(ChatRepository.self)
+                dependecies.resolve(ChatRepositoryProtocol.self)
             )
         )
         dependecies.register(
             ChatViewUsecase.self,
             impl: ChatViewUsecase(
-                openAIRepository: dependecies.resolve(OpenAIRepository.self),
-                chatRepository: dependecies.resolve(ChatRepository.self)
+                openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self),
+                chatRepository: dependecies.resolve(ChatRepositoryProtocol.self)
             )
         )
     }
