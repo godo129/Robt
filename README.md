@@ -21,4 +21,6 @@
 </div>
 
 ## 개발 과정을 Notion 에 정리해 놓았습니다 
-<a href="https://brave-voyage-72f.notion.site/Robt-8bed1516771b4f0aa7611c421ce46eec"> <img src="https://user-images.githubusercontent.com/76652929/230781463-0357481f-ca07-4d62-93b0-96503514c530.png" height=30>
+<p align="center">
+<a href="https://brave-voyage-72f.notion.site/Robt-8bed1516771b4f0aa7611c421ce46eec"> <img src="https://user-images.githubusercontent.com/76652929/230781463-0357481f-ca07-4d62-93b0-96503514c530.png" height=100>
+</p>
