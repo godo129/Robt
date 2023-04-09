@@ -25,10 +25,10 @@ final class ChatWithRobotViewModel: InputOutput {
     var outPut: PassthroughSubject<Output, Never> = .init()
     var cancellables: Set<AnyCancellable> = .init()
     private var coordinator: MainCoordinator?
-    private let useCase: ChatViewUsecase
+    private let useCase: ChatViewUsecaseProtocol
 
     init(
-        useCase: ChatViewUsecase,
+        useCase: ChatViewUsecaseProtocol,
         coordinator: MainCoordinator
     ) {
         self.useCase = useCase

@@ -35,8 +35,9 @@ extension AuthenticationCoordinator {
     }
 
     func showSignUpViewController() {
+        @DIContainer(SignUpViewUseCaseProtocol.self) var usecase
         let signUpViewModel = SignUpViewModel(
-            signUpViewUseCase: DependenciesContainer.share.resolve(SignUpViewUseCaseProtocol.self),
+            signUpViewUseCase: usecase,
             coordinator: self
         )
         let signUpViewcontroller = SignUpViewController(viewModel: signUpViewModel)
@@ -44,8 +45,9 @@ extension AuthenticationCoordinator {
     }
 
     func showSingInViewController() {
+        @DIContainer(SignInViewUseCaseProtocol.self) var usecase
         let signInViewModel = SignInViewModel(
-            usecase: DependenciesContainer.share.resolve(SignInViewUseCaseProtocol.self),
+            usecase: usecase,
             coordinator: self
         )
         let signInViewController = SignInViewController(viewModel: signInViewModel)

@@ -7,17 +7,25 @@
 
 import Foundation
 
-final class ChatViewUsecase {
+protocol ChatViewUsecaseProtocol {
+    func fetchChats() async throws -> [ChatMessage]
+    func saveChats(_ messages: [ChatMessage]) async throws -> [ChatMessage]
+    func chatting(text: String) async throws -> [ChatMessage]
+    func deleteAllChats() async throws
+    func reportChat(_ index: Int) async throws -> [ChatMessage]
+}
+
+final class ChatViewUsecase: ChatViewUsecaseProtocol {
 
     enum ChatViewUsecaseError: Error {
         case deleteChatIndexError
     }
 
-    private let openAIRepository: OpenAIRepository
-    private let chatRepository: ChatRepository
+    private let openAIRepository: OpenAIRepositoryProtocol
+    private let chatRepository: ChatRepositoryProtocol
     init(
-        openAIRepository: OpenAIRepository,
-        chatRepository: ChatRepository
+        openAIRepository: OpenAIRepositoryProtocol,
+        chatRepository: ChatRepositoryProtocol
     ) {
         self.openAIRepository = openAIRepository
         self.chatRepository = chatRepository

@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class OpenAIRepository {
+protocol OpenAIRepositoryProtocol {
+    func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
+}
+
+final class OpenAIRepository: OpenAIRepositoryProtocol {
 
     enum OpenAIRepositoyError: Error {
         case responseError

@@ -7,7 +7,13 @@
 
 import Foundation
 
-final class ChatRepository {
+protocol ChatRepositoryProtocol {
+    func storeChats(_ messages: [ChatMessage]) async throws -> FireStoreChatResponse
+    func getChats() async throws -> FireStoreChatResponse
+    func deleteChats() async throws
+}
+
+final class ChatRepository: ChatRepositoryProtocol {
     enum ChatRepositoryError: Error {
         case decodeError
         case responseErorr

@@ -17,13 +17,13 @@ final class MyPageViewUseCase: MyPageViewUseCaseProtocol {
     private let appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol
     private let userRepository: UserRepositoryProtocol
     private let localRepository: LocalRepositoryProtocol
-    private let chatRepository: ChatRepository
+    private let chatRepository: ChatRepositoryProtocol
 
     init(
         appleAuthenticationRepository: AppleAuthenticationRepositoryProtocol,
         userRepository: UserRepositoryProtocol,
         localRepository: LocalRepositoryProtocol,
-        chatRepository: ChatRepository
+        chatRepository: ChatRepositoryProtocol
     ) {
         self.appleAuthenticationRepository = appleAuthenticationRepository
         self.userRepository = userRepository
