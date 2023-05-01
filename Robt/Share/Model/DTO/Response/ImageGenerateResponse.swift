@@ -10,7 +10,7 @@ import Foundation
 struct ImageGenerateResponse: Decodable {
     let created: Int
     let data: [ImageUrl]
-    
+
     struct ImageUrl: Decodable {
         let url: String
     }

@@ -17,7 +17,7 @@ struct ImageGenerateRequest: Encodable {
         case prompt, size
         case numberOfPicture = "n"
     }
-    
+
     init(_ imageGenerate: ImageGenerate) {
         self.prompt = imageGenerate.prompt
         self.size = imageGenerate.imageSize

@@ -15,7 +15,7 @@ struct ChatMessage: Hashable, Codable {
     private enum CodingKeys: String, CodingKey {
         case role, content
     }
-    
+
     static func translate(
         message: String,
         targetLanguage: Language

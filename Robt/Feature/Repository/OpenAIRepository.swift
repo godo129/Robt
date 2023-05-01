@@ -9,7 +9,8 @@ import Foundation
 
 protocol OpenAIRepositoryProtocol {
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
-    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse}
+    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse
+}
 
 final class OpenAIRepository: OpenAIRepositoryProtocol {
 
@@ -34,7 +35,7 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
         }
         return chats
     }
-    
+
     func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse {
         let request = ImageGenerateRequest(imageGenerate)
         guard let data = try? await openAIProvider.request(

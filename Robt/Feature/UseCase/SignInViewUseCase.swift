@@ -32,6 +32,7 @@ struct SignInViewUseCase: SignInViewUseCaseProtocol {
             let userId = try await appleAuthenticationRepository.signUp()
             _ = try await userRepository.isSignIn(userId: userId)
         } catch {
+            print(error)
             throw SignInViewUseCaseError.signInError
         }
     }

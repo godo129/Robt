@@ -12,6 +12,7 @@ final class HomeViewModel: InputOutput {
 
     enum Input {
         case chatWithRobotButtonTapped
+        case imageGenerateButtonTapped
     }
 
     enum Output {}
@@ -35,6 +36,9 @@ final class HomeViewModel: InputOutput {
             switch event {
             case .chatWithRobotButtonTapped:
                 self.coordinator?.showChatWithRobotViewController()
+            case .imageGenerateButtonTapped:
+                print("imageGenerateButtonTapped")
+                return
             }
         }
         .store(in: &cancellables)

@@ -32,6 +32,21 @@ final class HomeViewController: UIViewController {
         $0.clipsToBounds = true
     }
 
+    private lazy var imageGenerateText = UILabel().then {
+        $0.text = "이미지 생성하기!"
+        $0.font = Font.semiBold(size: 20)
+        $0.textColor = .black
+    }
+
+    private lazy var imageGenerateButton = UIButton().then {
+        $0.setImage(UIImage(named: "dalle2Images"), for: .normal)
+        $0.setBackgroundColor(.OFFFFFF.withAlphaComponent(0.5), for: .highlighted)
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 2
+        $0.layer.cornerRadius = 10
+        $0.clipsToBounds = true
+    }
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -65,12 +80,17 @@ final class HomeViewController: UIViewController {
             self?.input.send(.chatWithRobotButtonTapped)
         }
         .store(in: &cancellabels)
+
+        imageGenerateButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.imageGenerateButtonTapped)
+        }
+        .store(in: &cancellabels)
     }
 }
 
 extension HomeViewController {
     private func configure() {
-        [chatWithRobotText, chatWithRobotButtonTapped].forEach {
+        [chatWithRobotText, chatWithRobotButtonTapped, imageGenerateText, imageGenerateButton].forEach {
             view.addSubview($0)
         }
         layoutConfigure()
@@ -89,6 +109,18 @@ extension HomeViewController {
             make.top.equalTo(chatWithRobotText.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(50)
             make.height.equalTo(190)
+        }
+
+        imageGenerateText.snp.makeConstraints { make in
+            make.top.equalTo(chatWithRobotButtonTapped.snp.bottom).offset(50)
+            make.leading.trailing.equalToSuperview().inset(50)
+            make.height.equalTo(chatWithRobotText.snp.height)
+        }
+
+        imageGenerateButton.snp.makeConstraints { make in
+            make.top.equalTo(imageGenerateText.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(50)
+            make.height.equalTo(chatWithRobotButtonTapped.snp.height)
         }
     }
 }
