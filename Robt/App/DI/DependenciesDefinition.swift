@@ -86,5 +86,11 @@ final class DependenciesDefinition {
                 chatRepository: dependecies.resolve(ChatRepositoryProtocol.self)
             )
         )
+        dependecies.register(
+            ImageGenerateViewUseCaseProtocol.self,
+            impl: ImageGenerateViewUseCase(
+                openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self)
+            )
+        )
     }
 }
