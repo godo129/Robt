@@ -34,9 +34,11 @@ final class ImageGenerateViewController: UIViewController {
     }
 
     private lazy var imageView = UIImageView().then {
-        $0.image = UIImage(named: "dalle2Images")
+        $0.image = UIImage(named: "emptyImage")
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
+        $0.contentMode = .top
     }
 
     private lazy var activityIndicator: UIActivityIndicatorView = .init(style: .large)
