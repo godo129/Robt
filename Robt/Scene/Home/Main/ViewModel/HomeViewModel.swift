@@ -37,8 +37,7 @@ final class HomeViewModel: InputOutput {
             case .chatWithRobotButtonTapped:
                 self.coordinator?.showChatWithRobotViewController()
             case .imageGenerateButtonTapped:
-                print("imageGenerateButtonTapped")
-                return
+                self.coordinator?.showImageGenerateViewController()
             }
         }
         .store(in: &cancellables)

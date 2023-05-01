@@ -32,6 +32,8 @@ struct ImageGenerateViewUseCase: ImageGenerateViewUseCaseProtocol {
         do {
             var data = data
             let translatedPrompt = try await translatePrompt(message: data.prompt)
+            print("번역전 :", data.prompt)
+            print("번역 후 :", translatedPrompt)
             data.prompt = translatedPrompt
             return try await openAIRepository.imageGenerate(data).data.map { $0.url }
         } catch {
