@@ -15,4 +15,12 @@ struct ChatMessage: Hashable, Codable {
     private enum CodingKeys: String, CodingKey {
         case role, content
     }
+    
+    static func translate(
+        message: String,
+        targetLanguage: Language
+    ) -> ChatMessage {
+        let prompt = "Translate \(message) to \(targetLanguage.rawValue) and output only translated result"
+        return ChatMessage(role: .user, content: prompt)
+    }
 }

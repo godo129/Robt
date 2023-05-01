@@ -13,6 +13,8 @@
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
 		F139E31429FF809F001B94B9 /* ImageGenerateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */; };
+		F139E31629FF838D001B94B9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31529FF838D001B94B9 /* Language.swift */; };
+		F139E31829FF8499001B94B9 /* ImageGenerateViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31729FF8499001B94B9 /* ImageGenerateViewUseCase.swift */; };
 		F15B289F29D9C86400E386B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F15B289E29D9C86400E386B8 /* Alamofire */; };
 		F18404B629C9F30A006D205C /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */; };
 		F18404BD29C9F862006D205C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F18404BC29C9F862006D205C /* FirebaseAnalytics */; };
@@ -116,6 +118,8 @@
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateResponse.swift; sourceTree = "<group>"; };
+		F139E31529FF838D001B94B9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		F139E31729FF8499001B94B9 /* ImageGenerateViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewUseCase.swift; sourceTree = "<group>"; };
 		F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
 		F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageType.swift; sourceTree = "<group>"; };
 		F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
@@ -544,6 +548,7 @@
 				F1A46DF129D0338400DF63DF /* MyPageViewUseCase.swift */,
 				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
 				F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */,
+				F139E31729FF8499001B94B9 /* ImageGenerateViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -624,6 +629,7 @@
 				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
 				F1EB045C29BDC986009764E8 /* AppMode.swift */,
 				F139E31129FF805C001B94B9 /* ImageSize.swift */,
+				F139E31529FF838D001B94B9 /* Language.swift */,
 			);
 			path = Type;
 			sourceTree = "<group>";
@@ -826,6 +832,7 @@
 				F1A46DD829CF3CA900DF63DF /* APIProtocol.swift in Sources */,
 				F1A46DF929D08E9300DF63DF /* JWTTokenProvider.swift in Sources */,
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
+				F139E31629FF838D001B94B9 /* Language.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */,
 				F1C0AAFD29E32822003A175A /* DIContainer.swift in Sources */,
@@ -855,6 +862,7 @@
 				F1A46DE629CF824700DF63DF /* MyPageViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
+				F139E31829FF8499001B94B9 /* ImageGenerateViewUseCase.swift in Sources */,
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
 				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
 				F1EB047B29BE1B95009764E8 /* Palettes.swift in Sources */,

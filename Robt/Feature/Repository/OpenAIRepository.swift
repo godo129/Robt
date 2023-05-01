@@ -9,7 +9,7 @@ import Foundation
 
 protocol OpenAIRepositoryProtocol {
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
-}
+    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse}
 
 final class OpenAIRepository: OpenAIRepositoryProtocol {
 
