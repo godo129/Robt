@@ -34,9 +34,11 @@ extension API {
         var request = try URLRequest(url: url.asURL())
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
+        print("url: ", request.urlRequest?.url?.absoluteString ?? "url 없음")
+        print("httpMethod: ", request.urlRequest?.httpMethod ?? "httpMethod 없음")
         if let data = body {
             request.httpBody = data.toJson
-            print(String(data: data.toJson!, encoding: .utf8))
+            print(String(data: data.toJson!, encoding: .utf8) ?? "body 없음")
         }
         return request
     }

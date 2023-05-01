@@ -10,6 +10,7 @@ import Foundation
 enum OpenAIAPI: API {
 
     case chat(ChatRequest)
+    case imageGenerate(_ request: ImageGenerateRequest)
 
     var baseURL: URL {
         URL(string: "https://api.openai.com/v1")!
@@ -19,19 +20,21 @@ enum OpenAIAPI: API {
         switch self {
         case .chat:
             return "/chat/completions"
+        case .imageGenerate:
+            return "/images/generations"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .chat:
+        case .chat, .imageGenerate:
             return .post
         }
     }
 
     var headers: [String: String]? {
         switch self {
-        case .chat:
+        case .chat, .imageGenerate:
             return [
                 "Authorization": "Bearer \(APIEnvironment.openAIAPIKey)",
                 "Content-Type": "application/json"
@@ -41,7 +44,7 @@ enum OpenAIAPI: API {
 
     var parameters: [String: String]? {
         switch self {
-        case .chat:
+        case .chat, .imageGenerate:
             return nil
         }
     }
@@ -50,6 +53,8 @@ enum OpenAIAPI: API {
         switch self {
         case let .chat(chatRequest):
             return chatRequest
+        case let .imageGenerate(request):
+            return request
         }
     }
 }

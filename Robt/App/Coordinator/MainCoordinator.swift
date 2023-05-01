@@ -46,4 +46,11 @@ extension MainCoordinator {
         let viewController = ChatWithRobotViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    func showImageGenerateViewController() {
+        @DIContainer(ImageGenerateViewUseCaseProtocol.self) var usecase
+        let viewModel = ImageGenerateViewModel(usecase: usecase, coordinator: self)
+        let viewController = ImageGenerateViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

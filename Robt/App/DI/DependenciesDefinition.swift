@@ -42,7 +42,8 @@ final class DependenciesDefinition {
         dependecies.register(
             OpenAIRepositoryProtocol.self,
             impl: OpenAIRepository(
-                openAIProvider: NetworkProvider<OpenAIAPI>()
+                openAIProvider: NetworkProvider<OpenAIAPI>(),
+                anyProvider: NetworkProvider<AnyAPI>()
             )
         )
         dependecies.register(
@@ -84,6 +85,12 @@ final class DependenciesDefinition {
             impl: ChatViewUsecase(
                 openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self),
                 chatRepository: dependecies.resolve(ChatRepositoryProtocol.self)
+            )
+        )
+        dependecies.register(
+            ImageGenerateViewUseCaseProtocol.self,
+            impl: ImageGenerateViewUseCase(
+                openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self)
             )
         )
     }

@@ -28,7 +28,7 @@ struct NetworkProvider<T: API> {
                         continuation.resume(throwing: NetworkError.noResponse)
                         return
                     }
-                    print(String(data: data, encoding: .utf8)!)
+                    print(String(data: data, encoding: .utf8) ?? "")
                     continuation.resume(returning: data)
                 }
         }

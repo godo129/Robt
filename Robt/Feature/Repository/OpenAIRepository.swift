@@ -9,6 +9,8 @@ import Foundation
 
 protocol OpenAIRepositoryProtocol {
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
+    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse
+    func getImageData(urlString: String) async throws -> Data
 }
 
 final class OpenAIRepository: OpenAIRepositoryProtocol {
@@ -19,8 +21,13 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
     }
 
     private let openAIProvider: NetworkProvider<OpenAIAPI>
-    init(openAIProvider: NetworkProvider<OpenAIAPI>) {
+    private let anyProvider: NetworkProvider<AnyAPI>
+    init(
+        openAIProvider: NetworkProvider<OpenAIAPI>,
+        anyProvider: NetworkProvider<AnyAPI>
+    ) {
         self.openAIProvider = openAIProvider
+        self.anyProvider = anyProvider
     }
 
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse {
@@ -33,5 +40,25 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
             throw OpenAIRepositoyError.decodeError
         }
         return chats
+    }
+
+    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse {
+        let request = ImageGenerateRequest(imageGenerate)
+        guard let data = try? await openAIProvider.request(
+            .imageGenerate(request)
+        ) else {
+            throw OpenAIRepositoyError.responseError
+        }
+        guard let response = data.decode(ImageGenerateResponse.self) else {
+            throw OpenAIRepositoyError.decodeError
+        }
+        return response
+    }
+
+    func getImageData(urlString: String) async throws -> Data {
+        guard let data = try? await anyProvider.request(.getAny(urlString)) else {
+            throw OpenAIRepositoyError.responseError
+        }
+        return data
     }
 }
