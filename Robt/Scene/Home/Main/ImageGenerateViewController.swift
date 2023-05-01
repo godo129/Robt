@@ -133,9 +133,11 @@ extension ImageGenerateViewController {
             guard let self else { return }
             if block {
                 self.view.isUserInteractionEnabled = false
+                self.view.alpha = 0.3
                 self.activityIndicator.startAnimating()
             } else {
                 self.view.isUserInteractionEnabled = true
+                self.view.alpha = 1.0
                 self.activityIndicator.stopAnimating()
             }
         }
