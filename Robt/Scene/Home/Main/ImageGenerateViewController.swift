@@ -10,6 +10,16 @@ import UIKit
 
 final class ImageGenerateViewController: UIViewController {
 
+    private lazy var scrollView = UIScrollView()
+    private lazy var stackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.spacing = 50
+    }
+
+    private lazy var promptView = UIView()
+    private lazy var emptyView = UIView()
+
     private lazy var promptTextField = CommentTextField(left: 20, right: 20).then {
         $0.backgroundColor = .white
         $0.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -50,6 +60,7 @@ final class ImageGenerateViewController: UIViewController {
     init(viewModel: ImageGenerateViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        title = "이미지 생성"
     }
 
     @available(*, unavailable)
@@ -106,8 +117,14 @@ extension ImageGenerateViewController {
         tabBarController?.setTabBarVisible(visible: false, duration: 0, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
 
-        [promptTextField, promptButton, imageView, activityIndicator].forEach {
-            view.addSubview($0)
+        view.addSubview(scrollView)
+        view.addSubview(activityIndicator)
+        scrollView.addSubview(stackView)
+        [promptTextField, promptButton].forEach {
+            promptView.addSubview($0)
+        }
+        [promptView, imageView].forEach {
+            stackView.addArrangedSubview($0)
         }
         layoutConfigure()
         inidicatorConfigure()
@@ -115,20 +132,29 @@ extension ImageGenerateViewController {
     }
 
     private func layoutConfigure() {
-        promptTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
-            make.leading.equalToSuperview().inset(50)
-            make.trailing.equalToSuperview().inset(150)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        stackView.snp.makeConstraints { make in
+            make.edges.width.equalToSuperview()
+        }
+        promptView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(50)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(50)
         }
+        promptTextField.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview()
+            make.leading.equalToSuperview().inset(50)
+            make.trailing.equalToSuperview().inset(150)
+        }
         promptButton.snp.makeConstraints { make in
-            make.top.equalTo(promptTextField.snp.top)
+            make.verticalEdges.equalToSuperview()
             make.leading.equalTo(promptTextField.snp.trailing).offset(20)
             make.trailing.equalToSuperview().inset(50)
-            make.height.equalTo(promptTextField.snp.height)
         }
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(promptTextField.snp.bottom).offset(50)
+            make.top.equalTo(promptView.snp.bottom).offset(50)
             make.leading.trailing.equalToSuperview().inset(50)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(50)
         }

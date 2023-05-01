@@ -16,6 +16,14 @@ final class HomeViewController: UIViewController {
     private let input: PassthroughSubject<HomeViewModel.Input, Never> = .init()
     private let viewModel: HomeViewModel
 
+    private lazy var scrollView = UIScrollView()
+
+    private lazy var stackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.isLayoutMarginsRelativeArrangement = true
+    }
+
     private lazy var chatWithRobotText = UILabel().then {
         $0.text = "로봇과 채팅하러가기!"
         $0.font = Font.semiBold(size: 20)
@@ -90,36 +98,46 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func configure() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
         [chatWithRobotText, chatWithRobotButtonTapped, imageGenerateText, imageGenerateButton].forEach {
-            view.addSubview($0)
+            stackView.addArrangedSubview($0)
         }
         layoutConfigure()
     }
 
     private func layoutConfigure() {
 
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.edges.width.equalToSuperview()
+        }
+
         chatWithRobotText.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.leading.equalToSuperview().inset(50)
-            make.width.lessThanOrEqualToSuperview()
+            make.top.equalToSuperview().inset(20)
+            make.horizontalEdges.equalToSuperview().inset(50)
+//            make.width.lessThanOrEqualToSuperview()
             make.height.equalTo(50)
         }
 
         chatWithRobotButtonTapped.snp.makeConstraints { make in
             make.top.equalTo(chatWithRobotText.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(50)
+            make.horizontalEdges.equalToSuperview().inset(50)
             make.height.equalTo(190)
         }
 
         imageGenerateText.snp.makeConstraints { make in
             make.top.equalTo(chatWithRobotButtonTapped.snp.bottom).offset(50)
-            make.leading.trailing.equalToSuperview().inset(50)
+            make.horizontalEdges.equalToSuperview().inset(50)
             make.height.equalTo(chatWithRobotText.snp.height)
         }
 
         imageGenerateButton.snp.makeConstraints { make in
             make.top.equalTo(imageGenerateText.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(50)
+            make.horizontalEdges.equalToSuperview().inset(50)
             make.height.equalTo(chatWithRobotButtonTapped.snp.height)
         }
     }
