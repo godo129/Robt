@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */; };
 		F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */; };
+		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
+		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
+		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
+		F139E31429FF809F001B94B9 /* ImageGenerateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */; };
 		F15B289F29D9C86400E386B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F15B289E29D9C86400E386B8 /* Alamofire */; };
 		F18404B629C9F30A006D205C /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */; };
 		F18404BD29C9F862006D205C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F18404BC29C9F862006D205C /* FirebaseAnalytics */; };
@@ -108,6 +112,10 @@
 /* Begin PBXFileReference section */
 		F11FB49F29BF4578002B7CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
+		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
+		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
+		F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateResponse.swift; sourceTree = "<group>"; };
 		F18404B529C9F30A006D205C /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
 		F1A46DC629CA003300DF63DF /* FirebaseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageType.swift; sourceTree = "<group>"; };
 		F1A46DCE29CF38C500DF63DF /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
@@ -575,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F708B329D3467800BB24CA /* ChatMessage.swift */,
+				F139E30F29FF8040001B94B9 /* ImageGenerate.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -594,6 +603,7 @@
 			children = (
 				F1F708C029D7F99400BB24CA /* ChatRequest.swift */,
 				F1F708DB29D8A96E00BB24CA /* FireStoreChatRequest.swift */,
+				F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -603,6 +613,7 @@
 			children = (
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 				F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */,
+				F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -612,6 +623,7 @@
 			children = (
 				F1A46DEB29CF89BE00DF63DF /* TabBarType.swift */,
 				F1EB045C29BDC986009764E8 /* AppMode.swift */,
+				F139E31129FF805C001B94B9 /* ImageSize.swift */,
 			);
 			path = Type;
 			sourceTree = "<group>";
@@ -785,6 +797,7 @@
 			files = (
 				F1F708BC29D7F96500BB24CA /* OpenAIAPI.swift in Sources */,
 				F1F708C129D7F99400BB24CA /* ChatRequest.swift in Sources */,
+				F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */,
 				F1A46DDC29CF62BF00DF63DF /* SignInViewController.swift in Sources */,
 				F1F7089729D1E7C500BB24CA /* HomeViewUseCase.swift in Sources */,
 				F1F708CD29D8112700BB24CA /* ChatViewUseCase.swift in Sources */,
@@ -820,15 +833,18 @@
 				F1A46DEF29D02DFF00DF63DF /* FlexibleButton.swift in Sources */,
 				F1F7089929D1E8D300BB24CA /* ChatWithRobotViewController.swift in Sources */,
 				F1F708C329D7FBB500BB24CA /* APIEnvironment.swift in Sources */,
+				F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */,
 				F1F7089529D1E79100BB24CA /* HomeViewModel.swift in Sources */,
 				F1A46DE829CF83C700DF63DF /* TabBarCoordinator.swift in Sources */,
 				F1EB047029BE0598009764E8 /* DependencyKey.swift in Sources */,
 				F1F708B829D485BD00BB24CA /* CommentTextField.swift in Sources */,
 				F1EB047629BE1868009764E8 /* UIButton+.swift in Sources */,
 				F1F708C729D8086000BB24CA /* ChatRole.swift in Sources */,
+				F139E31429FF809F001B94B9 /* ImageGenerateResponse.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F708DC29D8A96E00BB24CA /* FireStoreChatRequest.swift in Sources */,
 				F1F708E029D8B56A00BB24CA /* Date+.swift in Sources */,
+				F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,

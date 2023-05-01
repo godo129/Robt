@@ -34,4 +34,17 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
         }
         return chats
     }
+    
+    func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse {
+        let request = ImageGenerateRequest(imageGenerate)
+        guard let data = try? await openAIProvider.request(
+            .imageGenerate(request)
+        ) else {
+            throw OpenAIRepositoyError.responseError
+        }
+        guard let response = data.decode(ImageGenerateResponse.self) else {
+            throw OpenAIRepositoyError.decodeError
+        }
+        return response
+    }
 }
