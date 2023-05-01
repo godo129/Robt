@@ -86,6 +86,15 @@ extension ImageGenerateViewController {
         promptButton.tapPublisher.sink { [weak self] _ in
             guard let self else { return }
             guard let prompt = self.promptTextField.text else { return }
+            self.promptTextField.resignFirstResponder()
+            self.input.send(.imagePromptInputted(prompt))
+            self.indicatorBlock(true)
+        }
+        .store(in: &cancellabels)
+
+        promptTextField.inputPublish.sink { [weak self] prompt in
+            guard let self else { return }
+            self.promptTextField.resignFirstResponder()
             self.input.send(.imagePromptInputted(prompt))
             self.indicatorBlock(true)
         }
@@ -102,6 +111,7 @@ extension ImageGenerateViewController {
         }
         layoutConfigure()
         inidicatorConfigure()
+        keyboardConfigure()
     }
 
     private func layoutConfigure() {
@@ -142,4 +152,6 @@ extension ImageGenerateViewController {
             }
         }
     }
+
+    private func keyboardConfigure() {}
 }
