@@ -15,7 +15,7 @@ final class ImageGenerateViewModel: InputOutput {
     }
 
     enum Output {
-        case imageGenerated(_ url: String)
+        case imageGenerated(_ imageData: Data)
         case imageGenerateFailed
     }
 
@@ -40,7 +40,7 @@ final class ImageGenerateViewModel: InputOutput {
                     do {
                         let data = ImageGenerate(prompt: prompt, imageSize: .pixel512x512)
                         let response = try await self.usecase.imageGenerate(data: data)
-                        self.outPut.send(.imageGenerated(response[0]))
+                        self.outPut.send(.imageGenerated(response))
                     } catch {
                         self.outPut.send(.imageGenerateFailed)
                     }

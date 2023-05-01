@@ -11,6 +11,7 @@
 		F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */; };
 		F12EC5CE29FF949F0057A590 /* ImageGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */; };
 		F12EC5D029FF94C10057A590 /* ImageGenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */; };
+		F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D129FFA9360057A590 /* AnyAPI.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -118,6 +119,7 @@
 		F11FB4A129BF56FD002B7CB6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewController.swift; sourceTree = "<group>"; };
 		F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewModel.swift; sourceTree = "<group>"; };
+		F12EC5D129FFA9360057A590 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				F1A46DD329CF3B8200DF63DF /* FireStoreAPI.swift */,
 				F1F708BB29D7F96500BB24CA /* OpenAIAPI.swift */,
+				F12EC5D129FFA9360057A590 /* AnyAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				F1A46DD629CF3BC300DF63DF /* UserRepository.swift in Sources */,
 				F1EB045929BDC62B009764E8 /* RootCoordinator.swift in Sources */,
 				F1EB045B29BDC8EF009764E8 /* AuthenticationCoordinator.swift in Sources */,
+				F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */,
 				F1F708AE29D33B5400BB24CA /* ChatTableViewCell.swift in Sources */,
 				F1F1E54929C741B000C21576 /* SignUpViewModel.swift in Sources */,
 				F1F708B429D3467800BB24CA /* ChatMessage.swift in Sources */,

@@ -42,7 +42,8 @@ final class DependenciesDefinition {
         dependecies.register(
             OpenAIRepositoryProtocol.self,
             impl: OpenAIRepository(
-                openAIProvider: NetworkProvider<OpenAIAPI>()
+                openAIProvider: NetworkProvider<OpenAIAPI>(),
+                anyProvider: NetworkProvider<AnyAPI>()
             )
         )
         dependecies.register(

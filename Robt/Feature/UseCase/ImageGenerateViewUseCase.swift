@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ImageGenerateViewUseCaseProtocol {
-    func imageGenerate(data: ImageGenerate) async throws -> [String]
+    func imageGenerate(data: ImageGenerate) async throws -> Data
 }
 
 struct ImageGenerateViewUseCase: ImageGenerateViewUseCaseProtocol {
@@ -28,14 +28,15 @@ struct ImageGenerateViewUseCase: ImageGenerateViewUseCaseProtocol {
         return try await openAIRepository.chatting([prompt]).choices.map { $0.message.content }[0]
     }
 
-    func imageGenerate(data: ImageGenerate) async throws -> [String] {
+    func imageGenerate(data: ImageGenerate) async throws -> Data {
         do {
             var data = data
             let translatedPrompt = try await translatePrompt(message: data.prompt)
             print("번역전 :", data.prompt)
             print("번역 후 :", translatedPrompt)
             data.prompt = translatedPrompt
-            return try await openAIRepository.imageGenerate(data).data.map { $0.url }
+            let imageURL = try await openAIRepository.imageGenerate(data).data.map { $0.url }[0]
+            return try await openAIRepository.getImageData(urlString: imageURL)
         } catch {
             throw error
         }

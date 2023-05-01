@@ -68,9 +68,12 @@ extension ImageGenerateViewController {
         output.sink { [weak self] event in
             guard let self else { return }
             switch event {
-            case let .imageGenerated(imageUrl):
-                print(imageUrl)
-                self.indicatorBlock(false)
+            case let .imageGenerated(imageData):
+                let image = UIImage(data: imageData)
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                    self.indicatorBlock(false)
+                }
             case .imageGenerateFailed:
                 self.presentOKAlert(title: "이미지 생성에 실패하였습니다", message: "입력을 다시 해주세요")
                 self.indicatorBlock(false)
