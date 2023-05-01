@@ -153,5 +153,12 @@ extension ImageGenerateViewController {
         }
     }
 
-    private func keyboardConfigure() {}
+    private func keyboardConfigure() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignResponder))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func resignResponder() {
+        view.endEditing(true)
+    }
 }
