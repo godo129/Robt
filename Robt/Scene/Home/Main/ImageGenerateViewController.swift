@@ -56,7 +56,7 @@ final class ImageGenerateViewController: UIViewController {
     private let viewModel: ImageGenerateViewModel
     private var input: PassthroughSubject<ImageGenerateViewModel.Input, Never> = .init()
     private var cancellabels: Set<AnyCancellable> = .init()
-
+ 
     init(viewModel: ImageGenerateViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
