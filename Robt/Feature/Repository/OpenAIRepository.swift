@@ -11,6 +11,7 @@ protocol OpenAIRepositoryProtocol {
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
     func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse
     func getImageData(urlString: String) async throws -> Data
+    func audioToTranscription(audioFilePath: String) async throws -> AudioTranscriptionResponse
 }
 
 final class OpenAIRepository: OpenAIRepositoryProtocol {

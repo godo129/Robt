@@ -93,5 +93,11 @@ final class DependenciesDefinition {
                 openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self)
             )
         )
+        dependecies.register(
+            AudioTranscriptionViewUsecaseProtocol.self,
+            impl: AudioTranscriptionViewUsecase(
+                openAIRepository: dependecies.resolve(OpenAIRepositoryProtocol.self)
+            )
+        )
     }
 }

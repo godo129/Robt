@@ -13,6 +13,7 @@
 		F12EC5D029FF94C10057A590 /* ImageGenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */; };
 		F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D129FFA9360057A590 /* AnyAPI.swift */; };
 		F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */; };
+		F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -122,6 +123,7 @@
 		F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewModel.swift; sourceTree = "<group>"; };
 		F12EC5D129FFA9360057A590 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
 		F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionResponse.swift; sourceTree = "<group>"; };
+		F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewUsecase.swift; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
 				F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */,
 				F139E31729FF8499001B94B9 /* ImageGenerateViewUseCase.swift */,
+				F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				F1A46DE629CF824700DF63DF /* MyPageViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
+				F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */,
 				F139E31829FF8499001B94B9 /* ImageGenerateViewUseCase.swift in Sources */,
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
 				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
