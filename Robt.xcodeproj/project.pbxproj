@@ -14,6 +14,8 @@
 		F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D129FFA9360057A590 /* AnyAPI.swift */; };
 		F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */; };
 		F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */; };
+		F12EC5DA2A0103870057A590 /* AudioTranscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */; };
+		F12EC5DC2A0103CE0057A590 /* AudioTranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -124,6 +126,8 @@
 		F12EC5D129FFA9360057A590 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
 		F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionResponse.swift; sourceTree = "<group>"; };
 		F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewUsecase.swift; sourceTree = "<group>"; };
+		F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewController.swift; sourceTree = "<group>"; };
+		F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewModel.swift; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */,
 				F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */,
 				F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */,
+				F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
 				F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */,
 				F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */,
+				F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -868,8 +874,10 @@
 				F139E31429FF809F001B94B9 /* ImageGenerateResponse.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F708DC29D8A96E00BB24CA /* FireStoreChatRequest.swift in Sources */,
+				F12EC5DC2A0103CE0057A590 /* AudioTranscriptionViewModel.swift in Sources */,
 				F1F708E029D8B56A00BB24CA /* Date+.swift in Sources */,
 				F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */,
+				F12EC5DA2A0103870057A590 /* AudioTranscriptionViewController.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
