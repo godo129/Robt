@@ -16,6 +16,7 @@
 		F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */; };
 		F12EC5DA2A0103870057A590 /* AudioTranscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */; };
 		F12EC5DC2A0103CE0057A590 /* AudioTranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */; };
+		F12EC5DE2A011EC70057A590 /* PaddingUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -128,6 +129,7 @@
 		F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewUsecase.swift; sourceTree = "<group>"; };
 		F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewController.swift; sourceTree = "<group>"; };
 		F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewModel.swift; sourceTree = "<group>"; };
+		F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingUILabel.swift; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
+				F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */,
+				F12EC5DE2A011EC70057A590 /* PaddingUILabel.swift in Sources */,
 				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
 				F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,

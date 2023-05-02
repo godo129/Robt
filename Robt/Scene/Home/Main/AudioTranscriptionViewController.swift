@@ -10,14 +10,14 @@ import UIKit
 
 final class AudioTranscriptionViewController: UIViewController {
 
-    private lazy var audioTitleView = UILabel().then {
-        $0.textColor = .black
-        $0.font = Font.semiBold(size: 18)
+    private lazy var audioTitleView = PaddingUILabel(left: 20, right: 20).then {
+        $0.textColor = .gray
+        $0.font = Font.regular(size: 18)
         $0.layer.cornerRadius = 20
         $0.layer.borderWidth = 2
         $0.layer.borderColor = UIColor.purple.cgColor
         $0.clipsToBounds = true
-        $0.text = "please select audio file"
+        $0.text = "select audio file"
     }
 
     private lazy var audioSelectButton = UIButton().then {
@@ -103,7 +103,7 @@ extension AudioTranscriptionViewController {
         }
         audioSelectButton.snp.makeConstraints { make in
             make.top.equalTo(audioTitleView.snp.top)
-            make.leading.equalTo(audioTitleView.snp.trailing).offset(40)
+            make.leading.equalTo(audioTitleView.snp.trailing).offset(20)
             make.trailing.equalToSuperview().inset(50)
             make.height.equalTo(audioTitleView.snp.height)
         }
