@@ -13,6 +13,7 @@ final class HomeViewModel: InputOutput {
     enum Input {
         case chatWithRobotButtonTapped
         case imageGenerateButtonTapped
+        case audioTrnascriptionButtonTapped
     }
 
     enum Output {}
@@ -38,6 +39,8 @@ final class HomeViewModel: InputOutput {
                 self.coordinator?.showChatWithRobotViewController()
             case .imageGenerateButtonTapped:
                 self.coordinator?.showImageGenerateViewController()
+            case .audioTrnascriptionButtonTapped:
+                self.coordinator?.showAudioTranscriptionViewController()
             }
         }
         .store(in: &cancellables)

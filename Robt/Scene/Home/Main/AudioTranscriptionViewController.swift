@@ -5,11 +5,11 @@
 //  Created by hong on 2023/05/02.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 final class AudioTranscriptionViewController: UIViewController {
-    
+
     private lazy var audioTitleView = UILabel().then {
         $0.textColor = .black
         $0.font = Font.semiBold(size: 18)
@@ -19,6 +19,7 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.clipsToBounds = true
         $0.text = "please select audio file"
     }
+
     private lazy var audioSelectButton = UIButton().then {
         $0.layer.cornerRadius = 10
         $0.setTitle("선택", for: .normal)
@@ -31,40 +32,43 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.clipsToBounds = true
         $0.titleLabel?.font = Font.bold(size: 18)
     }
+
     private lazy var transcriptionContainerView = UIScrollView()
     private lazy var transcriptionStackView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .fill
         $0.spacing = 20
     }
+
     private lazy var transcriptionView = UILabel().then {
         $0.textColor = .black
         $0.font = Font.medium(size: 16)
     }
-    
+
     private let viewModel: AudioTrnascriptionViewModel
     private var cancellabels: Set<AnyCancellable> = .init()
     private var input: PassthroughSubject<AudioTrnascriptionViewModel.Input, Never> = .init()
-    
+
     init(viewModel: AudioTrnascriptionViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         bind()
     }
-    
+
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output.sink { [weak self] event in
-            guard let self else {return}
+            guard let self else { return }
             switch event {
             case let .audioFileUploaded(transcription):
                 print(transcription)
@@ -74,7 +78,6 @@ final class AudioTranscriptionViewController: UIViewController {
         }
         .store(in: &cancellabels)
     }
-    
 }
 
 extension AudioTranscriptionViewController {
@@ -90,7 +93,7 @@ extension AudioTranscriptionViewController {
         transcriptionStackView.addArrangedSubview(transcriptionView)
         layoutConfigure()
     }
-    
+
     private func layoutConfigure() {
         audioTitleView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)

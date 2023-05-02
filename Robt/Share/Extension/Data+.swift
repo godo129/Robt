@@ -17,7 +17,7 @@ extension Data {
             return nil
         }
     }
-    
+
     static func multipartFormData(formData: [String: String]) -> Encodable {
         let boundary = UUID().uuidString
         var data = Data()
@@ -27,7 +27,6 @@ extension Data {
             let value = form.element.value
             data.append(Data("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".utf8))
             data.append(Data("\(value)\r\n".utf8))
-            
         }
         data.append(Data("--\(boundary)\r\n".utf8))
         return data

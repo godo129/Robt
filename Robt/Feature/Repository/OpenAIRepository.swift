@@ -62,7 +62,7 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
         }
         return data
     }
-    
+
     func audioToTranscription(audioFilePath: String) async throws -> AudioTranscriptionResponse {
         guard let data = try? await openAIProvider.request(.audioTranscription(audioFilePath)) else {
             throw OpenAIRepositoyError.responseError

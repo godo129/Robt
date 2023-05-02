@@ -21,7 +21,15 @@ final class HomeViewController: UIViewController {
     private lazy var stackView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .fill
+        $0.spacing = 50
+        $0.layoutMargins = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         $0.isLayoutMarginsRelativeArrangement = true
+    }
+
+    private lazy var chatWithRobotContainerView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.spacing = 10
     }
 
     private lazy var chatWithRobotText = UILabel().then {
@@ -40,6 +48,12 @@ final class HomeViewController: UIViewController {
         $0.clipsToBounds = true
     }
 
+    private lazy var imageGenerateContainerView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.spacing = 10
+    }
+
     private lazy var imageGenerateText = UILabel().then {
         $0.text = "이미지 생성하기!"
         $0.font = Font.semiBold(size: 20)
@@ -48,6 +62,27 @@ final class HomeViewController: UIViewController {
 
     private lazy var imageGenerateButton = UIButton().then {
         $0.setImage(UIImage(named: "dalle2Images"), for: .normal)
+        $0.setBackgroundColor(.OFFFFFF.withAlphaComponent(0.5), for: .highlighted)
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 2
+        $0.layer.cornerRadius = 10
+        $0.clipsToBounds = true
+    }
+
+    private lazy var audioTranscriptionContainerView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.spacing = 10
+    }
+
+    private lazy var audioTranscriptionText = UILabel().then {
+        $0.font = Font.semiBold(size: 20)
+        $0.textColor = .black
+        $0.text = "오디오 추출"
+    }
+
+    private lazy var audioTranscriptionButton = UIButton().then {
+        $0.setImage(UIImage(named: "audioToTrnascriptionImage"), for: .normal)
         $0.setBackgroundColor(.OFFFFFF.withAlphaComponent(0.5), for: .highlighted)
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 2
@@ -93,6 +128,11 @@ final class HomeViewController: UIViewController {
             self?.input.send(.imageGenerateButtonTapped)
         }
         .store(in: &cancellabels)
+
+        audioTranscriptionButton.tapPublisher.sink { [weak self] in
+            self?.input.send(.audioTrnascriptionButtonTapped)
+        }
+        .store(in: &cancellabels)
     }
 }
 
@@ -100,7 +140,20 @@ extension HomeViewController {
     private func configure() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [chatWithRobotText, chatWithRobotButtonTapped, imageGenerateText, imageGenerateButton].forEach {
+        [chatWithRobotText, chatWithRobotButtonTapped].forEach {
+            chatWithRobotContainerView.addArrangedSubview($0)
+        }
+        [imageGenerateText, imageGenerateButton].forEach {
+            imageGenerateContainerView.addArrangedSubview($0)
+        }
+        [audioTranscriptionText, audioTranscriptionButton].forEach {
+            audioTranscriptionContainerView.addArrangedSubview($0)
+        }
+        [
+            chatWithRobotContainerView,
+            imageGenerateContainerView,
+            audioTranscriptionContainerView
+        ].forEach {
             stackView.addArrangedSubview($0)
         }
         layoutConfigure()
@@ -117,27 +170,26 @@ extension HomeViewController {
         }
 
         chatWithRobotText.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
-            make.horizontalEdges.equalToSuperview().inset(50)
-//            make.width.lessThanOrEqualToSuperview()
             make.height.equalTo(50)
         }
 
         chatWithRobotButtonTapped.snp.makeConstraints { make in
-            make.top.equalTo(chatWithRobotText.snp.bottom).offset(20)
-            make.horizontalEdges.equalToSuperview().inset(50)
             make.height.equalTo(190)
         }
 
         imageGenerateText.snp.makeConstraints { make in
-            make.top.equalTo(chatWithRobotButtonTapped.snp.bottom).offset(50)
-            make.horizontalEdges.equalToSuperview().inset(50)
             make.height.equalTo(chatWithRobotText.snp.height)
         }
 
         imageGenerateButton.snp.makeConstraints { make in
-            make.top.equalTo(imageGenerateText.snp.bottom).offset(20)
-            make.horizontalEdges.equalToSuperview().inset(50)
+            make.height.equalTo(chatWithRobotButtonTapped.snp.height)
+        }
+
+        audioTranscriptionText.snp.makeConstraints { make in
+            make.height.equalTo(chatWithRobotText.snp.height)
+        }
+
+        audioTranscriptionButton.snp.makeConstraints { make in
             make.height.equalTo(chatWithRobotButtonTapped.snp.height)
         }
     }

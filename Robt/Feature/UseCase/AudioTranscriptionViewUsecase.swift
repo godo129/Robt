@@ -18,6 +18,7 @@ struct AudioTranscriptionViewUsecase: AudioTranscriptionViewUsecaseProtocol {
     ) {
         self.openAIRepository = openAIRepository
     }
+
     func audioTranscription(audioFilePath: String) async throws -> String {
         return try await openAIRepository.audioToTranscription(audioFilePath: audioFilePath).text
     }
