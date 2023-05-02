@@ -45,6 +45,8 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.font = Font.medium(size: 16)
     }
 
+    private lazy var documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
+
     private let viewModel: AudioTrnascriptionViewModel
     private var cancellabels: Set<AnyCancellable> = .init()
     private var input: PassthroughSubject<AudioTrnascriptionViewModel.Input, Never> = .init()
@@ -74,7 +76,13 @@ final class AudioTranscriptionViewController: UIViewController {
                 print(transcription)
             case .audioFileUploadFailed:
                 self.presentOKAlert(title: "오디오 추출에 실패하였습니다", message: "재시도 해주세요")
+            case .audioSelectButtonDidTap:
+                self.present(self.documentPicker, animated: true)
             }
+        }
+        .store(in: &cancellabels)
+        audioSelectButton.tapPublisher.sink { [weak self] _ in
+            self?.input.send(.audioSelectButtonTapped)
         }
         .store(in: &cancellabels)
     }
@@ -91,6 +99,7 @@ extension AudioTranscriptionViewController {
         }
         transcriptionContainerView.addSubview(transcriptionStackView)
         transcriptionStackView.addArrangedSubview(transcriptionView)
+        documentPicker.delegate = self
         layoutConfigure()
     }
 
@@ -117,5 +126,19 @@ extension AudioTranscriptionViewController {
         transcriptionView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(50)
         }
+    }
+}
+
+extension AudioTranscriptionViewController: UIDocumentPickerDelegate {
+    func documentPicker(_: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        let url = urls[0]
+        print("absoluteString", url.absoluteString)
+        print("relatedString", url.lastPathComponent)
+        audioTitleView.text = url.lastPathComponent
+        input.send(.audioFileUpload(url.relativeString))
+    }
+
+    func documentPickerWasCancelled(_: UIDocumentPickerViewController) {
+        print("cancelled picker")
     }
 }

@@ -11,10 +11,12 @@ import Foundation
 final class AudioTrnascriptionViewModel: InputOutput {
 
     enum Input {
+        case audioSelectButtonTapped
         case audioFileUpload(_ path: String)
     }
 
     enum Output {
+        case audioSelectButtonDidTap
         case audioFileUploaded(_ transcription: String)
         case audioFileUploadFailed
     }
@@ -48,6 +50,8 @@ final class AudioTrnascriptionViewModel: InputOutput {
                         self.outPut.send(.audioFileUploadFailed)
                     }
                 }
+            case .audioSelectButtonTapped:
+                self.outPut.send(.audioSelectButtonDidTap)
             }
         }
         .store(in: &cancellables)
