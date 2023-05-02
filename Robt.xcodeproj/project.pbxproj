@@ -12,6 +12,7 @@
 		F12EC5CE29FF949F0057A590 /* ImageGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */; };
 		F12EC5D029FF94C10057A590 /* ImageGenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */; };
 		F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D129FFA9360057A590 /* AnyAPI.swift */; };
+		F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -120,6 +121,7 @@
 		F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewController.swift; sourceTree = "<group>"; };
 		F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewModel.swift; sourceTree = "<group>"; };
 		F12EC5D129FFA9360057A590 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
+		F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionResponse.swift; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 				F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */,
 				F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */,
+				F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */,
 				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
+				F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
 				F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */,
