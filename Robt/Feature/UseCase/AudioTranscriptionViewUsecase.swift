@@ -10,6 +10,7 @@ import Foundation
 protocol AudioTranscriptionViewUsecaseProtocol {
     func audioTranscription(audioFilePath: URL) async throws -> String
     func fileExtensionCheck(fileURL: URL) -> Bool
+    func sizeLimitCheck(fileURL: URL) -> Bool
 }
 
 struct AudioTranscriptionViewUsecase: AudioTranscriptionViewUsecaseProtocol {
@@ -43,5 +44,12 @@ struct AudioTranscriptionViewUsecase: AudioTranscriptionViewUsecaseProtocol {
     func fileExtensionCheck(fileURL: URL) -> Bool {
         let fileExtension = fileURL.lastPathComponent.split(separator: ".").map { String($0) }.last ?? ""
         return AvailableFileExtension.isAvailable(fileExtension)
+    }
+
+    func sizeLimitCheck(fileURL: URL) -> Bool {
+        guard let byte = fileURL.byte else {
+            return false
+        }
+        return byte < 26_214_400
     }
 }

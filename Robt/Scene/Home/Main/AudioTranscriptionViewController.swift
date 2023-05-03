@@ -91,6 +91,9 @@ final class AudioTranscriptionViewController: UIViewController {
             case .fileExtensionNotAvailable:
                 self.indicatorBlock(false)
                 self.presentOKAlert(title: "지원 되지 않는 파일입니다", message: "mp3, mp4, mpeg, mpga, m4a, wav, webm 파일만 가능합니다")
+            case .fileByteIsTooLarge:
+                self.indicatorBlock(false)
+                self.presentOKAlert(title: "파일 사이즈가 너무 큽니다", message: "26MB 크기의 파일까지만 지원합니다")
             }
         }
         .store(in: &cancellabels)
