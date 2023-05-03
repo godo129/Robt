@@ -19,6 +19,7 @@ final class AudioTrnascriptionViewModel: InputOutput {
         case audioSelectButtonDidTap
         case audioFileUploaded(_ transcription: String)
         case audioFileUploadFailed
+        case fileExtensionNotAvailable
     }
 
     var outPut: PassthroughSubject<Output, Never> = .init()
@@ -42,6 +43,10 @@ final class AudioTrnascriptionViewModel: InputOutput {
             case let .audioFileUpload(path):
                 Task {
                     do {
+                        guard self.usecase.fileExtensionCheck(fileURL: path) == true else {
+                            self.outPut.send(.fileExtensionNotAvailable)
+                            return
+                        }
                         let transcription = try await self.usecase.audioTranscription(audioFilePath: path)
                         print("transcription은 다음과 같습니다 :", transcription)
                         self.outPut.send(.audioFileUploaded(transcription))

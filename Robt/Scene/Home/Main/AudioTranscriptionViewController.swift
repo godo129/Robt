@@ -88,6 +88,9 @@ final class AudioTranscriptionViewController: UIViewController {
                 self.presentOKAlert(title: "오디오 추출에 실패하였습니다", message: "재시도 해주세요")
             case .audioSelectButtonDidTap:
                 self.present(self.documentPicker, animated: true)
+            case .fileExtensionNotAvailable:
+                self.indicatorBlock(false)
+                self.presentOKAlert(title: "지원 되지 않는 파일입니다", message: "mp3, mp4, mpeg, mpga, m4a, wav, webm 파일만 가능합니다")
             }
         }
         .store(in: &cancellabels)
