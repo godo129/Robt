@@ -11,6 +11,7 @@ enum OpenAIAPI: API {
 
     case chat(ChatRequest)
     case imageGenerate(_ request: ImageGenerateRequest)
+    case audioTranscription(_ audioFilePath: URL)
 
     var baseURL: URL {
         URL(string: "https://api.openai.com/v1")!
@@ -22,12 +23,14 @@ enum OpenAIAPI: API {
             return "/chat/completions"
         case .imageGenerate:
             return "/images/generations"
+        case .audioTranscription:
+            return "/audio/transcriptions"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .chat, .imageGenerate:
+        case .chat, .imageGenerate, .audioTranscription:
             return .post
         }
     }
@@ -39,6 +42,11 @@ enum OpenAIAPI: API {
                 "Authorization": "Bearer \(APIEnvironment.openAIAPIKey)",
                 "Content-Type": "application/json"
             ]
+        case .audioTranscription:
+            return [
+                "Authorization": "Bearer \(APIEnvironment.openAIAPIKey)",
+                "Content-Type": "multipart/form-data; boundary=bbb1234"
+            ]
         }
     }
 
@@ -46,6 +54,8 @@ enum OpenAIAPI: API {
         switch self {
         case .chat, .imageGenerate:
             return nil
+        case .audioTranscription:
+            return ["model": "whisper-1"]
         }
     }
 
@@ -55,6 +65,17 @@ enum OpenAIAPI: API {
             return chatRequest
         case let .imageGenerate(request):
             return request
+        case let .audioTranscription(audioFilePath):
+            return Data.audiomultipartFormData(audioURL: audioFilePath)
+        }
+    }
+
+    var isMultipart: Bool {
+        switch self {
+        case .chat, .imageGenerate:
+            return false
+        case .audioTranscription:
+            return true
         }
     }
 }

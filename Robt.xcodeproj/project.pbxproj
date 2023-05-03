@@ -12,6 +12,12 @@
 		F12EC5CE29FF949F0057A590 /* ImageGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */; };
 		F12EC5D029FF94C10057A590 /* ImageGenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */; };
 		F12EC5D229FFA9360057A590 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D129FFA9360057A590 /* AnyAPI.swift */; };
+		F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */; };
+		F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */; };
+		F12EC5DA2A0103870057A590 /* AudioTranscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */; };
+		F12EC5DC2A0103CE0057A590 /* AudioTranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */; };
+		F12EC5DE2A011EC70057A590 /* PaddingUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */; };
+		F12EC5E22A02A1630057A590 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12EC5E12A02A1630057A590 /* URL+.swift */; };
 		F139E30E29FF7E84001B94B9 /* ImageGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */; };
 		F139E31029FF8040001B94B9 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E30F29FF8040001B94B9 /* ImageGenerate.swift */; };
 		F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139E31129FF805C001B94B9 /* ImageSize.swift */; };
@@ -120,6 +126,12 @@
 		F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewController.swift; sourceTree = "<group>"; };
 		F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateViewModel.swift; sourceTree = "<group>"; };
 		F12EC5D129FFA9360057A590 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
+		F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionResponse.swift; sourceTree = "<group>"; };
+		F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewUsecase.swift; sourceTree = "<group>"; };
+		F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewController.swift; sourceTree = "<group>"; };
+		F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTranscriptionViewModel.swift; sourceTree = "<group>"; };
+		F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingUILabel.swift; sourceTree = "<group>"; };
+		F12EC5E12A02A1630057A590 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		F139E30D29FF7E84001B94B9 /* ImageGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateRequest.swift; sourceTree = "<group>"; };
 		F139E30F29FF8040001B94B9 /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		F139E31129FF805C001B94B9 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -300,6 +312,7 @@
 				F1F708AD29D33B5400BB24CA /* ChatTableViewCell.swift */,
 				F1F708AF29D3423400BB24CA /* ChatCollectionViewCell.swift */,
 				F12EC5CD29FF949F0057A590 /* ImageGenerateViewController.swift */,
+				F12EC5D92A0103870057A590 /* AudioTranscriptionViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -309,6 +322,7 @@
 			children = (
 				F1A46DEE29D02DFF00DF63DF /* FlexibleButton.swift */,
 				F1F708B729D485BD00BB24CA /* CommentTextField.swift */,
+				F12EC5DD2A011EC70057A590 /* PaddingUILabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -463,6 +477,7 @@
 				F1F708D729D84E9200BB24CA /* UIViewController+.swift */,
 				F1F708D929D8794400BB24CA /* UITextField+.swift */,
 				F1F708DF29D8B56A00BB24CA /* Date+.swift */,
+				F12EC5E12A02A1630057A590 /* URL+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -557,6 +572,7 @@
 				F1F7089629D1E7C500BB24CA /* HomeViewUseCase.swift */,
 				F1F708CC29D8112700BB24CA /* ChatViewUseCase.swift */,
 				F139E31729FF8499001B94B9 /* ImageGenerateViewUseCase.swift */,
+				F12EC5D72A0102660057A590 /* AudioTranscriptionViewUsecase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -579,6 +595,7 @@
 				F1F7089429D1E79100BB24CA /* HomeViewModel.swift */,
 				F1F708CE29D8150D00BB24CA /* ChatWithRobotViewModel.swift */,
 				F12EC5CF29FF94C10057A590 /* ImageGenerateViewModel.swift */,
+				F12EC5DB2A0103CE0057A590 /* AudioTranscriptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -628,6 +645,7 @@
 				F1F708C829D80AB400BB24CA /* ChatResponse.swift */,
 				F1F708E129D9390F00BB24CA /* FireStoreChatResponse.swift */,
 				F139E31329FF809F001B94B9 /* ImageGenerateResponse.swift */,
+				F12EC5D52A0101F30057A590 /* AudioTranscriptionResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -832,7 +850,9 @@
 				F11FB4A229BF56FD002B7CB6 /* UIImage+.swift in Sources */,
 				F1EB046C29BE055A009764E8 /* DependenciesContainer.swift in Sources */,
 				F1F708CB29D80B9800BB24CA /* Data+.swift in Sources */,
+				F12EC5DE2A011EC70057A590 /* PaddingUILabel.swift in Sources */,
 				F1A46DF429D0340900DF63DF /* LocalRepository.swift in Sources */,
+				F12EC5D62A0101F30057A590 /* AudioTranscriptionResponse.swift in Sources */,
 				F1A46DEC29CF89BE00DF63DF /* TabBarType.swift in Sources */,
 				F1EB046729BDCD8D009764E8 /* AuthenticationViewController.swift in Sources */,
 				F1A46DF229D0338400DF63DF /* MyPageViewUseCase.swift in Sources */,
@@ -843,6 +863,7 @@
 				F1A46DF929D08E9300DF63DF /* JWTTokenProvider.swift in Sources */,
 				F1A46DE229CF673C00DF63DF /* SignInViewUseCase.swift in Sources */,
 				F139E31629FF838D001B94B9 /* Language.swift in Sources */,
+				F12EC5E22A02A1630057A590 /* URL+.swift in Sources */,
 				F11FB4A029BF4578002B7CB6 /* SignUpViewController.swift in Sources */,
 				F1F708CF29D8150D00BB24CA /* ChatWithRobotViewModel.swift in Sources */,
 				F1C0AAFD29E32822003A175A /* DIContainer.swift in Sources */,
@@ -861,8 +882,10 @@
 				F139E31429FF809F001B94B9 /* ImageGenerateResponse.swift in Sources */,
 				F1A46DC729CA003300DF63DF /* FirebaseStorageType.swift in Sources */,
 				F1F708DC29D8A96E00BB24CA /* FireStoreChatRequest.swift in Sources */,
+				F12EC5DC2A0103CE0057A590 /* AudioTranscriptionViewModel.swift in Sources */,
 				F1F708E029D8B56A00BB24CA /* Date+.swift in Sources */,
 				F139E31229FF805C001B94B9 /* ImageSize.swift in Sources */,
+				F12EC5DA2A0103870057A590 /* AudioTranscriptionViewController.swift in Sources */,
 				F1F708C929D80AB400BB24CA /* ChatResponse.swift in Sources */,
 				F1F708DA29D8794400BB24CA /* UITextField+.swift in Sources */,
 				F1A46DEA29CF882300DF63DF /* MyPageCoordinator.swift in Sources */,
@@ -873,6 +896,7 @@
 				F1A46DE629CF824700DF63DF /* MyPageViewController.swift in Sources */,
 				F1EB03ED29BCCA30009764E8 /* SceneDelegate.swift in Sources */,
 				F1EB047229BE086B009764E8 /* DependenciesDefinition.swift in Sources */,
+				F12EC5D82A0102660057A590 /* AudioTranscriptionViewUsecase.swift in Sources */,
 				F139E31829FF8499001B94B9 /* ImageGenerateViewUseCase.swift in Sources */,
 				F1A46DDE29CF645F00DF63DF /* SignInViewModel.swift in Sources */,
 				F1F708D629D849B800BB24CA /* UITabBarController+.swift in Sources */,
@@ -980,7 +1004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1071,7 +1095,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt_Dev;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1162,7 +1186,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.godo.robt;
 				PRODUCT_NAME = Robt_Test;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

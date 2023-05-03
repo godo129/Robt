@@ -53,4 +53,11 @@ extension MainCoordinator {
         let viewController = ImageGenerateViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    func showAudioTranscriptionViewController() {
+        @DIContainer(AudioTranscriptionViewUsecaseProtocol.self) var usecase
+        let viewModel = AudioTrnascriptionViewModel(usecase: usecase, coordinator: self)
+        let viewController = AudioTranscriptionViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
