@@ -11,7 +11,7 @@ protocol OpenAIRepositoryProtocol {
     func chatting(_ messages: [ChatMessage]) async throws -> ChatResponse
     func imageGenerate(_ imageGenerate: ImageGenerate) async throws -> ImageGenerateResponse
     func getImageData(urlString: String) async throws -> Data
-    func audioToTranscription(audioFilePath: String) async throws -> AudioTranscriptionResponse
+    func audioToTranscription(audioFilePath: URL) async throws -> AudioTranscriptionResponse
 }
 
 final class OpenAIRepository: OpenAIRepositoryProtocol {
@@ -63,8 +63,13 @@ final class OpenAIRepository: OpenAIRepositoryProtocol {
         return data
     }
 
-    func audioToTranscription(audioFilePath: String) async throws -> AudioTranscriptionResponse {
-        guard let data = try? await openAIProvider.request(.audioTranscription(audioFilePath)) else {
+    func audioToTranscription(audioFilePath: URL) async throws -> AudioTranscriptionResponse {
+        guard let data = try? await openAIProvider.multiPartRequest(
+            url: "https://api.openai.com/v1/audio/transcriptions",
+            headers: .init(["Authorization": "Bearer \(APIEnvironment.openAIAPIKey)"]),
+            parameters: ["model": "whisper-1"],
+            fileURL: audioFilePath
+        ) else {
             throw OpenAIRepositoyError.responseError
         }
         guard let response = data.decode(AudioTranscriptionResponse.self) else {

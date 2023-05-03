@@ -22,6 +22,7 @@ protocol API: URLRequestConvertible {
     var headers: [String: String]? { get }
     var parameters: [String: String]? { get }
     var body: Encodable? { get }
+    var isMultipart: Bool { get }
     func asURLRequest() throws -> URLRequest
 }
 
@@ -36,10 +37,20 @@ extension API {
         request.allHTTPHeaderFields = headers
         print("url: ", request.urlRequest?.url?.absoluteString ?? "url 없음")
         print("httpMethod: ", request.urlRequest?.httpMethod ?? "httpMethod 없음")
+        if isMultipart {
+            let data = body as? Data
+            print("multipart/form-data 입니다", String(data: data ?? Data(), encoding: .utf8) ?? "")
+            request.httpBody = body as? Data
+            return request
+        }
         if let data = body {
             request.httpBody = data.toJson
             print(String(data: data.toJson!, encoding: .utf8) ?? "body 없음")
         }
         return request
+    }
+
+    var isMultipart: Bool {
+        return false
     }
 }

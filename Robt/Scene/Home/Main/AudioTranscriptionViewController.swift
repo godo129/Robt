@@ -38,11 +38,15 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.axis = .vertical
         $0.distribution = .fill
         $0.spacing = 20
+        $0.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        $0.isLayoutMarginsRelativeArrangement = true
     }
 
     private lazy var transcriptionView = UILabel().then {
         $0.textColor = .black
         $0.font = Font.medium(size: 16)
+        $0.numberOfLines = 0
+        $0.text = "아직 추출된 음성이 업습니다."
     }
 
     private lazy var documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
@@ -73,7 +77,9 @@ final class AudioTranscriptionViewController: UIViewController {
             guard let self else { return }
             switch event {
             case let .audioFileUploaded(transcription):
-                print(transcription)
+                DispatchQueue.main.async {
+                    self.transcriptionView.text = transcription
+                }
             case .audioFileUploadFailed:
                 self.presentOKAlert(title: "오디오 추출에 실패하였습니다", message: "재시도 해주세요")
             case .audioSelectButtonDidTap:
@@ -118,13 +124,11 @@ extension AudioTranscriptionViewController {
         }
         transcriptionContainerView.snp.makeConstraints { make in
             make.top.equalTo(audioTitleView.snp.bottom).offset(50)
-            make.bottom.horizontalEdges.equalToSuperview().inset(50)
+            make.horizontalEdges.equalToSuperview().inset(50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(50)
         }
         transcriptionStackView.snp.makeConstraints { make in
             make.width.edges.equalToSuperview()
-        }
-        transcriptionView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(50)
         }
     }
 }
@@ -132,10 +136,8 @@ extension AudioTranscriptionViewController {
 extension AudioTranscriptionViewController: UIDocumentPickerDelegate {
     func documentPicker(_: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         let url = urls[0]
-        print("absoluteString", url.absoluteString)
-        print("relatedString", url.lastPathComponent)
         audioTitleView.text = url.lastPathComponent
-        input.send(.audioFileUpload(url.relativeString))
+        input.send(.audioFileUpload(url))
     }
 
     func documentPickerWasCancelled(_: UIDocumentPickerViewController) {

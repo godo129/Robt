@@ -12,7 +12,7 @@ final class AudioTrnascriptionViewModel: InputOutput {
 
     enum Input {
         case audioSelectButtonTapped
-        case audioFileUpload(_ path: String)
+        case audioFileUpload(_ path: URL)
     }
 
     enum Output {

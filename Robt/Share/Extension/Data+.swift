@@ -18,17 +18,30 @@ extension Data {
         }
     }
 
-    static func multipartFormData(formData: [String: String]) -> Encodable {
-        let boundary = UUID().uuidString
-        var data = Data()
-        for form in formData.enumerated() {
-            data.append(Data("--\(boundary)\r\n".utf8))
-            let key = form.element.key
-            let value = form.element.value
-            data.append(Data("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".utf8))
-            data.append(Data("\(value)\r\n".utf8))
+    // TODO: 변경 필요
+    static func audiomultipartFormData(audioURL: URL) -> Encodable? {
+
+        guard let audioData = try? Data(contentsOf: audioURL) else {
+            fatalError("audio doesn't find")
         }
-        data.append(Data("--\(boundary)\r\n".utf8))
+
+        let boundary = "bbb1234"
+        let audioFileName = audioURL.lastPathComponent
+        let audioMimeType = "audio/*"
+        let audioDataField = "file"
+        var audioDataPayload = "--\(boundary)\r\n"
+        audioDataPayload += "Content-Disposition: form-data; name=\"\(audioDataField)\"; filename=\"\(audioFileName)\"\r\n"
+        audioDataPayload += "Content-Type: \(audioMimeType)\r\n\r\n"
+        audioDataPayload += "\(audioData)\r\n"
+
+        let modelFieldName = "model"
+        let modelName = "whisper-1"
+        var modelPayload = "--\(boundary)\r\n"
+        modelPayload += "Content-Disposition: form-data; name=\"\(modelFieldName)\"\r\n\r\n"
+        modelPayload += "\(modelName)\r\n"
+
+        let payload = audioDataPayload + modelPayload + "--\(boundary)--\r\n"
+        let data = payload.data(using: .utf8)
         return data
     }
 }

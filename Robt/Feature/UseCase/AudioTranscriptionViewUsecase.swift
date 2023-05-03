@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AudioTranscriptionViewUsecaseProtocol {
-    func audioTranscription(audioFilePath: String) async throws -> String
+    func audioTranscription(audioFilePath: URL) async throws -> String
 }
 
 struct AudioTranscriptionViewUsecase: AudioTranscriptionViewUsecaseProtocol {
@@ -19,7 +19,7 @@ struct AudioTranscriptionViewUsecase: AudioTranscriptionViewUsecaseProtocol {
         self.openAIRepository = openAIRepository
     }
 
-    func audioTranscription(audioFilePath: String) async throws -> String {
+    func audioTranscription(audioFilePath: URL) async throws -> String {
         return try await openAIRepository.audioToTranscription(audioFilePath: audioFilePath).text
     }
 }
