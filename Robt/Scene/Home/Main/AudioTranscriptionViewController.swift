@@ -17,7 +17,7 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.layer.borderWidth = 2
         $0.layer.borderColor = UIColor.purple.cgColor
         $0.clipsToBounds = true
-        $0.text = "select audio file"
+        $0.text = "please select audio file"
     }
 
     private lazy var audioSelectButton = UIButton().then {
@@ -42,11 +42,13 @@ final class AudioTranscriptionViewController: UIViewController {
         $0.isLayoutMarginsRelativeArrangement = true
     }
 
+    private lazy var activityIndicator: UIActivityIndicatorView = .init(style: .large)
+
     private lazy var transcriptionView = UILabel().then {
         $0.textColor = .black
         $0.font = Font.medium(size: 16)
         $0.numberOfLines = 0
-        $0.text = "아직 추출된 음성이 업습니다."
+        $0.text = "아직 추출된 음성이 없습니다."
     }
 
     private lazy var documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
@@ -78,9 +80,11 @@ final class AudioTranscriptionViewController: UIViewController {
             switch event {
             case let .audioFileUploaded(transcription):
                 DispatchQueue.main.async {
+                    self.indicatorBlock(false)
                     self.transcriptionView.text = transcription
                 }
             case .audioFileUploadFailed:
+                self.indicatorBlock(false)
                 self.presentOKAlert(title: "오디오 추출에 실패하였습니다", message: "재시도 해주세요")
             case .audioSelectButtonDidTap:
                 self.present(self.documentPicker, animated: true)
@@ -100,13 +104,14 @@ extension AudioTranscriptionViewController {
         view.backgroundColor = .white
         tabBarController?.setTabBarVisible(visible: false, duration: 0, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        [audioTitleView, audioSelectButton, transcriptionContainerView].forEach {
+        [audioTitleView, audioSelectButton, transcriptionContainerView, activityIndicator].forEach {
             view.addSubview($0)
         }
         transcriptionContainerView.addSubview(transcriptionStackView)
         transcriptionStackView.addArrangedSubview(transcriptionView)
         documentPicker.delegate = self
         layoutConfigure()
+        inidicatorConfigure()
     }
 
     private func layoutConfigure() {
@@ -131,12 +136,32 @@ extension AudioTranscriptionViewController {
             make.width.edges.equalToSuperview()
         }
     }
+
+    private func inidicatorConfigure() {
+        activityIndicator.center = view.center
+    }
+
+    private func indicatorBlock(_ block: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if block {
+                self.view.isUserInteractionEnabled = false
+                self.view.alpha = 0.3
+                self.activityIndicator.startAnimating()
+            } else {
+                self.view.isUserInteractionEnabled = true
+                self.view.alpha = 1.0
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
 
 extension AudioTranscriptionViewController: UIDocumentPickerDelegate {
     func documentPicker(_: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         let url = urls[0]
         audioTitleView.text = url.lastPathComponent
+        indicatorBlock(true)
         input.send(.audioFileUpload(url))
     }
 
